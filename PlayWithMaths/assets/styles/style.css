@@ -60,3 +60,54 @@ input[type="submit"]:hover {
   margin-left: 10%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.title{
+  text-align: center;
+  color: var(--rojo);
+  font-size: 90px;
+  margin-left: 30%;
+  font-family: fantasy;
+}
+
+.imge{
+  text-align: center;
+  font-size: 30px;
+}
+
+#enlace {
+  text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+  color: black; /* Cambia el color del texto del enlace */
+  display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
+  position: relative;
+  left: 35%;
+  top: 20%;
+}
+
+
+#fig {
+  text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+  color: black; /* Cambia el color del texto del enlace */
+  display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
+  position: relative;
+  left: 37%;
+  top: 15%;
+}
+
+#ang {
+  text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+  color: black; /* Cambia el color del texto del enlace */
+  display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
+  position: relative;
+  left: 40%;
+  top: 30%;
+}
+
+#sim {
+  text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+  color: black; /* Cambia el color del texto del enlace */
+  display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
+  position: relative;
+  left: 43%;
+  top: 15%;
+}
+
