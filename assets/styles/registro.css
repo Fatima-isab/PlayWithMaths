@@ -1,0 +1,195 @@
+
+:root{
+    --rojo: #F01612;
+    --amarillo: #F0E129;
+    --rosa: #EB9DCC;
+    --verde: #3CF0B5;
+    --azul:#23ECF0;
+    --fsizeContenido: 22px;
+    --fsizesubtitulos:26px;
+    
+  }
+/*Estilo general de la pagina */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    font-family: 'Overpass', sans-serif;
+
+}
+
+body {
+    background-color: var(--rojo);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+.trasera {
+    width: 110%;
+    height: 75vh;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    /*background-color: var(--Secundario); */
+    border-radius: 20px;
+}
+.trasera img{
+    width: 40%;
+    margin-left: 13vh;
+    margin-top: 5%;
+}
+.trasera h4{
+    font-size: 80%;
+    margin-left: 10vh;
+    margin-bottom: 30%;
+    margin-top: 1%;
+}
+.trasera div{
+   margin-left: 40px;
+   margin-top: 10px;
+    color: var(--Negro);
+    transition: all 500ms;
+}
+
+
+.trasera div button {
+    margin-top: 20px;
+}
+
+.trasera div h3 {
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 50px;
+
+}
+.trasera button{
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 300ms;
+    background-color: transparent;
+    border: solid transparent;
+    margin-left: 60px;
+}
+
+.trasera button:hover{
+    color:var(--rosa);
+}
+.contenedor_registro{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 0px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+.contenedor_registro form{
+    width: 103%;
+    height: 85vh;
+    padding: 80px 20px;
+    background-color: var(--rojo);
+    position: absolute;
+}
+
+.contenedor_registro form h2{
+    font: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contenedor_registro form input{
+     width: 100%;
+    margin-top: 30px;
+    padding: 10px; 
+    border: none;
+    background: #FFF;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.contenedor_registro form button{
+    padding: 10px 40px;
+    background: var(--verde);
+    font-size: 16px;
+    font-weight: 600; 
+    justify-content: center;
+    cursor: pointer;
+    color: var(--Blanco);
+    outline: none;
+    transition: all 300ms;
+    border-radius: 100px;
+    margin-top: 30px;
+    margin-left: 100px;
+    
+}
+
+.contenedor_registro form button:hover{
+    background: var(--Secundario);
+    color: var(--blanco);
+}
+
+.formulario_login{
+    opacity: 1;
+    display: block;
+}
+.formulario_sign{
+    display: none;
+}
+
+@media screen and (max-width: 850px){
+
+main{
+    margin-top: 50px;
+}
+
+.trasera{
+    max-width: 350px;
+    height: 300px;
+    flex-direction: column;
+    margin: auto;
+}
+
+.trasera div{
+    margin: 0px;
+    position: absolute;
+}
+
+.contenedor_registro{
+    top: -10px;
+    left: -5px;
+    margin: auto;
+}
+
+.contenedor_registro form{
+    position: relative;
+}
+
+}
