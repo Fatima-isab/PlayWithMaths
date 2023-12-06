@@ -130,3 +130,5 @@ CREATE TABLE IF NOT EXISTS Intentos_Examen_Usuario (
   ON DELETE NO ACTION 
   ON UPDATE CASCADE
 );
+
+INSERT INTO avatares (nombre_avatar, imagen_avatar) VALUES ("Avatar 1", "assets/img/avatar/Avatar1.jpeg");
