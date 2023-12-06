@@ -2,19 +2,22 @@
 
 include 'conexion_registro.php';
 
-$Nombres = $_POST[''];
+$nombre_usuario = $_POST['nombre_usuario'];
+$edad = $_POST['edad'];
 $correo = $_POST['correo'];
-$contrasena = $_POST['contrasena'];
-$contrasena = hash('sha512', $contrasena);
+$contraseña = $_POST['contraseña'];
+$contraseña = hash('sha512', $contraseña);
 
+$query = "INSERT INTO usuarios (nombre_usuario, edad, correo, contraseña) 
+VALUES('$nombre_usuario', 'edad', '$correo', '$contraseña')"; 
 
 // Verificar que no se repita el correo
 $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");
 if (mysqli_num_rows($verificar_correo) > 0) {
     echo '
     <script>
-    ("El correo ya se ha registrado");
-    window.location = "resgitro.php";
+    alert("El correo ya se ha registrado");
+    window.location = "registro.php";
     </script>
     ';
     exit();
