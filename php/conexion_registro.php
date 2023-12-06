@@ -1,7 +1,7 @@
 <?php
 
 
-$conexion = mysqli_connect("localhost", "root", "root1234", "maths");
+$conexion = mysqli_connect("localhost", "root", "12345678", "maths");
 
 /*
 if($conexion){
