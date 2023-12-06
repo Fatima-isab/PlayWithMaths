@@ -1,63 +1,97 @@
-DROP DATABASE IF EXISTS math;
+CREATE DATABASE IF NOT EXISTS Maths;
 
-CREATE DATABASE math;
-USE math;
+USE Maths;
 
-DROP TABLE IF EXISTS usuarios;
-CREATE TABLE IF NOT EXISTS usuarios(
-    id INT NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria de la tabla personas',
-    edad INT NOT NULL,
-    usuario VARCHAR(50) NOT NULL COMMENT 'Usuariode la persona a registrar',
-    activodesde DATETIME NOT NULL DEFAULT NOW() COMMENT 'Fecha y hora que se ingresó al sistema',
-    CONSTRAINT PK_codigo PRIMARY KEY (id) COMMENT 'La clave primaria de la tabla es codigo'
+CREATE TABLE IF NOT EXISTS Usuarios (
+  id_usuario INT AUTO_INCREMENT,
+  nombre_usuario VARCHAR(50),
+  edad INT,
+  contraseña VARCHAR(100),
+  id_avatar INT,
+  PRIMARY KEY (id_usuario)
 );
 
-DROP TABLE IF EXISTS correos;
-CREATE TABLE correos(
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Clave primaria de la tabla, Autoincrementable',
-  id_usuario INT NOT NULL COMMENT 'Clave foránea para relacionar los correos con las personas',
-  correo VARCHAR(150) NOT NULL COMMENT ' Correo de la persona, el cual debe ser único',
-  UNIQUE (correo) COMMENT 'Únicos: correo',
-  CONSTRAINT FK_correos_persona FOREIGN KEY (id_usuario) 
-  REFERENCES usuarios(id)
+CREATE TABLE IF NOT EXISTS Correos (
+  id_correo INT AUTO_INCREMENT,
+  id_usuario INT,
+  correo_electronico VARCHAR(100),
+  PRIMARY KEY (id_correo),
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
   ON DELETE NO ACTION 
   ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS modulos;
-CREATE TABLE modulos(
-  id INT NOT NULL PRIMARY KEY,
-  modulo VARCHAR(50) NOT NULL
+CREATE TABLE IF NOT EXISTS Avatares (
+  id_avatar INT AUTO_INCREMENT,
+  nombre_avatar VARCHAR(100),
+  imagen_avatar VARCHAR(255),
+  PRIMARY KEY (id_avatar)
 );
 
-DROP TABLE IF EXISTS lecciones;
-CREATE TABLE lecciones(
-  id INT NOT NULL PRIMARY KEY,
-  id_modulo INT NOT NULL,
-  leccion VARCHAR(50) NOT NULL,
-  CONSTRAINT FK_lecciones_modulo FOREIGN KEY (id_modulo)
-  REFERENCES modulos(id)
+CREATE TABLE IF NOT EXISTS Modulos (
+  id_modulo INT AUTO_INCREMENT,
+  nombre_modulo VARCHAR(100),
+  descripcion_modulo TEXT,
+  PRIMARY KEY (id_modulo)
+);
+
+CREATE TABLE IF NOT EXISTS Lecciones (
+  id_leccion INT AUTO_INCREMENT,
+  id_modulo INT,
+  titulo_leccion VARCHAR(100),
+  fecha_visita DATE,
+  acreditado VARCHAR(3) DEFAULT 'NO',
+  PRIMARY KEY (id_leccion),
+  FOREIGN KEY (id_modulo) REFERENCES Modulos (id_modulo)
   ON DELETE NO ACTION 
   ON UPDATE CASCADE
 );
 
-DROP TABLE IF EXISTS progreso;
-CREATE TABLE progreso(
-  id INT NOT NULL PRIMARY KEY,
-  id_user INT NOT NULL,
-  id_leccion INT NOT NULL,
-  id_modulo INT NOT NULL,
-  progreso INT NOT NULL,
-  CONSTRAINT FK_progreso_usario FOREIGN KEY(id_user)
-  REFERENCES usuarios(id)
+CREATE TABLE IF NOT EXISTS Examenes (
+  id_examen INT AUTO_INCREMENT,
+  id_modulo INT,
+  id_usuario INT,
+  titulo_examen VARCHAR(100),
+  fecha_realizacion DATE,
+  calificacion FLOAT,
+  PRIMARY KEY (id_examen),
+  FOREIGN KEY (id_modulo) REFERENCES Modulos (id_modulo),
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
   ON DELETE NO ACTION 
-  ON UPDATE CASCADE,
-  CONSTRAINT FK_progreso_modulo FOREIGN KEY(id_modulo)
-  REFERENCES modulos(id)
+  ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Intentos_Examen (
+  id_intento INT AUTO_INCREMENT,
+  id_examen INT,
+  id_usuario INT,
+  fecha_realizacion DATE,
+  calificacion FLOAT,
+  PRIMARY KEY (id_intento),
+  FOREIGN KEY (id_examen) REFERENCES Examenes (id_examen),
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
   ON DELETE NO ACTION 
-  ON UPDATE CASCADE,
-  CONSTRAINT FK_progreso_lecciones FOREIGN KEY(id_leccion)
-  REFERENCES lecciones(id)
+  ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Preguntas_Examene (
+  id_pregunta INT AUTO_INCREMENT,
+  id_examen INT,
+  enunciado_pregunta TEXT,
+  respuesta_correcta VARCHAR(255),
+  PRIMARY KEY (id_pregunta),
+  FOREIGN KEY (id_examen) REFERENCES Examenes (id_examen)
+  ON DELETE NO ACTION 
+  ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Premios (
+  id_premio INT AUTO_INCREMENT,
+  nombre_premio VARCHAR(100),
+  descripcion_premio TEXT,
+  id_usuario INT,
+  PRIMARY KEY (id_premio),
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
   ON DELETE NO ACTION 
   ON UPDATE CASCADE
 );
