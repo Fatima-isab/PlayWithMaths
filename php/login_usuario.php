@@ -12,11 +12,11 @@ and contraseña ='$contraseña'");
 
 if(mysqli_num_rows($validar_login) > 0){
     $usuario = mysqli_fetch_assoc($validar_login); // Obtener los datos del usuario
-    $_SESSION['id_uauario'] = $usuario['id_usuario']; // Guardar el IdPersonas(llave primaria del usuario) en la sesión
+    $_SESSION['id_usuario'] = $usuario['id_usuario']; // Guardar el IdPersonas(llave primaria del usuario) en la sesión
     $_SESSION ['usuario'] = $correo;
     $id= $_SESSION['id_usuario'];
     mysqli_multi_query($conexion, $query);
-    header("location: ../principal.html");
+    header("location: ../principal.php");
     exit;
 }else{
     echo '

@@ -93,6 +93,15 @@ input[type="submit"]:hover {
   top: 20%;
 }
 
+#enlace2 {
+  text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
+  color: black; /* Cambia el color del texto del enlace */
+  display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
+  position: relative;
+  left: 25%;
+  top: 20%;
+}
+
 
 #fig {
   text-decoration: none; /* Elimina el subrayado predeterminado en los enlaces */
