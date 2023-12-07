@@ -24,14 +24,12 @@ if(isset($_SESSION['correo'])){
 
                 <div class="traseraLogin">
                     <h4>Bienvenido</h4>
-                <img src="assets/img/Logo.png">
                     <h3>¿Tienes una cuenta creada?</h3>
                     <button id="btn-iniciar-sesion">Iniciar sesión</button>
                 </div>
 
                 <div class="traseraSign">
                     <h4>Bienvenido</h4>
-                <img src="assets/img/Logo.png">
                     <h3>¿No tienes una cuenta creada?</h3>
                     <button id="btn-registro">Registrate</button>
                 </div>

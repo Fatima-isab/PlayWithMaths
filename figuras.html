@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play With Maths</title>
+    <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
+    <style>
+        body {
+            background-image: url('assets/img/Fondo_mejorado.jpg');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+        }
+        .title{
+            margin-left: 40%;
+        }
+
+        .circlen {
+            width: 100px;
+            height: 100px;
+            background-color: var(--azul);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px;
+            margin-bottom: 60px;
+            margin-left: 0;
+            position: relative;
+        }
+        .circlep {
+            width: 100px;
+            height: 100px;
+            background-color: var(--rosa);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px;
+            margin-top: 60px;
+            margin-left: 0;
+            position: relative;
+        }
+
+        .circle::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: #000;
+        }
+
+        .cir1::before {
+            content: "1"; /* Número para los círculos pares */
+        }
+
+        .cir2::before {
+            content: "2"; /* Número para los círculos impares */
+        }
+        .cir3::before {
+            content: "3"; /* Número para los círculos pares */
+        }
+
+        .cir4::before {
+            content: "4"; /* Número para los círculos impares */
+        }
+        .cir5::before {
+            content: "5"; /* Número para los círculos pares */
+        }
+
+        .cir6::before {
+            content: "6"; /* Número para los círculos impares */
+        }
+        .cir7::before {
+            content: "7"; /* Número para los círculos pares */
+        }
+
+        .cir8::before {
+            content: "8"; /* Número para los círculos impares */
+        }
+    </style>
+</head>
+
+<body>
+    <span class="title">Figuras</span>
+    <p></p>
+    
+    <a href="nivel1.php" id="enlace">
+        <div class="circle circlen cir1"></div>
+    </a>
+    <a href="nivel2.html" id="enlace">
+        <div class="circle circlep cir2"></div>
+    </a>
+    <a href="nivel3.html" id="enlace">
+        <div class="circle circlen cir3"></div>
+    </a>
+    <a href="nivel4.html" id="enlace">
+        <div class="circle circlep cir4"></div>
+    </a>
+    <a href="nivel5.html" id="enlace">
+        <div class="circle circlen cir5"></div>
+    </a>
+    <a href="nivel6.html" id="enlace">
+        <div class="circle circlep cir6"></div>
+    </a>
+    <a href="nivel7.html" id="enlace">
+        <div class="circle circlen cir7"></div>
+    </a>
+    <a href="nivel8.html" id="enlace">
+        <div class="circle circlep cir8"></div>
+    </a>
+
+</body>
+</html>
