@@ -17,12 +17,13 @@
 </head>
 
 <body>
-    <span class="title">Nivel 1</span>
+    <span class="title">Descubriendo las formas</span>
     
 
     <style>
         .title{
-            margin-left: 40%;
+            margin-left: 30%;
+            font-size: 50px;
         }
         .circle-container {
             text-align:center;
@@ -51,8 +52,12 @@
     </style>
 
 <div class="circle-container">
+        <a href="./nivel1/1.php">
         <div class="circle"><span>1</span></div>
+        </a>
+        <a href="./nivel1/2.php">
         <div class="circle"><span>2</span></div>
+        </a>
         <div class="circle"><span>3</span></div>
         <br>
         <div class="circle"><span>4</span></div>

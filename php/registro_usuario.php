@@ -9,7 +9,7 @@ $contraseña = $_POST['contraseña'];
 $contraseña = hash('sha512', $contraseña);
 
 $query = "INSERT INTO usuarios (nombre_usuario, edad, correo, contraseña, id_avatar) 
-VALUES('$nombre_usuario', 'edad', '$correo', '$contraseña', 1)"; 
+VALUES('$nombre_usuario', '$edad', '$correo', '$contraseña', '1')"; 
 
 // Verificar que no se repita el correo
 $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo'");

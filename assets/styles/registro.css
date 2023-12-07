@@ -37,6 +37,9 @@ main {
     margin-top: 5%;
 }
 
+h4{
+    font-size: larger
+}
 .contenedor {
     width: 100%;
     max-width: 800px;
