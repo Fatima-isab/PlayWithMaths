@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header("location: registro.php");
+    header("location: php/registro_usuario.php");
     session_destroy();
     die();
 }
@@ -80,7 +80,17 @@ $conn->close();
     </div>
 </div>
 
+<form action="cerrar_sesion.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres cerrar sesión? Podrás iniciar sesión cuando quieras.');">
+        <button type="submit" id="btn_avatar" name="cerrar_sesion" style="margin-left: 81%;" style="margin-top: 7%;">Cerrar Sesión</button>
+    </form>
+
+    <form action="eliminar_perfil.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu perfil? Esta acción no se puede deshacer.');">
+        <button type="submit" id="btn_avatar" name="eliminar_perfil" style="margin-left: 91%;">Eliminar Perfil</button>
+    </form>
+
 <div class="container">
+
+
     <ul>
         <li><img src="<?php echo $imagen_avatar; ?>" alt="Avatar"></li>
         <li><strong><?php echo $nombre_usuario; ?></strong></li>
@@ -103,12 +113,6 @@ $conn->close();
     <br>
     <button type="submit" id="btn_avatar">Actualizar Avatar</button>
 </form>
-<p></p>
-<div class="container">
-    <form action="eliminar_perfil.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu perfil? Esta acción no se puede deshacer.');">
-        <button type="submit" id="btn_avatar" name="eliminar_perfil">Eliminar Perfil</button>
-    </form>
-</div>
 
 </div>
 
@@ -145,6 +149,9 @@ $conn->close();
         avatarPreview.style.marginLeft = marginLeft + 'px';
         avatarPreview.style.marginTop = marginTop + 'px';
     }
+
+    
+
 </script>
 
 </body>

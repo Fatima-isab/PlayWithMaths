@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "12345678";
@@ -12,21 +14,45 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = 1;
+$leccion_id = '1';
 
-// Actualizar el estado de vista en la base de datos
-$sql = "UPDATE lecciones SET vista = TRUE WHERE id = $id_leccion";
 
-if ($conn->query($sql) === TRUE) {
-    echo "El estado de vista se ha actualizado correctamente.";
-} else {
-    echo "Error al actualizar el estado de vista: " . $conn->error;
+// Definir las opciones de la pregunta
+$opciones = array(
+    'cuadrado' => 'Cuadrado',
+    'circulo' => 'Círculo',
+    'triangulo' => 'Triángulo',
+    'rombo' => 'Rombo',
+    'rectangulo' => 'Rectángulo'
+);
+
+// Verificar si se ha enviado el formulario de respuesta
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificar si la respuesta es correcta
+    $respuesta_correcta = 'triangulo'; // Definir la respuesta correcta
+    if (isset($_POST["respuesta"])) {
+        if ($_POST["respuesta"] == $respuesta_correcta) {
+            // Verificar si el usuario ya ha completado la lección
+            $id_usuario = $_SESSION['id_usuario'];
+            $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
+            $result = $conn->query($query_verificar_completada);
+            if ($result->num_rows == 0) {
+                // Insertar un registro en la tabla <link>Lecciones_Completadas</link>
+                $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
+                $conn->query($query_insert_completada);
+                echo "<script>alert('¡Respuesta correcta!');</script>"; // Mostrar mensaje emergente de respuesta correcta
+            } else {
+                echo "<script>alert('Ya has completado esta lección.');</script>"; // Mostrar mensaje emergente de que la lección ya ha sido completada
+            }
+        } else {
+            echo "<script>alert('Respuesta incorrecta. Inténtalo de nuevo.');</script>"; // Mostrar mensaje emergente de respuesta incorrecta
+        }
+    }
 }
 
 // Cerrar la conexión
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -131,6 +157,8 @@ $conn->close();
 
     <h1>Descubriendo las formas</h1>
 
+    <h2>¡Toca una figura para conocer su nombre!</h2>
+
     <div class="shape-container">
         <div class="shape cuadrado" onclick="showInfo('Cuadrado')"></div>
         <div class="shape circulo" onclick="showInfo('Círculo')"></div>
@@ -140,6 +168,19 @@ $conn->close();
         <div class="shape rombo" onclick="showInfo('Rombo')"></div>
         <div class="shape rectangulo" onclick="showInfo('Rectangulo')"></div>
     </div>
+
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <p>¿Cuál es la figura con tres lados?</p>
+        <?php
+        foreach ($opciones as $value => $label) {
+            echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
+        }
+        ?>
+        <button type="submit">Responder</button>
+    </form>
+
+ <p class="respuesta"><?php echo $respuesta_correcta_msg; ?></p>
 
     <div id="info-container"></div>
     <a href="../nivel1.php">
