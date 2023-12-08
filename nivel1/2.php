@@ -202,13 +202,19 @@ $conn->close();
     <br>
 
     <div id="info-container"></div>
+    <div>
+    <a href="../nivel1/1.php">
+    <button>Anterior</button>
+    </a>
+
+    <a href="../nivel1/3.php">
+    <button>Siguiente</button>
+
     <a href="../nivel1.php">
     <button>Salir</button>
     </a>
-    <a href="../nivel1/3.php">
-    <button>Siguiente</button>
     </a>
-
+    </div>
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>

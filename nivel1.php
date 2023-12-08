@@ -123,8 +123,12 @@ $conn->close();
         <div class="circle"><span>3</span></div>
         </a>
         <br>
+        <a href="./nivel1/4.php">
         <div class="circle"><span>4</span></div>
+        </a>
+        <a href="./nivel1/5.php">
         <div class="circle"><span>5</span></div>
+        </a>
         <div class="circle"><span>6</span></div>
         <br>
         <div class="circle"><span>7</span></div>
