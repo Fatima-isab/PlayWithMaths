@@ -14,22 +14,20 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '1';
-
+$leccion_id = '3';
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'cuadrado' => 'Cuadrado',
-    'circulo' => 'Círculo',
-    'triangulo' => 'Triángulo',
-    'rombo' => 'Rombo',
-    'rectangulo' => 'Rectángulo'
+    'trapecio' => '1',
+    'semicirculo' => '2',
+    'hexagono' => '3',
+    'hexag' => '4',
 );
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = 'triangulo'; // Definir la respuesta correcta
+    $respuesta_correcta = 'hexag'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
@@ -53,14 +51,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Cerrar la conexión
 $conn->close();
 ?>
+
+<!---->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubriendo las formas</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../assets/styles/root.css">
-
     <style>
         body {
             text-align: center;
@@ -71,22 +71,16 @@ $conn->close();
             background-repeat: no-repeat;
             background-position: center;
             height: 100vh;
-
         }
-
-        h1 {
-            color: var(--rojo);
-        }
-
         .shape-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .shape {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             display: flex;
             justify-content: center;
             cursor: pointer;
@@ -97,81 +91,51 @@ $conn->close();
             transform: scale(1.2);
         }
 
-        .circulo{
-            width: 120px;
-            height: 120px;
-            background-color:var(--azul);
-            border-radius: 50%;
-            display: inline-block;
-            margin-top: 225px;
-            margin-left: -150px;
-            position: relative;
+        .trapecio {
+            width: 200px;
+            height: 0px;
+            border-right: 60px solid transparent;
+            border-left: 60px solid transparent;
+            border-bottom: 100px solid var(--amarillo);
         }
 
-        .cuadrado{
-            width: 120px;
-            height: 120px;
-            background-color:var(--rosa);
-            border-radius: 0;
-            display: inline-block;
-            margin: 100px;
-            position: relative;
-        }
-        .triangulo{
-            background-color: none;
-            margin-top: 120px;
-            margin-left: 5px;
-        }
-        .rombo {
-            width: 90px; 
-            height: 90px; 
-            background: var(--rojo);
-            transform: rotate(45deg);
-            margin-top: 75px;
-        }
-
-        .rectangulo {
-            width: 220px; 
-            height: 100px; 
-            background: var(--amarillo);
-            margin-top: 210px;
-            margin-right: 40px;
-            margin-left: -40px;
+        .semicirculo {
+            width: 100px;
+            height: 100px;
+            background: var(--verde);
+            -moz-border-radius: 0 100px 100px 0;
+            -webkit-border-radius: 0 100px 100px 0;
+            border-radius: 0 100px 100px 0;
         }
 
         .respuesta{
-            width: 50%;
-            margin-left: 25%;
-            margin-top: 5%;
+            width: 100%;
+            margin-left: 5%;
+            margin-top: 70%;
             font-size: medium;  
         }
-
-        .vista {
-            color: green;
-            font-weight: bold;
-        }
-       
     </style>
 </head>
+
 <body>
-
     <h1>Descubriendo las formas</h1>
+    <h2>¡Adivina quién soy!</h2>
+    <br><br><br>
 
-    <h2>¡Toca una figura para conocer su nombre!</h2>
+    <h3>Tengo 6 lados diferentes</h3>
 
     <div class="shape-container">
-        <div class="shape cuadrado" onclick="showInfo('Cuadrado')"></div>
-        <div class="shape circulo" onclick="showInfo('Círculo')"></div>
-        <div class="shape triangulo" onclick="showInfo('Triángulo')"><svg width="200" height="200">
-        <polygon points="60,20 100,100 20,100" style="fill:var(--verde)" />
-        </svg></div>
-        <div class="shape rombo" onclick="showInfo('Rombo')"></div>
-        <div class="shape rectangulo" onclick="showInfo('Rectangulo')"></div>
-    </div>
-
-
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <p>¿Cuál es la figura con tres lados?</p>
+        <div class="shape trapecio" onclick="showInfo('Trapecio')"></div>
+        <div class="shape semicirculo" onclick="showInfo('Semicirculo')"></div>
+        <div class="shape hexagono" onclick="showInfo('Hexagono Regular')"><svg width="200" height="200">
+                <polygon points="60,5 115,34 115,103 60,132 5,103 5,34" style="fill:var(--rojo)" />
+            </svg></div>
+        <div class="shape hexag" onclick="showInfo('Hexagono')"><svg width="200" height="200">
+                <polygon points="80,5 110,43 115,103 60,132 5,103 15,49" style="fill:var(--azul)" />
+            </svg></div>
+            
+            <!--Respuesta corecta-->
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
@@ -182,20 +146,15 @@ $conn->close();
 
  <p class="respuesta"><?php echo $respuesta_correcta_msg; ?></p>
 
-    <div id="info-container"></div>
+   
     <a href="../nivel1.php">
     <button>Salir</button>
     </a>
 
-    <a href="../nivel1/2.php">
+    <a href="../nivel1/4.php">
     <button>Siguiente</button>
     </a>
-    <script>
-        function showInfo(shape) {
-            const infoContainer = document.getElementById('info-container');
-            infoContainer.innerHTML = `<p class="respuesta">Es un: <strong>${shape}</strong></p>`;
-        }
-    </script>
-
+   
 </body>
+
 </html>

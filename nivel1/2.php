@@ -11,7 +11,7 @@
             text-align: center;
             margin: 40px;
             background-color: #fff;
-            background-image: url('../assets/img/fondo2.jpg');
+            background-image: url('../assets/img/Fondo_lecciones.jpg');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center;
