@@ -129,11 +129,19 @@ $conn->close();
         <a href="./nivel1/5.php">
         <div class="circle"><span>5</span></div>
         </a>
+        <a href="./nivel1/6.php">
         <div class="circle"><span>6</span></div>
+        </a>
         <br>
+        <a href="./nivel1/7.php">
         <div class="circle"><span>7</span></div>
+        </a>
+        <a href="./nivel1/8.php">
         <div class="circle"><span>8</span></div>
+        </a>
+        <a href="./nivel1/9.php">
         <div class="circle"><span>9</span></div>
+        </a>
     </div>
 
 </body>
