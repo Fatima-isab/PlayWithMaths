@@ -111,7 +111,7 @@ $conn->close();
         .cuadrado{
             width: 120px;
             height: 120px;
-            background-color:var(--rosa);
+            background-color:var(--azul);
             border-radius: 0;
             display: inline-block;
             margin: 100px;
@@ -180,7 +180,6 @@ $conn->close();
         <button type="submit">Responder</button>
     </form>
 
- <p class="respuesta"><?php echo $respuesta_correcta_msg; ?></p>
 
     <div id="info-container"></div>
     <a href="../nivel1.php">

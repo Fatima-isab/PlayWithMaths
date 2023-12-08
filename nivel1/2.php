@@ -1,3 +1,67 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "12345678";
+$dbname = "maths";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("La conexión a la base de datos falló: " . $conn->connect_error);
+}
+
+// ID de la lección que ha sido vista
+$leccion_id = '2';
+
+// Definir las opciones de la pregunta
+$opciones = array(
+    'rectangulo' => 'Rectangulo',
+    'isosceles' => 'Isosceles',
+    'equilatero' => 'Equilatero',
+    'escaleno' => 'Escaleno'
+);
+
+// Verificar si se ha enviado el formulario de respuesta
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificar si la respuesta es correcta
+    $respuesta_correcta = 'equilatero'; // Definir la respuesta correcta
+    if (isset($_POST["respuesta"])) {
+        if ($_POST["respuesta"] == $respuesta_correcta) {
+            // Verificar si el usuario ya ha completado la lección
+            $id_usuario = $_SESSION['id_usuario'];
+            $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
+            $result = $conn->query($query_verificar_completada);
+            if ($result->num_rows == 0) {
+                // Insertar un registro en la tabla Lecciones_Completadas
+                $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
+                $conn->query($query_insert_completada);
+
+                // Calcular el porcentaje de progreso (ejemplo: 50%)
+                $porcentaje_progreso = 25;
+
+                echo "<script>
+                var modal = document.getElementById('myModal');
+                var progressBar = document.getElementById('progress-bar');
+                progressBar.style.width = '$porcentaje_progreso%';
+                modal.style.display = 'block';
+              </script>";
+    } else {
+        echo "<script>alert('Ya has completado esta lección.');</script>";
+    }
+        } else {
+            echo "<script>alert('Respuesta incorrecta. Inténtalo de nuevo.');</script>"; // Mostrar mensaje emergente de respuesta incorrecta
+        }
+    }
+}
+
+// Cerrar la conexión
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +90,7 @@
         .shape-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 30px;
+            margin-top: 70px;
         }
 
         .shape {
@@ -45,13 +109,9 @@
         .trianguloo{
             background-color: none;
             margin-top: 110px;
-            margin-left: 15px;
+            margin-left: 25%;
         }
-        .triangulop{
-            background-color: none;
-            margin-top: 120px;
-            margin-left: 25px;
-        }
+   
         .trianguloq{
             background-color: none;
             margin-top: 200px;
@@ -59,7 +119,7 @@
         }
         .triangulor{
             background-color: none;
-            margin-top: 200px;
+            margin-top: 100px;
             margin-left: 5px;
         }
         .triangulox{
@@ -68,7 +128,7 @@
             border-right: 100px solid transparent;
             border-top: 100px solid transparent;
             border-left: 100px solid transparent;
-            border-bottom: 100px solid var(--verde);
+            border-bottom: 100px solid var(--beige);
             margin-top: 170px;
         }
         .trianguloy{
@@ -104,31 +164,43 @@
 
     <h1>Descubriendo las formas</h1>
 
+    <h2>Tipos de triangulos</h2>
+
+    <div id="progress-bar" style="display:none; background-color: var(--amarillo); width: 10%; height: 30px;"></div>
+
     <div class="shape-container">
-        <div class="shape trianguloo" onclick="showInfo('Triángulo')">
+        <div class="shape trianguloo" onclick="showInfo('Triángulo Escaleno')">
         <svg>
         <polygon points="60,20 100,80 20,100" style="fill:var(--amarillo)" />
         </svg></div>
-        <div class="shape triangulop" onclick="showInfo('Triángulo')">
+        <div class="shape trianguloq" onclick="showInfo('Triángulo Rectangulo')">
         <svg>
-        <polygon points="80,20 100,100 20,100" style="fill:var(--rojo)" />
+        <polygon points="100,20 100,100 20,100" style="fill:var(--verde)" />
         </svg></div>
-        <div class="shape trianguloq" onclick="showInfo('Triángulo')">
+        <div class="shape trangulor" onclick="showInfo('Triángulo Isósceles')">
         <svg>
-        <polygon points="100,20 100,100 20,100" style="fill:var(--rosa)" />
+        <polygon points="60,20 100,100 20,100" style="fill:var(--verdeazulado)" />
         </svg></div>
-        <div class="shape trangulor" onclick="showInfo('Triángulo')">
-        <svg>
-        <polygon points="60,20 100,100 20,100" style="fill:var(--azul)" />
-        </svg></div>
-        <div class="shape triangulox" onclick="showInfo('Triángulo')"></div>
-        <div class="shape trianguloy" onclick="showInfo('Triángulo')"></div>
-        <div class="shape trianguloz" onclick="showInfo('Triángulo')"></div>  
+        <div class="shape triangulox" onclick="showInfo('Triángulo Equilatero')"></div>
+        <div class="shape trianguloz" onclick="showInfo('Triángulo Equilatero')"></div>  
     </div>
-    
-    <a href="../nivel1/1.php">
-    <button id="anterior">Anterior</button>
-    </a>
+    <br>
+    <br>
+    <br>
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <h2>¿Qué traingulo tiene sus 3 lados iguales?</h2>
+        <?php
+        foreach ($opciones as $value => $label) {
+            echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
+        }
+        ?>
+        <button type="submit">Responder</button>
+    </form>
+
+    <br>
+    <br>
+
     <div id="info-container"></div>
     <a href="../nivel1.php">
     <button>Salir</button>
@@ -136,6 +208,21 @@
     <a href="../nivel1/3.php">
     <button>Siguiente</button>
     </a>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Progreso:</p>
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+    </script>
 
     <script>
         function showInfo(shape) {
