@@ -73,6 +73,14 @@ input[type="submit"]:hover {
   margin-top: 4%;
 }
 
+.titlep{
+  text-align: center;
+  color: var(--verde);
+  font-size: 80px;
+  margin-left: 0%;
+  font-family: fantasy;
+}
+
 .imge{
   text-align: center;
   font-size: 30px;
