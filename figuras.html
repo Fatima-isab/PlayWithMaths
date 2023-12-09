@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play With Maths</title>
     <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="assets/icons/iconos.css">
     <style>
         body {
             background-image: url('assets/img/Fondo_mejorado.jpg');
@@ -20,7 +21,7 @@
         .circlen {
             width: 100px;
             height: 100px;
-            background-color: var(--rosa);
+            background-color: var(--beige);
             border-radius: 50%;
             display: inline-block;
             margin: 10px;
@@ -31,7 +32,7 @@
         .circlep {
             width: 100px;
             height: 100px;
-            background-color: var(--rosa);
+            background-color: var(--cafe);
             border-radius: 50%;
             display: inline-block;
             margin: 10px;
@@ -82,11 +83,24 @@
         .subindice{
             position:absolute;
         }
+
+    .arriba {
+    display: flex;
+    align-items: center;
+}
     </style>
 </head>
 
 <body>
-    <span class="title">Figuras</span>
+    <div class="arriba">
+        <a href="principal.php">
+            <span class="icon icon-home" style="font-size: 35px; margin-left: 250%; color: #000000;"></span>
+        </a>
+        <a href="geometria.html">
+            <span class="icon icon-circle-left" style="font-size: 35px; margin-left: 270%; color: #000000;"></span>
+        </a>
+        <span class="title">Figuras</span>
+    </div>
     <p></p>
     
     <a href="nivel1.php" id="enlace">

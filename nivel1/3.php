@@ -1,3 +1,58 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "12345678";
+$dbname = "maths";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("La conexión a la base de datos falló: " . $conn->connect_error);
+}
+
+// ID de la lección que ha sido vista
+$leccion_id = '3';
+
+
+// Definir las opciones de la pregunta
+$opciones = array(
+    'trapecio' => 'Trapecio',
+    'hexagono' => 'Héxagono',
+    'ovalo' => 'Ovalo',
+    'pentagono' => 'Péntagono'
+);
+
+// Verificar si se ha enviado el formulario de respuesta
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificar si la respuesta es correcta
+    $respuesta_correcta = 'hexagono'; // Definir la respuesta correcta
+    if (isset($_POST["respuesta"])) {
+        if ($_POST["respuesta"] == $respuesta_correcta) {
+            // Verificar si el usuario ya ha completado la lección
+            $id_usuario = $_SESSION['id_usuario'];
+            $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
+            $result = $conn->query($query_verificar_completada);
+            if ($result->num_rows == 0) {
+                // Insertar un registro en la tabla <link>Lecciones_Completadas</link>
+                $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
+                $conn->query($query_insert_completada);
+                echo "<script>alert('¡Respuesta correcta!');</script>"; // Mostrar mensaje emergente de respuesta correcta
+            } else {
+                echo "<script>alert('Ya has completado esta lección.');</script>"; // Mostrar mensaje emergente de que la lección ya ha sido completada
+            }
+        } else {
+            echo "<script>alert('Respuesta incorrecta. Inténtalo de nuevo.');</script>"; // Mostrar mensaje emergente de respuesta incorrecta
+        }
+    }
+}
+
+// Cerrar la conexión
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -99,6 +154,17 @@
 
 
         <div id="info-container"></div>
+
+
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <h2>¿Cuál es la figura con seis lados?</h2>
+        <?php
+        foreach ($opciones as $value => $label) {
+            echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
+        }
+        ?>
+        <button type="submit">Responder</button>
+    </form>
 
         <div class="botones">
             <a href="../nivel1/2.php">

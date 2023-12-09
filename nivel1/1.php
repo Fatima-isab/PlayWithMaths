@@ -171,7 +171,7 @@ $conn->close();
 
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <p>¿Cuál es la figura con tres lados?</p>
+        <h2>¿Cuál es la figura con tres lados?</h2>
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";

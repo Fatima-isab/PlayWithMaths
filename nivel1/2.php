@@ -38,16 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Insertar un registro en la tabla Lecciones_Completadas
                 $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
                 $conn->query($query_insert_completada);
-
-                // Calcular el porcentaje de progreso (ejemplo: 50%)
-                $porcentaje_progreso = 25;
-
-                echo "<script>
-                var modal = document.getElementById('myModal');
-                var progressBar = document.getElementById('progress-bar');
-                progressBar.style.width = '$porcentaje_progreso%';
-                modal.style.display = 'block';
-              </script>";
+                echo "<script>alert('¡Respuesta correcta!');</script>"; // Mostrar mensaje emergente de respuesta correcta
     } else {
         echo "<script>alert('Ya has completado esta lección.');</script>";
     }
@@ -214,14 +205,6 @@ $conn->close();
     <button>Salir</button>
     </a>
     </a>
-    </div>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p>Progreso:</p>
-            <div id="progress-bar"></div>
-        </div>
-    </div>
 
     <script>
         function closeModal() {

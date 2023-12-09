@@ -12,21 +12,26 @@
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
-    background-color: var(--amarillo);
+    background-color: var(--beige);
     margin: 0;
     padding: 0;
 }
 
 .container {
-    background-color: var(--amarillo);
-    border: 1px solid var(--amarillo);
+    background-color: var(--beige);
+    border: 1px solid var(--beige);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
+.arriba {
+    display: flex;
+    align-items: center;
+}
+
 .profile-header {
-    background-color: var(--azul);
+    background-color: var(--beige);
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -68,7 +73,7 @@ img.avatar {
 }
 
 #btn_avatar {
-    background-color: var(--rojo); /* Color de fondo */
+    background-color: var(--beige); /* Color de fondo */
     color: white; /* Color del texto */
     padding: 10px 20px; /* Relleno interior */
     border: none; /* Sin borde */
@@ -77,7 +82,8 @@ img.avatar {
 }
 
 #btn_avatar:hover {
-    background-color: var(--rosa); /* Cambiar el color de fondo al pasar por encima */
+    background-color: var(--cafe); /* Cambiar el color de fondo al pasar por encima */
 }
+
 
 

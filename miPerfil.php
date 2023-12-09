@@ -71,7 +71,16 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil</title>
     <link rel="stylesheet" href="assets/styles/perfil.css">
+    <link rel="stylesheet" href="assets/icons/iconos.css">
 </head>
+
+<style>
+    .arriba {
+    display: flex;
+    align-items: center;
+}
+</style>
+
 <body>
 
 <div class="container">
@@ -80,13 +89,20 @@ $conn->close();
     </div>
 </div>
 
+<div class="arriba">
+
+<a href="principal.php">
+        <span class="icon icon-home" style="font-size: 35px; margin-left: 150%; color: #000000;"></span>
+</a>
+
 <form action="cerrar_sesion.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres cerrar sesión? Podrás iniciar sesión cuando quieras.');">
-        <button type="submit" id="btn_avatar" name="cerrar_sesion" style="margin-left: 81%;" style="margin-top: 7%;">Cerrar Sesión</button>
+        <button type="submit" id="btn_avatar" name="cerrar_sesion" style="margin-left: 1080%;" style="margin-top: 7%;">Cerrar Sesión</button>
     </form>
 
     <form action="eliminar_perfil.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu perfil? Esta acción no se puede deshacer.');">
-        <button type="submit" id="btn_avatar" name="eliminar_perfil" style="margin-left: 91%;">Eliminar Perfil</button>
+        <button type="submit" id="btn_avatar" name="eliminar_perfil" style="margin-left: 1100%;">Eliminar Perfil</button>
     </form>
+</div>
 
 <div class="container">
 
