@@ -39,40 +39,40 @@ CREATE TABLE IF NOT EXISTS lecciones (
   ON UPDATE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS examenes (
+CREATE TABLE IF NOT EXISTS examen (
   id_examen INT AUTO_INCREMENT,
   id_modulo INT,
+  titulo_examen VARCHAR(200),
+  PRIMARY KEY (id_examen),
+  FOREIGN KEY (id_modulo) REFERENCES Modulos (id_modulo)
+  ON DELETE NO ACTION 
+  ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS examenes_realizados (
+  id_realizado INT AUTO_INCREMENT,
+  id_examen INT,
   id_usuario INT,
   titulo_examen VARCHAR(200),
   fecha_realizacion DATE,
   calificacion FLOAT,
-  PRIMARY KEY (id_examen),
-  FOREIGN KEY (id_modulo) REFERENCES Modulos (id_modulo),
+  PRIMARY KEY (id_realizado),
+  FOREIGN KEY (id_examen) REFERENCES Examen (id_modulo),
   FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
   ON DELETE NO ACTION 
   ON UPDATE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS intentos_Examen (
-  id_intento INT AUTO_INCREMENT,
-  id_examen INT,
-  id_usuario INT,
-  fecha_realizacion DATE,
-  calificacion FLOAT,
-  PRIMARY KEY (id_intento),
-  FOREIGN KEY (id_examen) REFERENCES Examenes (id_examen),
-  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
-  ON DELETE NO ACTION 
-  ON UPDATE CASCADE
-);
 
-CREATE TABLE IF NOT EXISTS preguntas_Examene (
+
+CREATE TABLE IF NOT EXISTS preguntas_examenes (
   id_pregunta INT AUTO_INCREMENT,
   id_examen INT,
   enunciado_pregunta TEXT,
   respuesta_correcta VARCHAR(255),
+  imagen_pregunta VARCHAR(255),
   PRIMARY KEY (id_pregunta),
-  FOREIGN KEY (id_examen) REFERENCES Examenes (id_examen)
+  FOREIGN KEY (id_examen) REFERENCES Examen (id_examen)
   ON DELETE NO ACTION 
   ON UPDATE CASCADE
 );
@@ -102,33 +102,5 @@ CREATE TABLE IF NOT EXISTS Lecciones_Completadas (
   ON UPDATE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS Examenes_Realizados (
-  id_realizado INT AUTO_INCREMENT,
-  id_usuario INT,
-  id_examen INT,
-  fecha_realizado DATE,
-  calificacion FLOAT,
-  PRIMARY KEY (id_realizado),
-  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
-  ON DELETE NO ACTION 
-  ON UPDATE CASCADE,
-  FOREIGN KEY (id_examen) REFERENCES Examenes (id_examen)
-  ON DELETE NO ACTION 
-  ON UPDATE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS Intentos_Examen_Usuario (
-  id_intento_usuario INT AUTO_INCREMENT,
-  id_intento INT,
-  id_usuario INT,
-  calificacion FLOAT,
-  PRIMARY KEY (id_intento_usuario),
-  FOREIGN KEY (id_intento) REFERENCES Intentos_Examen (id_intento)
-  ON DELETE NO ACTION 
-  ON UPDATE CASCADE,
-  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
-  ON DELETE NO ACTION 
-  ON UPDATE CASCADE
-);
 
 INSERT INTO avatares (nombre_avatar, imagen_avatar) VALUES ("Avatar 1", "assets/img/avatar/Avatar1.jpeg");
