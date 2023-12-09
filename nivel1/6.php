@@ -137,12 +137,12 @@ $conn->close();
     <br><br><br>
     <h2>¿Cuál no es un cuadrilatero?</h2>
     <br><br><br>
-
+        
     <div class="shape rectangulo"></div>
     <div class="shape cuadrado"></div>
     <div class="shape rombo"></div>
-    <div class="shape pentagono"> <svg width="300" height="300">
-            <polygon points="150,10 240,75 210,225 90,225 60,75" style="fill:var(--amarillo);stroke:#554;stroke-width:2" />
+    <div class="shape pentagono"> <svg width="200" height="210">
+            <polygon points="100,10 190,78 160,198 40,198  10,78" style="fill:var(--amarillo);stroke:#554;stroke-width:2" />
         </svg></div>
 <br>
 <br>

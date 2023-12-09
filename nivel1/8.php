@@ -37,40 +37,28 @@
             transform: scale(1.2);
         }
 
-        .rectangulo {
-            width: 250px;
-            height: 150px;
-            border: 2px solid #554;
-            background: var(--verde);
-            margin-left: 40%;
-            margin-bottom: 15%;
-        }
-
-        .rombo {
-            width: 150px;
-            height: 150px;
-            border: 2px solid #554;
-            background: var(--verdeazulado);
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-            margin-top: -30%;
-        }
-
-        .cuadrado {
-            width: 150px;
-            height: 150px;
-            border: 2px solid #554;
-            background: var(--cafe);
-            margin-top: -18%;
-            margin-left: 15%;
-        }
-
-        .pentagono {
+        .triangulo{
+            width: 0;
+            height: 0;
+            border-right: 100px solid transparent;
+            border-top: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-bottom: 100px solid var(--beige);
             margin-top: -10%;
-            margin-left: 70%;
+            margin-left: 2%;
+        }
+        .heptagono{
+            margin-top: -25%;
+            margin-left: 45%;
+        }
+        .pentagono{
+            margin-top: -28%;
+            margin-left: 72%;
+        }
+
+        .hexagono{
+            margin-top: -10%;
+            margin-left: 25%;
         }
     </style>
 </head>
@@ -78,17 +66,21 @@
 <body>
     <h1>Descubriendo las formas</h1>
     <br><br><br>
-    <h2>¿Cuál no es un cuadrilatero?</h2>
+    <h2>¿Cuál es la figura con más lados?</h2>
     <br><br><br>
 
-    <div class="shape rectangulo"></div>
-    <div class="shape cuadrado"></div>
-    <div class="shape rombo"></div>
-    <div class="shape pentagono"> <svg width="300" height="300">
-            <polygon points="150,10 240,75 210,225 90,225 60,75" style="fill:var(--amarillo);stroke:#554;stroke-width:2" />
+    <div class="shape triangulo" onclick="showInfo('Triángulo')"></div>
+    <div class="shape hexagono" onclick="showInfo('Héxagono')"><svg width="200" height="200">
+                <polygon points="75,5 144,45 144,105 75,145 6,105 6,45" style="fill:red;stroke:red;stroke-width:2" />
+            </svg></div>
+    <div class="shape heptagono" onclick="showInfo('Héptagono')"><svg width="200" height="200">
+                <polygon points="100,2 181,35 173,94 117,166 43,120 49,60 105,17" style="fill:blue;stroke:green;stroke-width:2" />
+            </svg></div>
+    <div class="shape pentagono" onclick="showInfo('Pentágono')"> <svg width="190" height="200">
+            <polygon points="100,10 190,78 160,198 40,198  10,78" style="fill:var(--amarillo);stroke:#554;stroke-width:2" />
         </svg></div>
 
-
+        <div id="info-container"></div>
 
     <div>
     <a href="../nivel1/7.php">
@@ -103,6 +95,14 @@
         <button>Salir</button>
     </a>
     </div>
+
+
+    <script>
+        function showInfo(shape) {
+            const infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `<p class="respuesta">Es un: <strong>${shape}</strong></p>`;
+        }
+    </script>
 
 </body>
 

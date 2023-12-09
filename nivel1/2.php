@@ -18,9 +18,9 @@ $leccion_id = '2';
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'rectangulo' => 'Rectangulo',
-    'isosceles' => 'Isosceles',
-    'equilatero' => 'Equilatero',
+    'rectangulo' => 'Rectángulo',
+    'isosceles' => 'Isósceles',
+    'equilatero' => 'Equilátero',
     'escaleno' => 'Escaleno'
 );
 
@@ -75,18 +75,18 @@ $conn->close();
         }
 
         h1 {
-            color: var(--rojo);
+            color: var(--verde);
         }
 
         .shape-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 70px;
+            margin-top: 40px;
         }
 
         .shape {
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             display: flex;
             justify-content: center;
             cursor: pointer;
@@ -97,21 +97,25 @@ $conn->close();
             transform: scale(1.2);
         }
 
+        .svg{
+            width: 100%;
+            height: 100%;
+        }
         .trianguloo{
             background-color: none;
-            margin-top: 110px;
-            margin-left: 25%;
+            margin-top: 0;
+            margin-left: 0;
         }
    
         .trianguloq{
             background-color: none;
-            margin-top: 200px;
-            margin-left: 5px;
+            margin-top: 0;
+            margin-left: 0;
         }
         .triangulor{
             background-color: none;
-            margin-top: 100px;
-            margin-left: 5px;
+            margin-top: 0;
+            margin-left: 0;
         }
         .triangulox{
             width: 0;
@@ -120,24 +124,17 @@ $conn->close();
             border-top: 100px solid transparent;
             border-left: 100px solid transparent;
             border-bottom: 100px solid var(--beige);
-            margin-top: 170px;
+            margin-top: 0;
         }
-        .trianguloy{
-            width: 0; 
-            height: 0; 
-            border-left: 100px solid var(--rojo);
-            border-top: 50px solid transparent;
-            border-bottom: 50px solid transparent; 
-            margin-right: 150px;
-        }
+       
         .trianguloz{
             width: 0; 
             height: 0; 
             border-left: 100px solid #f0ad4e;
             border-top: 50px solid transparent;
             border-bottom: 50px solid transparent; 
-            margin-right: 35px;
-            margin-top: 120px;
+            margin-right: 0;
+            margin-top: 0;
         }
         .respuesta{
             width: 50%;
@@ -146,9 +143,7 @@ $conn->close();
             font-size: medium;  
         }
 
-        #anterior{
-            margin-top: 17%;
-        }
+      
     </style>
 </head>
 <body>
@@ -162,25 +157,23 @@ $conn->close();
     <div class="shape-container">
         <div class="shape trianguloo" onclick="showInfo('Triángulo Escaleno')">
         <svg>
-        <polygon points="60,20 100,80 20,100" style="fill:var(--amarillo)" />
+        <polygon points="120,40 200,120 40,200" style="fill:var(--amarillo)" />
         </svg></div>
         <div class="shape trianguloq" onclick="showInfo('Triángulo Rectangulo')">
         <svg>
-        <polygon points="100,20 100,100 20,100" style="fill:var(--verde)" />
+        <polygon points="200,40 200,200 40,200" style="fill:var(--verde)" />
         </svg></div>
         <div class="shape trangulor" onclick="showInfo('Triángulo Isósceles')">
         <svg>
-        <polygon points="60,20 100,100 20,100" style="fill:var(--verdeazulado)" />
+        <polygon points="120,40 200,200 40,200" style="fill:var(--verdeazulado)" />
         </svg></div>
         <div class="shape triangulox" onclick="showInfo('Triángulo Equilatero')"></div>
         <div class="shape trianguloz" onclick="showInfo('Triángulo Equilatero')"></div>  
     </div>
-    <br>
-    <br>
-    <br>
+    
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <h2>¿Qué traingulo tiene sus 3 lados iguales?</h2>
+        <h2>¿Qué triángulo tiene sus 3 lados iguales?</h2>
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
@@ -191,8 +184,6 @@ $conn->close();
 
     <br>
     <br>
-
-    <div id="info-container"></div>
     <div>
     <a href="../nivel1/1.php">
     <button>Anterior</button>
@@ -205,6 +196,9 @@ $conn->close();
     <button>Salir</button>
     </a>
     </a>
+    </div>
+    <div id="info-container"></div>
+    
 
     <script>
         function closeModal() {
