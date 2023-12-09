@@ -24,6 +24,7 @@
 }
 
 body {
+    background-image: url('../img/Fondo_lecciones.jpg');
     background-color: var(--cafe);
     background-size: cover;
     background-position: center;
@@ -55,12 +56,9 @@ h4{
     justify-content: center;
     backdrop-filter: blur(10px);
     border-radius: 20px;
+    background-color: var(--verde);
 }
-.trasera img{
-    width: 40%;
-    margin-left: 13vh;
-    margin-top: 5%;
-}
+
 .trasera h4{
     font-size: 80%;
     margin-left: 10vh;
@@ -68,20 +66,32 @@ h4{
     margin-top: 1%;
 }
 .trasera div{
-   margin-left: 40px;
-   margin-top: 10px;
+   margin-left: -30%;
+   margin-top: 1%;
     transition: all 500ms;
 }
-
-
+.traseraLogin h3{
+    text-align: center;
+    margin-top: 2%;
+} 
 .trasera div button {
-    margin-top: 20px;
+    margin-top: 20%;
 }
 
-.trasera div h3 {
+.trasera .traseraLogin h3 {
     font-weight: 400;
     font-size: 20px;
-    margin-top: 50px;
+    margin-top: 50%;
+    text-align: center;
+    margin-left: -100%;
+
+}
+.trasera .traseraSign h3 {
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 45%;
+    text-align: center;
+    margin-right: -120%;
 
 }
 .trasera button{
@@ -96,9 +106,32 @@ h4{
     border: solid transparent;
     margin-left: 60px;
 }
+.trasera .traseraLogin button{
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 300ms;
+    background-color: transparent;
+    border: solid transparent;
+    margin-left: -30%;
+}
+.trasera .traseraSign button{
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 100;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 300ms;
+    background-color: transparent;
+    border: solid transparent;
+    margin-left: 80%;
+}
 
 .trasera button:hover{
-    color:var(--rosa);
 }
 .contenedor_registro{
     display: flex;
@@ -112,21 +145,22 @@ h4{
 }
 .contenedor_registro form{
     width: 103%;
-    height: 85vh;
+    height: 65vh;
     padding: 80px 20px;
-    background-color: var(--rojo);
+    background-color: var(--verde);
     position: absolute;
+    margin-top: -12%;
 }
 
 .contenedor_registro form h2{
     font: 30px;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 5%;
 }
 
 .contenedor_registro form input{
     width: 100%;
-    margin-top: 30px;
+    margin-top: 3%;
     padding: 10px; 
     border: none;
     background: #FFF;
@@ -138,7 +172,7 @@ h4{
 
 .contenedor_registro form button{
     padding: 10px 40px;
-    background: var(--rojo);
+    background: var(--beige);
     font-size: 16px;
     font-weight: 600; 
     justify-content: center;
@@ -146,13 +180,13 @@ h4{
     outline: none;
     transition: all 300ms;
     border-radius: 100px;
-    margin-top: 30px;
-    margin-left: 100px;
+    margin-top: 5%;
+    margin-left: 32%;
     
 }
 
 .contenedor_registro form button:hover{
-    background: var(--rosa);
+    background: var(--cafe);
     
 }
 

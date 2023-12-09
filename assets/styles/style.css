@@ -66,10 +66,11 @@ input[type="submit"]:hover {
 
 .title{
   text-align: center;
-  color: var(--rojo);
-  font-size: 90px;
-  margin-left: 30%;
+  color: var(--verde);
+  font-size: 80px;
+  margin-left: 25%;
   font-family: fantasy;
+  margin-top: 4%;
 }
 
 .imge{

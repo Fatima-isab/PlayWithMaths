@@ -18,6 +18,7 @@
         .arriba {
     display: flex;
     align-items: center;
+    
 }
 
     </style>
@@ -26,9 +27,9 @@
 <body>
 <div class="arriba">
     <a href="miPerfil.php">
-        <span class="icon icon-home" style="font-size: 35px; margin-left: 250%; color: #000000;"></span>
+        <span class="icon icon-user" style="font-size: 35px; margin-left: 3300%; color: var(--cafe);"></span>
     </a>
-    <span class="title">Play With Maths</span>
+    <h2 class="title">Play With Maths</h2>
 </div>
     <p></p>
 

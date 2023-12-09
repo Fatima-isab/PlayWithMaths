@@ -21,15 +21,15 @@ if(isset($_SESSION['correo'])){
         <div class="contenedor">
             
             <div class="trasera">
-
+            <h1>Bienvenido</h1>
                 <div class="traseraLogin">
-                    <h1>Bienvenido</h1>
+                    
                     <h3>¿Tienes una cuenta creada?</h3>
                     <button id="btn-iniciar-sesion">Iniciar sesión</button>
                 </div>
 
                 <div class="traseraSign">
-                    <h1>Bienvenido</h1>
+                    
                     <h3>¿No tienes una cuenta creada?</h3>
                     <button id="btn-registro">Registrate</button>
                 </div>
@@ -41,7 +41,7 @@ if(isset($_SESSION['correo'])){
                     <h2>Iniciar sesión</h2>
                     <input type="text" placeholder="Correo electronico" name="correo">
                     <input type="password" placeholder="Contraseña" name="contraseña"> 
-                    <button>Iniciar</button>
+                    <button class="ini">Iniciar</button>
                 </form>
 
                 <form action="registro_usuario.php" method="POST" class="formulario_sign">
