@@ -41,7 +41,7 @@ if ($result_anterior->num_rows == 0) {
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = 'cuatro'; // Definir la respuesta correcta
+    $respuesta_correcta = 'octagono'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
