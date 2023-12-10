@@ -24,6 +24,20 @@ $opciones = array(
     'hexag' => '4',
 );
 
+
+// Verificar si el usuario ha completado la lección anterior
+$id_usuario = $_SESSION['id_usuario'];
+$leccion_anterior = $leccion_id - 1;
+$query_verificar_completada_anterior = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_anterior";
+$result_anterior = $conn->query($query_verificar_completada_anterior);
+
+if ($result_anterior->num_rows == 0) {
+    // El usuario no ha completado la lección anterior, redirigir a otra página
+    header("Location: 3.php");
+    exit;
+}
+
+
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
