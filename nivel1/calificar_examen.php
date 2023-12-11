@@ -41,13 +41,30 @@ foreach ($respuestas_correctas as $pregunta => $respuesta_correcta) {
     }
 }
 
-// Insertar el resultado en la tabla examenes_realizados
-$query_insert_resultado = "INSERT INTO examenes_realizados (id_examen, id_usuario, titulo_examen, fecha_realizacion, calificacion)
-                           VALUES ($id_examen, $id_usuario, '$titulo_examen', '$fecha_realizacion', $calificacion)";
-$conn->query($query_insert_resultado);
+// Verificar si ya existe un registro para ese usuario y examen
+$query_verificar_examen = "SELECT id_realizado FROM examenes_realizados WHERE id_usuario = $id_usuario AND id_examen = $id_examen";
+$result_verificar_examen = $conn->query($query_verificar_examen);
 
-echo "<h2>Examen completado</h2>";
-echo "<p>Calificación obtenida: $calificacion / 10</p>";
+if ($result_verificar_examen->num_rows > 0) {
+    // Si ya existe, actualizar la calificación
+    $row = $result_verificar_examen->fetch_assoc();
+    $id_realizado = $row['id_realizado'];
+
+    // Actualizar la calificación en el registro existente
+    $query_actualizar_calificacion = "UPDATE examenes_realizados SET calificacion = $calificacion WHERE id_realizado = $id_realizado";
+    $conn->query($query_actualizar_calificacion);
+
+    echo "<h2>Examen actualizado</h2>";
+    echo "<p>Nueva calificación: $calificacion / 10</p>";
+} else {
+    // Si no existe, insertar un nuevo registro
+    $query_insert_resultado = "INSERT INTO examenes_realizados (id_examen, id_usuario, titulo_examen, fecha_realizacion, calificacion)
+                               VALUES ($id_examen, $id_usuario, '$titulo_examen', '$fecha_realizacion', $calificacion)";
+    $conn->query($query_insert_resultado);
+
+    echo "<h2>Examen completado</h2>";
+    echo "<p>Calificación obtenida: $calificacion / 10</p>";
+}
 
 $conn->close();
 ?>

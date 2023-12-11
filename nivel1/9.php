@@ -1,3 +1,36 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "12345678";
+$dbname = "maths";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("La conexión a la base de datos falló: " . $conn->connect_error);
+}
+
+// Verificar si el usuario ha completado la lección anterior
+$id_usuario = $_SESSION['id_usuario'];
+$leccion_anterior = '8';
+$query_verificar_completada_anterior = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_anterior";
+$result_anterior = $conn->query($query_verificar_completada_anterior);
+
+if ($result_anterior->num_rows == 0) {
+    // El usuario no ha completado la lección anterior, redirigir a otra página
+    header("Location: 8.php");
+    exit;
+}
+
+// Cerrar la conexión
+$conn->close();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -81,6 +81,29 @@ if ($conn->connect_error) {
             $circleColor8 = "var(--verde)";
             }
 
+        // Consultar la calificación más reciente del usuario
+$query_calificacion = "SELECT calificacion FROM examenes_realizados WHERE id_usuario = $id_usuario ORDER BY fecha_realizacion DESC LIMIT 1";
+$result_calificacion = $conn->query($query_calificacion);
+
+if ($result_calificacion->num_rows > 0) {
+    $row = $result_calificacion->fetch_assoc();
+    $calificacion = $row['calificacion'];
+
+    // Definir colores
+    $colorAprobado = "var(--verde)";
+    $colorReprobado = "var(--cafe)";
+
+    // Verificar si la calificación es superior a 6
+    if ($calificacion > 6) {
+        $circleColor9 = $colorAprobado;
+    } else {
+        $circleColor9 = $colorReprobado;
+    }
+} else {
+    // Si no hay calificación, asignar un color por defecto
+    $circleColor9 = "var(--verdeazulado)"; // Cambia esto con el color deseado por defecto
+}
+
 
 
 
@@ -236,6 +259,16 @@ a {
             position: relative;
         }
 
+        .circle9 {
+            width: 100px;
+            height: 100px;
+            background-color:  <?php echo $circleColor9; ?>;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 25px;
+            position: relative;
+        }
+
 
       
     </style>
@@ -268,7 +301,7 @@ a {
         <div class="circle8"><span>8</span></div>
         </a>
         <a href="./nivel1/9.php">
-        <div class="circle"><span>9</span></div>
+        <div class="circle9"><span>9</span></div>
         </a>
     </div>
 
