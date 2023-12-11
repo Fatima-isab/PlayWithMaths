@@ -18,8 +18,8 @@ $leccion_id = '5';
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'rojo' => '1',
-    'verde' => '2'
+    'rojo' => 'ANA',
+    'verde' => 'MELISSA'
 );
 
 
@@ -82,6 +82,7 @@ $conn->close();
             background-position: center;
             height: 100vh;
         }
+
         .shape-container {
             display: flex;
             justify-content: space-around;
@@ -102,63 +103,56 @@ $conn->close();
         }
 
         .rectangulo {
-     width: 250px; 
-     height: 100px; 
-     border: 3px solid #555;
-     background: var(--verde);
-     margin-left: 40%;
-     margin-bottom: 15%;
-}
+            width: 250px;
+            height: 100px;
+            border: 3px solid #555;
+            background: var(--verde);
+            margin-left: 40%;
+            margin-bottom: 15%;
+        }
 
-    .oval {
-     width: 250px;
-     height: 100px;
-     -moz-border-radius: 0 50% / 0 100%;
-     -webkit-border-radius: 0 50% / 0 100%;
-     border-radius: 0 50% / 0 100%;
-     background: #5cb85c;
-     border: 3px solid #555;
-    }
-    .oval1 {
-     width: 250px;
-     height: 100px;
-     -moz-border-radius: 0 50% / 0 100%;
-     -webkit-border-radius: 0 50% / 0 100%;
-     border-radius: 0 50% / 0 100%;
-     background: red;
-     border: 3px solid #555;
-     margin-left: 15%;
-     margin-top: -10%;
-    }
-    .oval2{
-     width: 250px;
-     height: 100px;
-     -moz-border-radius: 0 50% / 0 100%;
-     -webkit-border-radius: 0 50% / 0 100%;
-     border-radius: 0 50% / 0 100%;
-     background: #5cb85c;
-     border: 3px solid #555;
-     margin-top:-9%;
-     margin-left: 65%;
-    }
+        .rectangulor {
+            width: 250px;
+            height: 100px;
+            border: 3px solid #555;
+            margin-left: 40%;
+            margin-bottom: 15%;
+        }
 
-    #oval1{
-    text-align:left;
-    }
+        .oval1 {
+            background: red;
+            border: 3px solid #555;
+            margin-left: 15%;
+            margin-top: -10%;
+        }
 
-        
+        .oval2 {
+            background: #5cb85c;
+            border: 3px solid #555;
+            margin-top: -23.8%;
+            margin-left: 65%;
+            margin-bottom: 0;
+        }
+
+        #oval1 {
+            text-align: left;
+        }
     </style>
 </head>
 
 <body>
     <h1>Descubriendo las formas</h1>
-    <br><br><br>
+    <br><br>
     <h2>¿Quién me describió corrrectamente?</h2>
     <br><br><br>
 
     <div class="shape rectangulo"></div>
-    <div class="shape oval oval1"><p id="oval1">Tengo lados iguales y 4 ángulos rectos</p></div>
-    <div class="shape oval oval2"><p id="oval2">Tengo 4 lados, pero no son iguales, solo mis lados opuestos tienen la misma longitud</p></div>
+    <div class="shape rectangulor oval1">
+        <p>ANA:Tengo 4 lados iguales y 4 ángulos rectos</p>
+    </div>
+    <div class="shape rectangulor oval2">
+        <p>MELISSA:Tengo 4 lados, pero no son iguales, solo mis lados opuestos tienen la misma longitud</p>
+    </div>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <?php
@@ -170,19 +164,19 @@ $conn->close();
     </form>
 
     <div>
-    <a href="../nivel1/4.php">
-        <button>Anterior</button>
-    </a>
-    
-    <a href="../nivel1/6.php">
-    <button>Siguiente</button>
-    </a>
+        <a href="../nivel1/4.php">
+            <button>Anterior</button>
+        </a>
 
-    <a href="../nivel1.php">
-    <button>Salir</button>
-    </a>
+        <a href="../nivel1/6.php">
+            <button>Siguiente</button>
+        </a>
+
+        <a href="../nivel1.php">
+            <button>Salir</button>
+        </a>
     </div>
-   
+
 </body>
 
 </html>

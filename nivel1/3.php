@@ -111,16 +111,18 @@ $conn->close();
             transform: scale(1.2);
         }
 
+        #info-container{
+            width: 20%;
+            background-color: var(--verde);
+        }
        
-       
-
         .trapecio {
             width: 150px;
             height: 0px;
             border-right: 60px solid transparent;
             border-left: 60px solid transparent;
-            border-bottom: 100px solid #428bca;
-            margin-top: 2%;
+            border-bottom: 100px solid var(--verde);
+            margin-top: 10%;
             margin-left: -2%;
         }
 
@@ -130,20 +132,24 @@ $conn->close();
             -moz-border-radius: 50%;
             -webkit-border-radius: 50%;
             border-radius: 50%;
-            background: #5cb85c;
-            border: #554;
+            background: red;
+            border: 2px solid #555;
             margin-top: 1.5%;
-            margin-left: -5%;
+            margin-left: -9%;
         }
 
         .hexagono {
-            margin-left: -60%;
-            margin-top: 10%;
+            margin-left: -70%;
+            margin-top: 0;
         }
 
         .pentagono {
             margin-left: -10%;
-            margin-top: 10%;
+            margin-top: 7%;
+        }
+        #info-container{
+            width: 20%;
+            background-color: var(--verde);
         }
     </style>
 </head>
@@ -151,26 +157,22 @@ $conn->close();
 <body>
 
     <h1>Descubriendo las formas</h1>
-        <br><br><br>
     <h2>¡Toca una figura para conocer su nombre!</h2>
+    <h2>¿Cuál es la figura con seis lados?</h2>
+    <div id="info-container"></div>
 
     <div class="shape-container">
         <div class="shape trapecio" onclick="showInfo('Trapecio')"></div>
         <div class="shape ovalo" onclick="showInfo('Ovalo')"></div>
         <div class="shape hexagono" onclick="showInfo('Héxagono')"><svg width="200" height="200">
-                <polygon points="75,5 144,45 144,105 75,145 6,105 6,45" style="fill:red;stroke:red;stroke-width:2" />
+                <polygon points="75,5 144,45 144,105 75,145 6,105 6,45" style="fill:purple;stroke:#555;stroke-width:2" />
             </svg></div>
         <div class="shape pentagono" onclick="showInfo('Péntagono')"><svg width="250" height="150">
-                <polygon points="125,5 200,75 165,145 85,145 50,75" style="fill:yellow;stroke:yellow;stroke-width:2" />
+                <polygon points="125,5 200,75 165,145 85,145 50,75" style="fill:var(--amarillo);stroke:yellow;stroke-width:2" />
             </svg></div>
     </div>
 
-
-        <div id="info-container"></div>
-
-
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <h2>¿Cuál es la figura con seis lados?</h2>
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";

@@ -81,7 +81,7 @@ $conn->close();
         .shape-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 30px;
+            margin-top: 2%;
         }
 
         .shape {
@@ -103,8 +103,8 @@ $conn->close();
             background-color:darkcyan;
             border-radius: 50%;
             display: inline-block;
-            margin-top: 225px;
-            margin-left: -150px;
+            margin-top: 12%;
+            margin-left: -13%;
             position: relative;
         }
 
@@ -114,41 +114,40 @@ $conn->close();
             background-color:cyan;
             border-radius: 0;
             display: inline-block;
-            margin: 100px;
+            margin: 8%;
+            margin-top: 4%;
+            margin-left: 4%;
             position: relative;
         }
         .triangulo{
             background-color: none;
-            margin-top: 120px;
-            margin-left: 5px;
+            margin-top: 7%;
+            margin-left: -5%;
         }
         .rombo {
             width: 90px; 
             height: 90px; 
             background:red;
             transform: rotate(45deg);
-            margin-top: 75px;
+            margin-top: 12%;
         }
 
         .rectangulo {
             width: 220px; 
             height: 100px; 
             background: var(--amarillo);
-            margin-top: 210px;
-            margin-right: 40px;
-            margin-left: -40px;
+            margin-top: 5.5%;
+           
+            margin-left: -8%;
         }
 
-        .respuesta{
-            width: 50%;
-            margin-left: 25%;
+        #info-container{
+            width: 20%;
+            background-color: var(--verde);
+        }
+
+        .form{
             margin-top: 5%;
-            font-size: medium;  
-        }
-
-        .vista {
-            color: green;
-            font-weight: bold;
         }
        
     </style>
@@ -159,6 +158,9 @@ $conn->close();
 
     <h2>¡Toca una figura para conocer su nombre!</h2>
 
+    <h2>¿Cuál es la figura con tres lados?</h2>
+
+    <div id="info-container"></div>
     <div class="shape-container">
         <div class="shape cuadrado" onclick="showInfo('Cuadrado')"></div>
         <div class="shape circulo" onclick="showInfo('Círculo')"></div>
@@ -170,8 +172,8 @@ $conn->close();
     </div>
 
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <h2>¿Cuál es la figura con tres lados?</h2>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form">
+        
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
@@ -181,7 +183,7 @@ $conn->close();
     </form>
 
 
-    <div id="info-container"></div>
+    
     
     <div>
     <a href="../nivel1.php">

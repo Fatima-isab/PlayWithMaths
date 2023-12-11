@@ -134,11 +134,9 @@ $conn->close();
 <body>
 
     <h1>Descubriendo las formas</h1>
-    <br><br><br>
-    <h2>¿Cuál es el nombre de la forma con 8 lados?</h2>
-    <br><br><br>
-
     <h2>¡Toca una figura para conocer su nombre!</h2>
+    <h2>¿Cuál es el nombre de la forma con 8 lados?</h2>
+    <div id="info-container"></div>
 
     <div class="shape-container">
         <div class="shape heptagono" onclick="showInfo('Heptágono')"> <svg width="200" height="200">
@@ -166,11 +164,6 @@ $conn->close();
         ?>
         <button id="responder" type="submit">Responder</button>
     </form>
-
-
-
-
-    <div id="info-container"></div>
 
     <div>
 

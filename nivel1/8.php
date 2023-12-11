@@ -44,31 +44,29 @@
             border-top: 100px solid transparent;
             border-left: 100px solid transparent;
             border-bottom: 100px solid var(--beige);
-            margin-top: -10%;
-            margin-left: 2%;
         }
         .heptagono{
-            margin-top: -25%;
-            margin-left: 45%;
+            margin-top: 5%;
+            margin-left: 5%;
         }
         .pentagono{
-            margin-top: -28%;
-            margin-left: 72%;
+            margin-top: 5%;
+            margin-left: 5%;
         }
 
         .hexagono{
-            margin-top: -10%;
-            margin-left: 25%;
+            margin-top: 5%;
+            margin-left: 5%;
         }
     </style>
 </head>
 
 <body>
     <h1>Descubriendo las formas</h1>
-    <br><br><br>
+    <br>
     <h2>¿Cuál es la figura con más lados?</h2>
-    <br><br><br>
-
+    <div id="info-container"></div>
+        <div class="shape-container">
     <div class="shape triangulo" onclick="showInfo('Triángulo')"></div>
     <div class="shape hexagono" onclick="showInfo('Héxagono')"><svg width="200" height="200">
                 <polygon points="75,5 144,45 144,105 75,145 6,105 6,45" style="fill:red;stroke:red;stroke-width:2" />
@@ -79,8 +77,7 @@
     <div class="shape pentagono" onclick="showInfo('Pentágono')"> <svg width="190" height="200">
             <polygon points="100,10 190,78 160,198 40,198  10,78" style="fill:var(--amarillo);stroke:#554;stroke-width:2" />
         </svg></div>
-
-        <div id="info-container"></div>
+        </div>
 
     <div>
     <a href="../nivel1/7.php">

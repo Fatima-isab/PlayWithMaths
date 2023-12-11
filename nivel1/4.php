@@ -18,10 +18,10 @@ $leccion_id = '4';
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'trapecio' => '1',
-    'semicirculo' => '2',
-    'hexagono' => '3',
-    'hexag' => '4',
+    'trapecio' => 'Trapecio',
+    'hexagono' => 'Héxagono regular',
+    'semicirculo' => 'Semicirculo',
+    'hexag' => 'Héxagono irregular',
 );
 
 
@@ -41,7 +41,7 @@ if ($result_anterior->num_rows == 0) {
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = 'hexag'; // Definir la respuesta correcta
+    $respuesta_correcta = 'hexagono'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
@@ -130,37 +130,33 @@ $conn->close();
             margin-top: -2%;
             margin-right: 2%;
         }
-        .respuesta {
-            width: 100%;
-            margin-left: 5%;
-            margin-top: 0;
-            font-size: medium;
+
+        #info-container{
+            width: 20%;
+            background-color: var(--verde);
         }
     </style>
 </head>
 
 <body>
     <h1>Descubriendo las formas</h1>
-    <br><br><br>
-    <h2>¡Adivina quién soy!</h2>
-    
-
-    <h3>Tengo 6 lados diferentes</h3>
+    <br>
+    <h2>¡Adivina quién soy, tengo 6 lados iguales!</h2>
+    <div id="info-container"></div>
 
     <div class="shape-container">
-
         <div class="shape trapecio" onclick="showInfo('Trapecio')"></div>
         <div class="shape hexagono" onclick="showInfo('Hexagono Regular')"><svg width="200" height="200">
                 <polygon points="60,5 115,34 115,103 60,132 5,103 5,34" style="fill:red" />
             </svg></div>
         <div class="shape semicirculo" onclick="showInfo('Semicirculo')"></div>
-        <div class="shape hexag" onclick="showInfo('Hexagono')"><svg width="200" height="200">
-                <polygon points="80,5 160,43 145,103 60,132 5,103 15,49" style="fill:blue" />
+        <div class="shape hexag" onclick="showInfo('Héxagono irregular')"><svg width="200" height="200">
+                <polygon points="80,5 160,43 145,103 60,132 5,103 15,49" style="fill:var(--verdeazulado)" />
             </svg></div>
     </div>
     
     <!--Respuesta corecta-->
-    <div>
+
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <?php
         foreach ($opciones as $value => $label) {
@@ -169,10 +165,11 @@ $conn->close();
         ?>
         <button id="responder" type="submit">Responder</button>
     </form>
-    </div>
-    <p class="respuesta"><?php echo $respuesta_correcta_msg; ?></p>
-    <div>
-        
+
+
+    
+
+    <div>  
     <a href="../nivel1/3.php">
             <button>Anterior</button>
         </a>

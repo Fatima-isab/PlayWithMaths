@@ -18,10 +18,10 @@ $leccion_id = '6';
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'uno' => '1',
-    'dos' => '2',
-    'tres' => '3',
-    'cuatro' => '4'
+    'uno' => 'Rombo',
+    'dos' => 'Cuadrado',
+    'tres' => 'Réctangulo',
+    'cuatro' => 'Pentágono'
 
 );
 
@@ -65,8 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Cerrar la conexión
 $conn->close();
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -112,7 +110,7 @@ $conn->close();
             height: 150px;
             border: 2px solid #554;
             background: var(--verde);
-            margin-left: 40%;
+            margin-left: 45%;
             margin-bottom: 15%;
         }
 
@@ -126,7 +124,8 @@ $conn->close();
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             transform: rotate(45deg);
-            margin-top: -30%;
+            margin-top: -23%;
+            margin-left: 5%;
         }
 
         .cuadrado {
@@ -134,35 +133,38 @@ $conn->close();
             height: 150px;
             border: 2px solid #554;
             background: var(--cafe);
-            margin-top: -18%;
-            margin-left: 15%;
+            margin-top: -22%;
+            margin-left: 25%;
         }
 
         .pentagono {
-            margin-top: -10%;
+            margin-top: -8%;
+            margin-left: 75%;
+        }
+
+        #info-container{
+            width: 20%;
             margin-left: 70%;
+            background-color: var(--verde);
         }
     </style>
 </head>
 
 <body>
     <h1>Descubriendo las formas</h1>
-    <br><br><br>
+    <br>
     <h2>¿Cuál no es un cuadrilatero?</h2>
+    <div id="info-container"></div>
+
     <br><br><br>
         
-    <div class="shape rectangulo"></div>
-    <div class="shape cuadrado"></div>
-    <div class="shape rombo"></div>
-    <div class="shape pentagono"> <svg width="200" height="210">
+    <div class="shape rectangulo" onclick="showInfo('Rectángulo')"></div>
+    <div class="shape cuadrado" onclick="showInfo('Cuadrado')"></div>
+    <div class="shape rombo" onclick="showInfo('Rombo')"></div>
+    <div class="shape pentagono" onclick="showInfo('Pentágono')"> <svg width="200" height="210">
             <polygon points="100,10 190,78 160,198 40,198  10,78" style="fill:var(--amarillo);stroke:#554;stroke-width:2" />
         </svg></div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <?php
@@ -187,6 +189,13 @@ $conn->close();
         <button>Salir</button>
     </a>
     </div>
+
+    <script>
+        function showInfo(shape) {
+            const infoContainer = document.getElementById('info-container');
+            infoContainer.innerHTML = `<p class="respuesta">Es un: <strong>${shape}</strong></p>`;
+        }
+    </script>
 </body>
 
 </html>

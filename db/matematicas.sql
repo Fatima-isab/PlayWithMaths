@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS modulos (
 );
 
 CREATE TABLE IF NOT EXISTS lecciones (
-  id_leccion INT AUTO_INCREMENT,
+  id_leccion INT,
   id_modulo INT,
   titulo_leccion VARCHAR(200),
   acreditado VARCHAR(3) DEFAULT 'NO',
