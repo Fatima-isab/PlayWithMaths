@@ -32,6 +32,7 @@ $query_verificar_completada_anterior = "SELECT * FROM lecciones_completadas WHER
 $result_anterior = $conn->query($query_verificar_completada_anterior);
 
 if ($result_anterior->num_rows == 0) {
+    
     // El usuario no ha completado la lección anterior, redirigir a otra página
     header("Location: 1.php");
     exit;
@@ -151,14 +152,16 @@ $conn->close();
             margin-right: 0;
             margin-top: 0;
         }
-        .respuesta{
-            width: 50%;
-            margin-left: 25%;
-            margin-top: 1%;
-            font-size: medium;  
+        
+
+        .form{
+            margin-top: 5%;
         }
 
-      
+        #info-container{
+            width: 20%;
+            background-color: var(--verde);
+        }
     </style>
 </head>
 <body>
@@ -166,9 +169,8 @@ $conn->close();
     <h1>Descubriendo las formas</h1>
 
     <h2>Tipos de triangulos</h2>
-
-    <div id="progress-bar" style="display:none; background-color: var(--amarillo); width: 10%; height: 30px;"></div>
-
+    <h2>¿Qué triángulo tiene sus 3 lados iguales?</h2>
+    <div id="info-container"></div>
     <div class="shape-container">
         <div class="shape trianguloo" onclick="showInfo('Triángulo Escaleno')">
         <svg>
@@ -186,9 +188,8 @@ $conn->close();
         <div class="shape trianguloz" onclick="showInfo('Triángulo Equilatero')"></div>  
     </div>
     
-
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <h2>¿Qué triángulo tiene sus 3 lados iguales?</h2>
+    
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form">
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
@@ -196,7 +197,9 @@ $conn->close();
         ?>
         <button type="submit">Responder</button>
     </form>
-
+         
+    
+    <br>
     <br>
     <br>
     <div>
@@ -212,15 +215,9 @@ $conn->close();
     </a>
     </a>
     </div>
-    <div id="info-container"></div>
+    
     
 
-    <script>
-        function closeModal() {
-            var modal = document.getElementById('myModal');
-            modal.style.display = 'none';
-        }
-    </script>
 
     <script>
         function showInfo(shape) {
