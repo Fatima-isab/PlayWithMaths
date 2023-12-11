@@ -92,7 +92,7 @@ $conn->close();
         .shape-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 5%;
+            margin-top: 10%;
         }
 
         .shape {
@@ -137,6 +137,10 @@ $conn->close();
             width: 20%;
             background-color: var(--verde);
         }
+
+        .form{
+            margin-top: 3%;
+        }
     </style>
 </head>
 
@@ -159,7 +163,7 @@ $conn->close();
     
     <!--Respuesta corecta-->
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form">
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";

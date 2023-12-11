@@ -157,7 +157,7 @@ $conn->close();
         
 
         .form{
-            margin-top: 5%;
+            margin-top: 7%;
         }
 
         #info-container{
@@ -201,9 +201,7 @@ $conn->close();
     </form>
          
     
-    <br>
-    <br>
-    <br>
+
     <div>
     <a href="../nivel1/1.php">
     <button>Anterior</button>
@@ -211,10 +209,10 @@ $conn->close();
 
     <a href="../nivel1/3.php">
     <button>Siguiente</button>
+    </a>
 
     <a href="../nivel1.php">
     <button>Salir</button>
-    </a>
     </a>
     </div>
     

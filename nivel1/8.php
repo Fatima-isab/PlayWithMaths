@@ -18,10 +18,10 @@ $leccion_id = '8';
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'uno' => '1',
-    'dos' => '2',
-    'tres' => '3',
-    'cuatro' => '4'
+    'uno' => 'Triángulo',
+    'dos' => 'Hexágono',
+    'tres' => 'Heptágono',
+    'cuatro' => 'Pentágono'
 
 );
 
@@ -95,8 +95,8 @@ $conn->close();
         }
 
         .shape {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             display: flex;
             justify-content: center;
             cursor: pointer;
@@ -128,12 +128,21 @@ $conn->close();
             margin-top: 5%;
             margin-left: 5%;
         }
+
+        #info-container{
+            width: 20%;
+            background-color: var(--verde);
+        }
+
+        .form{
+            margin-top: 2%;
+        }
     </style>
 </head>
 
 <body>
     <h1>Descubriendo las formas</h1>
-    <br>
+    <h2>Presiona una figura para recordar su nombre</h2>
     <h2>¿Cuál es la figura con más lados?</h2>
     <div id="info-container"></div>
         <div class="shape-container">
@@ -149,11 +158,7 @@ $conn->close();
         </svg></div>
         </div>
 
-
-        <br>
-    <br>
-    <br>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form">
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
@@ -161,10 +166,6 @@ $conn->close();
         ?>
         <button id="responder" type="submit">Responder</button>
     </form>
-
-    <br>
-    <br>
-    <br>
 
     <div>
     <a href="../nivel1/7.php">

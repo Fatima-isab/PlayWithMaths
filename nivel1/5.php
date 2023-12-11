@@ -18,8 +18,8 @@ $leccion_id = '5';
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'rojo' => 'ANA',
-    'verde' => 'MELISSA'
+    'rojo' => 'Lisa',
+    'verde' => 'Sara'
 );
 
 
@@ -121,24 +121,21 @@ $conn->close();
             margin-bottom: 15%;
         }
 
-        .oval1 {
+        .r1 {
             background: red;
             border: 3px solid #555;
             margin-left: 15%;
-            margin-top: -10%;
+            margin-top: -13%;
         }
 
-        .oval2 {
+        .r2 {
             background: #5cb85c;
             border: 3px solid #555;
-            margin-top: -23.8%;
+            margin-top: -24%;
             margin-left: 65%;
             margin-bottom: 0;
         }
 
-        #oval1 {
-            text-align: left;
-        }
     </style>
 </head>
 
@@ -149,11 +146,11 @@ $conn->close();
     <br><br><br>
 
     <div class="shape rectangulo"></div>
-    <div class="shape rectangulor oval1">
-        <p>ANA:Tengo 4 lados iguales y 4 ángulos rectos</p>
+    <div class="shape rectangulor r1">
+        <p>LISA:Tengo 4 lados iguales y 4 ángulos rectos</p>
     </div>
-    <div class="shape rectangulor oval2">
-        <p>MELISSA:Tengo 4 lados, pero no son iguales, solo mis lados opuestos tienen la misma longitud</p>
+    <div class="shape rectangulor r2">
+        <p>SARA:Tengo 4 lados, pero no son iguales, solo mis lados opuestos tienen la misma longitud</p>
     </div>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
