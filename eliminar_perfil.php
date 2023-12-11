@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header("location: registro.php");
+    header("location: php/registro.php");
     session_destroy();
     die();
 }
@@ -33,6 +33,6 @@ $stmt->close();
 $conn->close();
 
 // Redirigir a la página de registro después de eliminar el perfil
-header("location: php/registro_usuario.php");
+header("location: php/registro.php");
 exit();
 ?>

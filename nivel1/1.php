@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+
+    header("location: ../php/registro.php");
+    session_destroy();
+    die();
+ }
 
 $servername = "localhost";
 $username = "root";
@@ -152,11 +158,9 @@ $conn->close();
     </style>
 </head>
 <body>
-
+        
     <h1>Descubriendo las formas</h1>
-
     <h2>¡Toca una figura para conocer su nombre!</h2>
-
     <h2>¿Cuál es la figura con tres lados?</h2>
 
     <div id="info-container"></div>
@@ -167,7 +171,7 @@ $conn->close();
         <polygon points="60,20 100,100 20,100" style="fill:var(--verde)" />
         </svg></div>
         <div class="shape rombo" onclick="showInfo('Rombo')"></div>
-        <div class="shape rectangulo" onclick="showInfo('Rectangulo')"></div>
+        <div class="shape rectangulo" onclick="showInfo('Rectángulo')"></div>
     </div>
 
 

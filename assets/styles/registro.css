@@ -131,8 +131,6 @@ h4{
     margin-left: 80%;
 }
 
-.trasera button:hover{
-}
 .contenedor_registro{
     display: flex;
     align-items: center;
@@ -179,7 +177,7 @@ h4{
     cursor: pointer;
     outline: none;
     transition: all 300ms;
-    border-radius: 100px;
+    border-radius: 5px;
     margin-top: 5%;
     margin-left: 32%;
     

@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+
+    header("location: ../php/registro.php");
+    session_destroy();
+    die();
+ }
 
 $servername = "localhost";
 $username = "root";
@@ -125,7 +131,7 @@ $conn->close();
             background: red;
             border: 3px solid #555;
             margin-left: 15%;
-            margin-top: -13%;
+            margin-top: -11%;
         }
 
         .r2 {
@@ -141,7 +147,7 @@ $conn->close();
 
 <body>
     <h1>Descubriendo las formas</h1>
-    <br><br>
+    <br>
     <h2>¿Quién me describió corrrectamente?</h2>
     <br><br><br>
 
