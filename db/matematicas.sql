@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS examenes_realizados (
   PRIMARY KEY (id_realizado),
   FOREIGN KEY (id_examen) REFERENCES Examen (id_modulo),
   FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
-  ON DELETE NO ACTION 
+  ON DELETE CASCADE
   ON UPDATE CASCADE
 );
 
@@ -95,12 +95,19 @@ CREATE TABLE IF NOT EXISTS Lecciones_Completadas (
   fecha_completado DATE,
   PRIMARY KEY (id_completado),
   FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
-  ON DELETE NO ACTION 
+  ON DELETE CASCADE
   ON UPDATE CASCADE,
   FOREIGN KEY (id_leccion) REFERENCES Lecciones (id_leccion)
-  ON DELETE NO ACTION 
+  ON DELETE CASCADE 
   ON UPDATE CASCADE
 );
 
 
 INSERT INTO avatares (nombre_avatar, imagen_avatar) VALUES ("Avatar 1", "assets/img/avatar/Avatar1.jpeg");
+
+ALTER TABLE examenes_realizados
+DROP FOREIGN KEY id_usuario,
+ADD FOREIGN KEY (id_usuario) 
+REFERENCES Usuarios (id_usuario) 
+ON DELETE CASCADE
+ON UPDATE CASCADE;

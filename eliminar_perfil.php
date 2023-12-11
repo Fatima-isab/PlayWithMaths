@@ -2,9 +2,8 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header("location: registro.php");
-    session_destroy();
-    die();
+    header("location: php/registro.php");
+    exit();
 }
 
 // Configuración de la conexión a la base de datos
@@ -21,18 +20,25 @@ if ($conn->connect_error) {
     die("Error en la conexión: " . $conn->connect_error);
 }
 
-$id = $_SESSION['usuario'];
+$id = $_SESSION['id_usuario'];
 
-// Eliminar el perfil y redirigir al usuario a la página de registro
-$query = "DELETE FROM usuarios WHERE correo = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("s", $id);
-$stmt->execute();
+// Eliminar el perfil
+$query = "DELETE FROM usuarios WHERE id_usuario = '$id'";
+$result = $conn->query($query);
 
-$stmt->close();
+if ($result) {
+    // Limpiar y destruir la sesión
+    session_unset();
+    session_destroy();
+
+    // Redirigir a la página de registro después de eliminar el perfil
+    header("location: php/registro.php");
+    exit();
+} else {
+    echo "Error al eliminar el perfil: " . $conn->error;
+}
+
 $conn->close();
-
-// Redirigir a la página de registro después de eliminar el perfil
-header("location: php/registro_usuario.php");
-exit();
 ?>
+
+
