@@ -176,6 +176,10 @@ img.avatar {
     cursor: pointer; /* Cambiar el cursor al pasar por encima */
 }
 
+.icon{
+    text-decoration: none;
+}
+
 </style>
 
 <body>

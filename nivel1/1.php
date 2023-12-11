@@ -73,11 +73,8 @@ $conn->close();
             background-repeat: no-repeat;
             background-position: center;
             height: 100vh;
+            background-color: fff;
 
-        }
-
-        h1 {
-            color: var(--rojo);
         }
 
         .shape-container {

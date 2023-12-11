@@ -92,10 +92,6 @@ $conn->close();
 
         }
 
-        h1 {
-            color: var(--verde);
-        }
-
         .shape-container {
             display: flex;
             justify-content: space-around;

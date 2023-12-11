@@ -17,7 +17,11 @@
             height: 100vh;
         }
         .title{
-            margin-left: 40%;
+            text-align: center;
+            color: red;
+            font-size: 70px;
+            margin-left: 37%;
+            margin-top: 4%;
         }
 
         .container-circles{
@@ -94,6 +98,18 @@
     .arriba {
     display: flex;
     align-items: center;
+
+    .icon {
+        text-decoration: none; 
+        display: inline-block; 
+        border-radius: 50%;
+        overflow: hidden; 
+        width: 60px; 
+        height: 60px;
+        background-color: var(--beige); 
+        text-align: center;
+        align-items: center;
+    }
 }
     </style>
 </head>
@@ -101,12 +117,12 @@
 <body>
     <div class="arriba">
         <a href="principal.php">
-            <span class="icon icon-home" style="font-size: 35px; margin-left: 250%; color: #000000;"></span>
+            <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; color: var(--cafe);"></span>
         </a>
         <a href="geometria.html">
-            <span class="icon icon-circle-left" style="font-size: 35px; margin-left: 270%; color: #000000;"></span>
+            <span class="icon icon-circle-left" style="font-size: 60px; margin-left: 270%; color: var(--cafe);"></span>
         </a>
-        <span class="title">Figuras</span>
+        <h2 class="title">Figuras</h2>
     </div>
 
     <div class="container-circles">

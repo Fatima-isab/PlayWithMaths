@@ -59,7 +59,7 @@ $conn->close();
 
 h1 {
     text-align: center;
-    color: var(--cafe); /* Cambia el color según tus preferencias */
+    color: var(--cafe); 
 }
 
 form {
@@ -157,7 +157,7 @@ input[type="submit"]:hover {
                 "imagen" => ""
             ),
             "4" => array(
-                "texto" => "¿Cuál es el nombre de la figura que no tiene ningun lado?",
+                "texto" => "¿Cuál es el nombre de la figura que no tiene ningún lado?",
                 "imagen" => "../assets/img/Examenes/Modulo1.1/P4.jpeg"
             ),
             "5" => array(
@@ -169,7 +169,7 @@ input[type="submit"]:hover {
                 "imagen" => "../assets/img/Examenes/Modulo1.1/P6.png"
             ),
             "7" => array(
-                "texto" => "¿Cuál figura es un rectangulo?",
+                "texto" => "¿Cuál figura es un rectángulo?",
                 "imagen" => "../assets/img/Examenes/Modulo1.1/P7.jpg"
             ),
             "8" => array(
@@ -189,7 +189,7 @@ input[type="submit"]:hover {
         $opciones_respuesta = array(
             "pregunta1" => array(
                 "opcion1" => "Cuadrado",
-                "opcion2" => "Rectangulo",
+                "opcion2" => "Rectángulo",
                 "opcion3" => "Romboide"
             ),
             "pregunta2" => array(
@@ -214,7 +214,7 @@ input[type="submit"]:hover {
                 "opcion3" => "5"
             ),
             "pregunta6" => array(
-                "opcion1" => "Equilatero",
+                "opcion1" => "Equilátero",
                 "opcion2" => "Isósceles",
                 "opcion3" => "Escaleno"
             ),

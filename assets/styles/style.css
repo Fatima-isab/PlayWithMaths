@@ -12,7 +12,7 @@
 body{
   margin:0;
   padding:0;
-  background-color: var(--rojo);
+  background-color: var(--beige);
 }
 .container {
   max-width: 400px;
@@ -27,49 +27,11 @@ h2 {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-.form-group {
-  margin-bottom: 25px;
-}
-
-label, input[type="text"], input[type="password"], input[type="submit"] {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: block;
-  width: 90%;
-}
-
-input[type="text"], input[type="password"] {
-  padding: 10px 15px;
-  border-radius: 15px;
-  border: 1px solid var(--rosa)
-}
-
-input[type="submit"] {
-  width: 40%;
-  margin-left: 30%;
-  padding: 10px 15px;
-  border-radius: 15px;
-  background-color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: none;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background-color: white;
-  animation-delay: var(--amarillo);
-}
-
-#mensajeRegistro{
-  margin-left: 10%;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
 .title{
   text-align: center;
-  color: var(--verde);
+  color: red;
   font-size: 80px;
-  margin-left: 25%;
-  font-family: fantasy;
+  margin-left: 28%;
   margin-top: 4%;
 }
 
@@ -79,11 +41,6 @@ input[type="submit"]:hover {
   font-size: 80px;
   margin-left: 0%;
   font-family: fantasy;
-}
-
-.imge{
-  text-align: center;
-  font-size: 30px;
 }
 
 .cuadrado {
@@ -117,7 +74,7 @@ input[type="submit"]:hover {
   color: black; /* Cambia el color del texto del enlace */
   display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
   position: relative;
-  left: 37%;
+  left: 30%;
   top: 15%;
 }
 
@@ -126,7 +83,7 @@ input[type="submit"]:hover {
   color: black; /* Cambia el color del texto del enlace */
   display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
   position: relative;
-  left: 40%;
+  left: 35%;
   top: 30%;
 }
 
@@ -135,7 +92,7 @@ input[type="submit"]:hover {
   color: black; /* Cambia el color del texto del enlace */
   display: inline-block; /* Permite que el enlace ocupe solo el espacio necesario */
   position: relative;
-  left: 43%;
+  left: 40%;
   top: 15%;
 }
 

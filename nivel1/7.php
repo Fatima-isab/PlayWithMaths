@@ -81,24 +81,21 @@ $conn->close();
     <style>
         body {
             text-align: center;
-            margin: 0;
+            margin: 40px;
             background-color: #fff;
             background-image: url('../assets/img/Fondo_lecciones.jpg');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center;
-            height: 100%;
+            height: 100vh;
 
         }
 
-        h1 {
-            color: var(--rojo);
-        }
 
         .shape-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 4%;
+            margin-top: 40px;
         }
 
         .shape {
