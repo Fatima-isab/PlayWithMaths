@@ -83,7 +83,7 @@ $conn->close();
         .shape-container {
             display: flex;
             justify-content: space-around;
-            margin-top: 2%;
+            margin-top: -2%;
         }
 
         .shape {
@@ -105,7 +105,7 @@ $conn->close();
             background-color:darkcyan;
             border-radius: 50%;
             display: inline-block;
-            margin-top: 12%;
+            margin-top: 10%;
             margin-left: -13%;
             position: relative;
         }
@@ -131,7 +131,7 @@ $conn->close();
             height: 90px; 
             background:red;
             transform: rotate(45deg);
-            margin-top: 12%;
+            margin-top: 10%;
         }
 
         .rectangulo {

@@ -113,7 +113,7 @@ $conn->close();
             border: 2px solid #554;
             background: var(--verde);
             margin-left: 45%;
-            margin-bottom: 15%;
+            margin-bottom: 10%;
         }
 
         .rombo {
@@ -126,7 +126,7 @@ $conn->close();
             -ms-transform: rotate(45deg);
             -o-transform: rotate(45deg);
             transform: rotate(45deg);
-            margin-top: -23%;
+            margin-top: -20%;
             margin-left: 5%;
         }
 
@@ -158,7 +158,7 @@ $conn->close();
     <h2>¿Cuál no es un cuadrilatero?</h2>
     <div id="info-container"></div>
 
-    <br><br><br>
+    <br><br>
         
     <div class="shape rectangulo" onclick="showInfo('Rectángulo')"></div>
     <div class="shape cuadrado" onclick="showInfo('Cuadrado')"></div>

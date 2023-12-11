@@ -147,7 +147,7 @@ $conn->close();
 
         .pentagono {
             margin-left: -10%;
-            margin-top: 7%;
+            margin-top: 6%;
         }
         #info-container{
             width: 20%;

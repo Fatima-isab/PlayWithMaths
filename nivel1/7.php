@@ -111,25 +111,28 @@ $conn->close();
             transition: transform 0.3s ease-in-out;
         }
 
-        .shape svg {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
         .shape:hover {
             transform: scale(1.2);
         }
 
         .octagono{
             margin: 0;
+            
         }
 
-        .respuesta {
-            width: 50%;
-            margin-left: 25%;
-            margin-top: 5%;
-            font-size: medium;
+        .heptagono{
+            margin-top:2% ;
+
         }
+        #info-container{
+            width: 20%;
+            background-color: var(--verde);
+        }
+
+        .form{
+            margin-top: 5%;
+        }
+
     </style>
 </head>
 
@@ -142,23 +145,20 @@ $conn->close();
 
     <div class="shape-container">
         <div class="shape heptagono" onclick="showInfo('Heptágono')"> <svg width="200" height="200">
-                <polygon points="100,2 181,35 173,94 117,166 43,120 49,60 105,17" style="fill:blue;stroke:green;stroke-width:2" />
+                <polygon points="100,2 181,35 173,94 117,166 43,120 49,60 105,17" style="fill:var(--verdeazulado);stroke:green;stroke-width:2" />
             </svg></div>
         <div class="shape octagono" onclick="showInfo('Octágono')"><svg width="200" height="200">
-                <polygon points="100,10 150,10 190,50 190,150 150,190 100,190 60,150 60,50" style="fill:purple;stroke:orange;stroke-width:2" />
+                <polygon points="100,10 150,10 190,50 190,150 150,190 100,190 60,150 60,50" style="fill:red;stroke:#555;stroke-width:2" />
             </svg></div>
         <div class="shape eneagono" onclick="showInfo('Eneágono')"><svg width="200" height="200">
-                <polygon points="100,10 160,30 190,80 190,150 160,190 100,200 40,190 10,150 10,80" style="fill:gray;stroke:darkred;stroke-width:2" />
+                <polygon points="100,10 160,30 190,80 190,150 160,190 100,200 40,190 10,150 10,80" style="fill:var(--cafe);stroke:darkred;stroke-width:2" />
             </svg></div>
         <div class="shape decagono" onclick="showInfo('Decágono')"><svg width="200" height="200">
                 <polygon points="100,5 155,18 185,65 185,135 155,182 100,195 45,182 15,135 15,65 45,18" style="fill:teal;stroke:brown;stroke-width:2" />
             </svg></div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="form">
         <?php
         foreach ($opciones as $value => $label) {
             echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";

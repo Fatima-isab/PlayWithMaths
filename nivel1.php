@@ -170,6 +170,7 @@ a {
         .circle-container {
             text-align:center;
             font-size: 80px;
+            margin-left: 7%;
         }
 
         .circle {
