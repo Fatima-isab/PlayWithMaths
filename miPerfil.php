@@ -183,17 +183,17 @@ img.avatar {
 <div class="container">
     <div class="profile-header">
     <a href="principal.php">
-        <span class="icon icon-home" style="font-size: 35px; margin-left: 150%; color: var(--beige);"></span>
+        <span class="icon icon-home" style="font-size: 35px; margin-left: 100%; color: var(--beige);"></span>
 </a>
 
         <h1 style="margin-left: 43%;">Mi Perfil</h1>
 
         <form action="cerrar_sesion.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres cerrar sesión? Podrás iniciar sesión cuando quieras.');">
-        <button type="submit" id="btn_avatar1" name="cerrar_sesion" style="margin-left: 400%;" style="margin-top: 7%;">Cerrar Sesión</button>
+        <button type="submit" id="btn_avatar1" name="cerrar_sesion" style="margin-left: 280%;" style="margin-top: 7%;">Cerrar Sesión</button>
     </form>
 
     <form action="eliminar_perfil.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu perfil? Esta acción no se puede deshacer.');">
-        <button type="submit" id="btn_avatar1" name="eliminar_perfil" style="margin-left: 380%;">Eliminar Perfil</button>
+        <button type="submit" id="btn_avatar1" name="eliminar_perfil" style="margin-left: 260%;">Eliminar Perfil</button>
     </form>
     </div>
 </div>

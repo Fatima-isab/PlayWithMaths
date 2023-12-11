@@ -9,67 +9,45 @@
     <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
     <style>
         body {
-            background-image: url('assets/img/Fondo_mejorado.jpg');
+            background-image: url('assets/img/inicio.jpeg');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center;
             height: 100vh;
         }
 
-        
-        #girando {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--cafe);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+        .ini {
+            position: absolute;
+            bottom: -60px; 
+            right: 25%; 
+            color: #FF0000; 
+            font-size: 80px; 
         }
 
-        #girando.rotating {
-            transform: rotate(360deg);
+        
+        #girando {
+            position: absolute;
+            bottom: 2%; /* Ajusta la distancia desde la parte inferior según tus preferencias */
+            left: 60%; /* Ajusta la distancia desde la izquierda según tus preferencias */
+            padding: 10px 20px;
+            background-color: #F0E129;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
         }
+
 
     </style>
 </head>
 
 <body>
 
-    <h2 class="titlep">Play With Maths</h2>
+    <h4 class="ini">Play With <br>Maths</h4>
 
-    <a href="php/registro_usuario.php">
-    <button id="girando" onclick="toggleRotation()">Iniciar sesión</button>
+    <a href="php/registro.php">
+    <button id="girando">Iniciar sesión</button>
     </a>
 
-    <script>
-        let rotating = false;
-
-function toggleRotation() {
-    const button = document.getElementById('girando');
-    
-    rotating = !rotating;
-
-    if (rotating) {
-        button.classList.add('rotating');
-        rotateButton(button);
-    } else {
-        button.classList.remove('rotating');
-    }
-}
-
-function rotateButton(element) {
-    if (rotating) {
-        const currentRotation = parseInt(element.style.transform.replace('rotate(', '').replace('deg)', ''), 10) || 0;
-        const newRotation = currentRotation + 5; // Ajusta la velocidad de rotación aquí
-
-        element.style.transform = `rotate(${newRotation}deg)`;
-
-        setTimeout(() => rotateButton(element), 16); // Llama a la función de nuevo aproximadamente cada 16 ms (60 fps)
-    }
-}
-    </script>
 
 </body>
 </html>

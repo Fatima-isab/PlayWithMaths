@@ -117,12 +117,31 @@ input[type="submit"]:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.btn-salida {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #FF0000;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .btn-salida:hover {
+        background-color: #FFA500;
+    }
+
 
 </style>
 
 <body>
     <h1>Descubriendo las formas</h1>
-    <form action="calificar_examen.php" method="post">
+    <a class="btn-salida" href="../nivel1.php">X</a>
+    <form action="calificar_examen.php" method="post" onsubmit="return validarFormulario();">
         <?php
         $preguntas = array(
             "1" => array(
@@ -235,5 +254,32 @@ input[type="submit"]:hover {
         <input type="submit" value="Enviar Examen">
     </form>
 </body>
+
+<script>
+        function validarFormulario() {
+            var preguntas = <?php echo json_encode(array_keys($preguntas)); ?>;
+            
+            for (var i = 0; i < preguntas.length; i++) {
+                var respuestaSeleccionada = false;
+
+                // Verificar si al menos una opción ha sido seleccionada para cada pregunta
+                var opciones = document.getElementsByName('pregunta' + preguntas[i]);
+                for (var j = 0; j < opciones.length; j++) {
+                    if (opciones[j].checked) {
+                        respuestaSeleccionada = true;
+                        break;
+                    }
+                }
+
+                if (!respuestaSeleccionada) {
+                    alert('Por favor, selecciona una respuesta para la pregunta ' + preguntas[i]);
+                    return false;
+                }
+            }
+
+            return true; // Enviar el formulario si todas las preguntas tienen respuesta
+        }
+    </script>
+
 </html>
 
