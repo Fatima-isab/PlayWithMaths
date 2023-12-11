@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
+
+    header("location: ../php/registro.php");
+    session_destroy();
+    die();
+ }
 
 $servername = "localhost";
 $username = "root";
@@ -174,7 +180,7 @@ $conn->close();
         <svg>
         <polygon points="120,40 200,120 40,200" style="fill:var(--amarillo)" />
         </svg></div>
-        <div class="shape trianguloq" onclick="showInfo('Triángulo Rectangulo')">
+        <div class="shape trianguloq" onclick="showInfo('Triángulo Rectángulo')">
         <svg>
         <polygon points="200,40 200,200 40,200" style="fill:var(--verde)" />
         </svg></div>
@@ -182,8 +188,8 @@ $conn->close();
         <svg>
         <polygon points="120,40 200,200 40,200" style="fill:var(--verdeazulado)" />
         </svg></div>
-        <div class="shape triangulox" onclick="showInfo('Triángulo Equilatero')"></div>
-        <div class="shape trianguloz" onclick="showInfo('Triángulo Equilatero')"></div>  
+        <div class="shape triangulox" onclick="showInfo('Triángulo Equilátero')"></div>
+        <div class="shape trianguloz" onclick="showInfo('Triángulo Equilátero')"></div>  
     </div>
     
     

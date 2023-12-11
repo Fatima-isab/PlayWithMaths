@@ -74,9 +74,7 @@ $conn->close();
     <link rel="shortcut icon" href="assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="/assets/styles/perfil.css">
     <link rel="stylesheet" href="assets/icons/iconos.css">
-</head>
-
-<style>
+    <style>
     :root{
     --amarillo: #F0E129;
     --cafe: #AA8976;
@@ -180,7 +178,14 @@ img.avatar {
     text-decoration: none;
 }
 
+/*.cofre{
+    margin-left: 80%;
+    margin-top: 0;
+}*/
 </style>
+</head>
+
+
 
 <body>
 
@@ -202,9 +207,8 @@ img.avatar {
     </div>
 </div>
 
+
 <div class="container">
-
-
     <ul>
         <li><img src="<?php echo $imagen_avatar; ?>" alt="Avatar"></li>
         <li><strong><?php echo $nombre_usuario; ?></strong></li>
@@ -227,8 +231,11 @@ img.avatar {
     <br>
     <button type="submit" id="btn_avatar">Actualizar Avatar</button>
 </form>
-
 </div>
+
+
+
+
 
 <script>
     // Mostrar la imagen de vista previa del avatar al seleccionar uno

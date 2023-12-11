@@ -1,6 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['usuario'])){
 
+    header("location: ../php/registro.php");
+    session_destroy();
+    die();
+ }
 $servername = "localhost";
 $username = "root";
 $password = "12345678";
@@ -20,7 +25,7 @@ $leccion_id = '4';
 $opciones = array(
     'trapecio' => 'Trapecio',
     'hexagono' => 'Héxagono regular',
-    'semicirculo' => 'Semicirculo',
+    'semicirculo' => 'Semicírculo',
     'hexag' => 'Héxagono irregular',
 );
 
@@ -155,7 +160,7 @@ $conn->close();
         <div class="shape hexagono" onclick="showInfo('Hexagono Regular')"><svg width="200" height="200">
                 <polygon points="60,5 115,34 115,103 60,132 5,103 5,34" style="fill:red" />
             </svg></div>
-        <div class="shape semicirculo" onclick="showInfo('Semicirculo')"></div>
+        <div class="shape semicirculo" onclick="showInfo('Semicírculo')"></div>
         <div class="shape hexag" onclick="showInfo('Héxagono irregular')"><svg width="200" height="200">
                 <polygon points="80,5 160,43 145,103 60,132 5,103 15,49" style="fill:var(--verdeazulado)" />
             </svg></div>
