@@ -70,6 +70,8 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" href="../assets/img/cara.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../assets/styles/root.css">
     <style>
         body {

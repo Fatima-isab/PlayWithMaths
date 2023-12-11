@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header("location: php/registro_usuario.php");
+    header("location: php/registro.php");
     session_destroy();
     die();
 }
@@ -70,38 +70,132 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Perfil</title>
-    <link rel="stylesheet" href="assets/styles/perfil.css">
+    <link rel="icon" href="assets/img/cara.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/cara.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/styles/perfil.css">
     <link rel="stylesheet" href="assets/icons/iconos.css">
 </head>
 
 <style>
-    .arriba {
+    :root{
+    --amarillo: #F0E129;
+    --cafe: #AA8976;
+    --beige: #F0E2D0;
+    --verde: #70AF85;
+    --verdeazulado: #C6EBC9;
+    --fsizeContenido: 22px;
+    --fsizesubtitulos:26px;
+    
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    background-color: var(--beige);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: var(--beige);
+    border: 1px solid var(--beige);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.arriba {
+    display: flex;
+    align-items: center;
+    background-color: #AA8976;
+}
+
+.profile-header {
+    background-color: var(--cafe);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     display: flex;
     align-items: center;
 }
+
+.profile-header h1 {
+    margin: 0;
+}
+
+.profile-body {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    margin-right: 5px;
+}
+
+img.avatar {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.profile-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#btn_avatar {
+    background-color: var(--cafe); /* Color de fondo */
+    color: 00000; /* Color del texto */
+    padding: 10px 20px; /* Relleno interior */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+#btn_avatar:hover {
+    background-color: var(--cafe); /* Cambiar el color de fondo al pasar por encima */
+}
+
+#btn_avatar1 {
+    background-color: var(--beige); /* Color de fondo */
+    color: 00000; /* Color del texto */
+    padding: 10px 20px; /* Relleno interior */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
 </style>
 
 <body>
 
 <div class="container">
     <div class="profile-header">
-        <h1>Mi Perfil</h1>
-    </div>
-</div>
-
-<div class="arriba">
-
-<a href="principal.php">
-        <span class="icon icon-home" style="font-size: 35px; margin-left: 150%; color: #000000;"></span>
+    <a href="principal.php">
+        <span class="icon icon-home" style="font-size: 35px; margin-left: 150%; color: var(--beige);"></span>
 </a>
 
-<form action="cerrar_sesion.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres cerrar sesión? Podrás iniciar sesión cuando quieras.');">
-        <button type="submit" id="btn_avatar" name="cerrar_sesion" style="margin-left: 1080%;" style="margin-top: 7%;">Cerrar Sesión</button>
+        <h1 style="margin-left: 43%;">Mi Perfil</h1>
+
+        <form action="cerrar_sesion.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres cerrar sesión? Podrás iniciar sesión cuando quieras.');">
+        <button type="submit" id="btn_avatar1" name="cerrar_sesion" style="margin-left: 400%;" style="margin-top: 7%;">Cerrar Sesión</button>
     </form>
 
     <form action="eliminar_perfil.php" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu perfil? Esta acción no se puede deshacer.');">
-        <button type="submit" id="btn_avatar" name="eliminar_perfil" style="margin-left: 1100%;">Eliminar Perfil</button>
+        <button type="submit" id="btn_avatar1" name="eliminar_perfil" style="margin-left: 380%;">Eliminar Perfil</button>
     </form>
+    </div>
 </div>
 
 <div class="container">

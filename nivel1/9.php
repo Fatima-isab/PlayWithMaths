@@ -37,6 +37,8 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuestionario</title>
+    <link rel="icon" href="../assets/img/cara.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/cara.jpg" type="image/x-icon">
 </head>
 <a href="../assets/img/Examenes/Modulo1.1/P1.png"></a>
 <style>
