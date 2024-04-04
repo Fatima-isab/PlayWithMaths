@@ -69,53 +69,28 @@ $conn->close();
     <link rel="icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../../../assets/styles/root.css">
+    <link rel="stylesheet" href="../../../assets/styles/aritmetica_op.css">
 
-    <style>
-        body {
-            text-align: center;
-            margin: 40px;
-            background-color: #fff;
-            background-image: url('../../../assets/img/Fondo_lecciones.jpg');
-            background-size: 100% auto;
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 100vh;
-            background-color: fff;
-
-
-            #arbol {
-                margin-top: -14%;
-                margin-left: 50%;
-            }
-
-            #titulos {
-                margin: 2%;
-                margin-top: 12%;
-                margin-left: -40%;
-            }
-
-            #form {
-                margin-left: -36%;
-                margin-top: -15%;
-            }
-
-            #botones {
-                margin-left: -38%;
-                margin-top: 3%;
-            }
-
-        }
-    </style>
 </head>
 
 <body>
     <h1>Sumemos diversión</h1>
-    <div id=titulos>
-        <h2>Si el árbol tiene 32 plátanos, 5 manzanas y 3 mangos</h2>
-        <h2>¿Cuántas frutas hay en total?</h2>
+
+    <div class="contenedor">
+        <div class="inst visible">El siguiente árbol puede resultar extraño.</div>
+        <div class="inst">Pues tiene 3 frutas a la vez.</div>
+        <div class="inst">Tiene 32 plátanos, 5 manzanas y 3 mangos</div>
+        <div class="inst">¿Cuántas frutas hay en total?</div>
+
+
+        <div class="control">
+            <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
+            <button id="btnSig" onclick="siguiente()" class="boton">Continuar</button>
+        </div>
     </div>
+    
     <div>
-        <img id=arbol src="../../../assets/img/arbol.jpg" alt="" width="400" height="400">
+        <img id=imgLecc src="../../../assets/img/arbol.jpg" alt="" width="360" height="360">
     </div>
 
     <div id=form>
@@ -126,7 +101,7 @@ $conn->close();
                 echo "<label><input type='radio' name='respuesta' value='$value' required>$label</label>";
             }
             ?>
-            <button type="submit">Responder</button>
+            <button class="boton" type="submit">Responder</button>
         </form>
     </div>
 
@@ -134,13 +109,16 @@ $conn->close();
 
     <div id=botones>
         <a href="../ao_nivel 1.php">
-            <button>Salir</button>
+            <button class="boton">Salir</button>
         </a>
 
         <a href="../ao_nivel 1/ao1_2.php">
-            <button>Siguiente</button>
+            <button class="boton">Siguiente</button>
         </a>
     </div>
+
+    <script src="../../../assets/scripts/aritmetica_op.js"></script>
+    
 </body>
 
 </html>

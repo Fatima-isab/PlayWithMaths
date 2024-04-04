@@ -20,22 +20,22 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '42';
+$leccion_id = '54';
 
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    '200' => '200',
-    '400' => '400',
-    '600' => '600',
-    '800' => '800',
-    '500' => '500'
+    '8' => '8 goles',
+    '2' => '2 goles',
+    '4' => '4 goles',
+    '3' => '3 goles',
+    '1' => '1 gol'
 );
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = '600'; // Definir la respuesta correcta
+    $respuesta_correcta = '4'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
@@ -74,13 +74,17 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Sumemos diversión</h1>
+    <h1>Restando en acción</h1>
 
     <div class="contenedor">
-        <div class="inst visible">Marco necesita comprar una mochila y fue a la papelería.</div>
-        <div class="inst">Cuando llegó vio un balón que le gustó mucho.</div>
-        <div class="inst">Decidió comprar las dos cosas</div>
-        <div class="inst">¿Cuánto dinero gastará Marco?</div>
+    <div class="inst visible">El equipo de Jorge quiere ganar la final de futbol.</div>
+        <div class="inst">La final se juega en dos partidos,</div>
+        <div class="inst">el equipo ganador será el que sume más goles en total,</div>
+        <div class="inst">el equipo contrario lleva 7 goles en total.</div>
+        <div class="inst">En el primer partido el quipo de Jorge anotó 3 goles,</div>
+        <div class="inst">en este partdio lleva solamente 1 gol.</div>
+        <div class="inst">Si el equipo contrario no anota más goles.</div>
+        <div class="inst">¿Cuántos goles le faltan al equipo de Jorge para ganar?</div>
 
         <div class="control">
             <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
@@ -91,7 +95,7 @@ $conn->close();
 
 
     <div>
-        <img id="imgLecc" src="../../../assets/img/papeleria.jpg" alt="" width="360" height="360">
+        <img id="imgLecc" src="../../../assets/img/futbol.jpg" alt="" width="360" height="360">
     </div>
 
     <div id=form>
@@ -109,15 +113,15 @@ $conn->close();
 
 
     <div id=botones>
-        <a href="../ao_nivel 1/ao1_1.php">
+        <a href="../ao_nivel 2/ao2_3.php">
             <button class="boton">Anterior</button>
         </a>
 
-        <a href="../ao_nivel 1/ao1_3.php">
+        <a href="../ao_nivel 2/ao2_5.php">
             <button class="boton">Siguiente</button>
         </a>
 
-        <a href="../ao_nivel 1.php">
+        <a href="../ao_nivel 2.php">
             <button class="boton">Salir</button>
         </a>
     </div>

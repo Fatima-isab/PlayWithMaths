@@ -20,22 +20,22 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '42';
+$leccion_id = '53';
 
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    '200' => '200',
-    '400' => '400',
-    '600' => '600',
-    '800' => '800',
-    '500' => '500'
+    '52' => '52',
+    '52' => '54',
+    '48' => '48',
+    '42' => '42',
+    '35' => '35'
 );
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = '600'; // Definir la respuesta correcta
+    $respuesta_correcta = '48'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
@@ -74,13 +74,13 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Sumemos diversión</h1>
+    <h1>Restando en acción</h1>
 
     <div class="contenedor">
-        <div class="inst visible">Marco necesita comprar una mochila y fue a la papelería.</div>
-        <div class="inst">Cuando llegó vio un balón que le gustó mucho.</div>
-        <div class="inst">Decidió comprar las dos cosas</div>
-        <div class="inst">¿Cuánto dinero gastará Marco?</div>
+    <div class="inst visible">Paola está esperando a su amiga Atziri</div>
+        <div class="inst">Atziri llegará a las 4:30 pm</div>
+        <div class="inst">Cuando Paola ve el reloj, son las 3:42 pm</div>
+        <div class="inst">¿Cuántos minutos faltan para que llegue Atziri?</div>
 
         <div class="control">
             <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
@@ -91,7 +91,7 @@ $conn->close();
 
 
     <div>
-        <img id="imgLecc" src="../../../assets/img/papeleria.jpg" alt="" width="360" height="360">
+        <img id="imgLecc" src="../../../assets/img/reloj.jpg" alt="" width="360" height="360">
     </div>
 
     <div id=form>
@@ -109,15 +109,15 @@ $conn->close();
 
 
     <div id=botones>
-        <a href="../ao_nivel 1/ao1_1.php">
+        <a href="../ao_nivel 2/ao2_2.php">
             <button class="boton">Anterior</button>
         </a>
 
-        <a href="../ao_nivel 1/ao1_3.php">
+        <a href="../ao_nivel 2/ao2_4.php">
             <button class="boton">Siguiente</button>
         </a>
 
-        <a href="../ao_nivel 1.php">
+        <a href="../ao_nivel 2.php">
             <button class="boton">Salir</button>
         </a>
     </div>

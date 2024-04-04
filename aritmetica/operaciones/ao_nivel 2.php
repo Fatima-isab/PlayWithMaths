@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
 // Verificar si el usuario ya ha completado la lección
 $id_usuario = $_SESSION['id_usuario'];
-$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '41'";
+$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '51'";
 $result = $conn->query($query_verificar_completada);
 if ($result->num_rows == 0) {
     $circleColor = "var(--verdeazulado)";
@@ -24,7 +24,7 @@ if ($result->num_rows == 0) {
     $circleColor = "var(--verde)";
 }
 
-$query_verificar_completada2 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '42'";
+$query_verificar_completada2 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '52'";
 $result2 = $conn->query($query_verificar_completada2);
 if ($result2->num_rows == 0) {
     $circleColor2 = "var(--verdeazulado)";
@@ -32,7 +32,7 @@ if ($result2->num_rows == 0) {
     $circleColor2 = "var(--verde)";
 }
 
-$query_verificar_completada3 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '43'";
+$query_verificar_completada3 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '53'";
 $result3 = $conn->query($query_verificar_completada3);
 if ($result3->num_rows == 0) {
     $circleColor3 = "var(--verdeazulado)";
@@ -40,7 +40,7 @@ if ($result3->num_rows == 0) {
     $circleColor3 = "var(--verde)";
 }
 
-$query_verificar_completada4 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '44'";
+$query_verificar_completada4 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '54'";
 $result4 = $conn->query($query_verificar_completada4);
 if ($result4->num_rows == 0) {
     $circleColor4 = "var(--verdeazulado)";
@@ -49,7 +49,7 @@ if ($result4->num_rows == 0) {
 }
 
 
-$query_verificar_completada5 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '45'";
+$query_verificar_completada5 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '55'";
 $result5 = $conn->query($query_verificar_completada5);
 if ($result5->num_rows == 0) {
     $circleColor5 = "var(--verdeazulado)";
@@ -57,7 +57,7 @@ if ($result5->num_rows == 0) {
     $circleColor5 = "var(--verde)";
 }
 
-$query_verificar_completada6 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '46'";
+$query_verificar_completada6 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '56'";
 $result6 = $conn->query($query_verificar_completada6);
 if ($result6->num_rows == 0) {
     $circleColor6 = "var(--verdeazulado)";
@@ -65,7 +65,7 @@ if ($result6->num_rows == 0) {
     $circleColor6 = "var(--verde)";
 }
 
-$query_verificar_completada7 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '47'";
+$query_verificar_completada7 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '57'";
 $result7 = $conn->query($query_verificar_completada7);
 if ($result7->num_rows == 0) {
     $circleColor7 = "var(--verdeazulado)";
@@ -73,7 +73,7 @@ if ($result7->num_rows == 0) {
     $circleColor7 = "var(--verde)";
 }
 
-$query_verificar_completada8 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '48'";
+$query_verificar_completada8 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '58'";
 $result8 = $conn->query($query_verificar_completada8);
 if ($result8->num_rows == 0) {
     $circleColor8 = "var(--verdeazulado)";
@@ -101,7 +101,7 @@ if ($result_calificacion->num_rows > 0) {
     }
 } else {
     // Si no hay calificación, asignar un color por defecto
-    $circleColor9 = "var(--verdeazulado)";
+    $circleColor9 = "var(--verdeazulado)"; 
 }
 
 
@@ -297,37 +297,37 @@ $conn->close();
         <a href="../../principal.php">
             <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; margin-top:80%; color: var(--cafe);"></span>
         </a>
-        <h2 class="title">Sumemos diversión</h2>
+        <h2 class="title">Restando en acción</h2>
     </div>
 
     <div class="circle-container">
-        <a href="./ao_nivel 1/ao1_1.php">
+        <a href="./ao_nivel 2/ao2_1.php">
             <div class="circle1"><span>1</span></div>
         </a>
-        <a href="./ao_nivel 1/ao1_2.php">
+        <a href="./ao_nivel 2/ao2_2.php">
             <div class="circle2"><span>2</span></div>
         </a>
-        <a href="./ao_nivel 1/ao1_3.php">
+        <a href="./ao_nivel 2/ao2_3.php">
             <div class="circle3"><span>3</span></div>
         </a>
         <br>
-        <a href="./ao_nivel 1/ao1_4.php">
+        <a href="./ao_nivel 2/ao2_4.php">
             <div class="circle4"><span>4</span></div>
         </a>
-        <a href="./ao_nivel 1/ao1_5.php">
+        <a href="./ao_nivel 2/ao2_5.php">
             <div class="circle5"><span>5</span></div>
         </a>
-        <a href="./ao_nivel 1/ao1_6.php">
+        <a href="./ao_nivel 2/ao2_6.php">
             <div class="circle6"><span>6</span></div>
         </a>
         <br>
-        <a href="./ao_nivel 1/ao1_7.php">
+        <a href="./ao_nivel 2/ao2_7.php">
             <div class="circle7"><span>7</span></div>
         </a>
-        <a href="./ao_nive 1/ao1_8">
+        <a href="./ao_nive 2/ao2_8">
             <div class="circle8"><span>8</span></div>
         </a>
-        <a href="./ao_nivel 1/ao1_9.php">
+        <a href="./ao_nivel 2/ao2_9.php">
             <div class="circle9"><span>9</span></div>
         </a>
     </div>

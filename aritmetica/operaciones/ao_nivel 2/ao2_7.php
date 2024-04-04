@@ -20,22 +20,21 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '42';
+$leccion_id = '57';
 
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    '200' => '200',
-    '400' => '400',
-    '600' => '600',
-    '800' => '800',
-    '500' => '500'
+    '+2' => 'Sí, y sobrarán $2',
+    '-2' => 'No, faltan $2',
+    '0' => 'Sí, no sobra ni falta',
+    '-10' => 'No, faltan 10 pesos'
 );
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = '600'; // Definir la respuesta correcta
+    $respuesta_correcta = '+2'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
@@ -74,13 +73,16 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Sumemos diversión</h1>
+    <h1>Restando en acción</h1>
 
     <div class="contenedor">
-        <div class="inst visible">Marco necesita comprar una mochila y fue a la papelería.</div>
-        <div class="inst">Cuando llegó vio un balón que le gustó mucho.</div>
-        <div class="inst">Decidió comprar las dos cosas</div>
-        <div class="inst">¿Cuánto dinero gastará Marco?</div>
+    <div class="inst visible">Antonio fue con su mamá al super,</div>
+        <div class="inst">y decidió comprar un juguete,</div>
+        <div class="inst">le gustó un peluche que cuesta $237.</div>
+        <div class="inst">Él cuenta con 450 pesos.</div>
+        <div class="inst">Más adelante encuentra un avión que le gusta,</div>
+        <div class="inst">y también lo quiere compar, el avión cuesta $211.</div>
+        <div class="inst">¿Antonio podrá comprar las dos cosas?</div>
 
         <div class="control">
             <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
@@ -91,7 +93,7 @@ $conn->close();
 
 
     <div>
-        <img id="imgLecc" src="../../../assets/img/papeleria.jpg" alt="" width="360" height="360">
+        <img id="imgLecc" src="../../../assets/img/juguetes.jpg" alt="" width="360" height="360">
     </div>
 
     <div id=form>
@@ -109,15 +111,15 @@ $conn->close();
 
 
     <div id=botones>
-        <a href="../ao_nivel 1/ao1_1.php">
+        <a href="../ao_nivel 2/ao2_6.php">
             <button class="boton">Anterior</button>
         </a>
 
-        <a href="../ao_nivel 1/ao1_3.php">
+        <a href="../ao_nivel 2/ao2_8.php">
             <button class="boton">Siguiente</button>
         </a>
 
-        <a href="../ao_nivel 1.php">
+        <a href="../ao_nivel 2.php">
             <button class="boton">Salir</button>
         </a>
     </div>

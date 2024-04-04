@@ -20,22 +20,22 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '42';
+$leccion_id = '51';
 
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    '200' => '200',
-    '400' => '400',
-    '600' => '600',
-    '800' => '800',
-    '500' => '500'
+    '3' => '3',
+    '6' => '6',
+    '7' => '7',
+    '21' => '21',
+    '12' => '12'
 );
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = '600'; // Definir la respuesta correcta
+    $respuesta_correcta = '7'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
@@ -74,13 +74,14 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Sumemos diversión</h1>
+    <h1>Restando en acción</h1>
 
     <div class="contenedor">
-        <div class="inst visible">Marco necesita comprar una mochila y fue a la papelería.</div>
-        <div class="inst">Cuando llegó vio un balón que le gustó mucho.</div>
-        <div class="inst">Decidió comprar las dos cosas</div>
-        <div class="inst">¿Cuánto dinero gastará Marco?</div>
+        <div class="inst visible">Alonso trata de conseguir 40 puntos al lanzar el balón</div>
+        <div class="inst">Si anota de cerca vale 1 punto, si anota de lejos 3 puntos</div>
+        <div class="inst">Ya anotó 12 tiros de cerca y 7 de lejos</div>
+        <div class="inst">Él decidió que ahora solo tirará de cerca</div>
+        <div class="inst">¿Cuátas veces debe anotar para conseguir los 40 puntos?</div>
 
         <div class="control">
             <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
@@ -91,7 +92,7 @@ $conn->close();
 
 
     <div>
-        <img id="imgLecc" src="../../../assets/img/papeleria.jpg" alt="" width="360" height="360">
+        <img id="imgLecc" src="../../../assets/img/baloncesto.jpg" alt="" width="360" height="360">
     </div>
 
     <div id=form>
@@ -107,19 +108,16 @@ $conn->close();
     </div>
 
 
-
     <div id=botones>
-        <a href="../ao_nivel 1/ao1_1.php">
-            <button class="boton">Anterior</button>
-        </a>
+    <a href="../ao_nivel 2.php">
+        <button class="boton">Salir</button>
+    </a>
 
-        <a href="../ao_nivel 1/ao1_3.php">
-            <button class="boton">Siguiente</button>
-        </a>
+    <a href="../ao_nivel 2/ao2_2.php">
+        <button class="boton">Siguiente</button>
+    </a>
 
-        <a href="../ao_nivel 1.php">
-            <button class="boton">Salir</button>
-        </a>
+
     </div>
 
     <script src="../../../assets/scripts/aritmetica_op.js"></script>
