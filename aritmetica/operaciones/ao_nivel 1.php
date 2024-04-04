@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
 // Verificar si el usuario ya ha completado la lección
 $id_usuario = $_SESSION['id_usuario'];
-$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '31'";
+$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '41'";
 $result = $conn->query($query_verificar_completada);
 if ($result->num_rows == 0) {
     $circleColor = "var(--verdeazulado)";
@@ -24,7 +24,7 @@ if ($result->num_rows == 0) {
     $circleColor = "var(--verde)";
 }
 
-$query_verificar_completada2 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '32'";
+$query_verificar_completada2 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '42'";
 $result2 = $conn->query($query_verificar_completada2);
 if ($result2->num_rows == 0) {
     $circleColor2 = "var(--verdeazulado)";
@@ -32,7 +32,7 @@ if ($result2->num_rows == 0) {
     $circleColor2 = "var(--verde)";
 }
 
-$query_verificar_completada3 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '33'";
+$query_verificar_completada3 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '43'";
 $result3 = $conn->query($query_verificar_completada3);
 if ($result3->num_rows == 0) {
     $circleColor3 = "var(--verdeazulado)";
@@ -40,7 +40,7 @@ if ($result3->num_rows == 0) {
     $circleColor3 = "var(--verde)";
 }
 
-$query_verificar_completada4 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '34'";
+$query_verificar_completada4 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '44'";
 $result4 = $conn->query($query_verificar_completada4);
 if ($result4->num_rows == 0) {
     $circleColor4 = "var(--verdeazulado)";
@@ -49,7 +49,7 @@ if ($result4->num_rows == 0) {
 }
 
 
-$query_verificar_completada5 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '35'";
+$query_verificar_completada5 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '45'";
 $result5 = $conn->query($query_verificar_completada5);
 if ($result5->num_rows == 0) {
     $circleColor5 = "var(--verdeazulado)";
@@ -57,7 +57,7 @@ if ($result5->num_rows == 0) {
     $circleColor5 = "var(--verde)";
 }
 
-$query_verificar_completada6 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '36'";
+$query_verificar_completada6 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '46'";
 $result6 = $conn->query($query_verificar_completada6);
 if ($result6->num_rows == 0) {
     $circleColor6 = "var(--verdeazulado)";
@@ -65,7 +65,7 @@ if ($result6->num_rows == 0) {
     $circleColor6 = "var(--verde)";
 }
 
-$query_verificar_completada7 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '37'";
+$query_verificar_completada7 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '47'";
 $result7 = $conn->query($query_verificar_completada7);
 if ($result7->num_rows == 0) {
     $circleColor7 = "var(--verdeazulado)";
@@ -73,7 +73,7 @@ if ($result7->num_rows == 0) {
     $circleColor7 = "var(--verde)";
 }
 
-$query_verificar_completada8 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '38'";
+$query_verificar_completada8 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '48'";
 $result8 = $conn->query($query_verificar_completada8);
 if ($result8->num_rows == 0) {
     $circleColor8 = "var(--verdeazulado)";
@@ -101,7 +101,7 @@ if ($result_calificacion->num_rows > 0) {
     }
 } else {
     // Si no hay calificación, asignar un color por defecto
-    $circleColor9 = "var(--verdeazulado)"; 
+    $circleColor9 = "var(--verdeazulado)"; // Cambia esto con el color deseado por defecto
 }
 
 
@@ -118,10 +118,10 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play With Maths</title>
-    <link rel="icon" href="assets/img/cara.jpg" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/img/cara.jpg" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
-    <link rel="stylesheet" href="assets/icons/iconos.css">
+    <link rel="icon" href="../../assets/img/cara.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/img/cara.jpg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/style.css">
+    <link rel="stylesheet" href="../../assets/icons/iconos.css">
     <style>
         :root {
             --amarillo: #F0E129;
@@ -137,7 +137,7 @@ $conn->close();
         }
 
         body {
-            background-image: url('assets/img/Fondo_mejorado.jpg');
+            background-image: url('../../assets/img/Fondo_mejorado.jpg');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center;
@@ -158,7 +158,7 @@ $conn->close();
         .title {
             margin-left: 30%;
             font-size: 50px;
-            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: red;
         }
 
@@ -187,7 +187,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000000;
+            color: #000000;
         }
 
         .circle2 {
@@ -198,7 +198,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .circle3 {
@@ -209,7 +209,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .circle4 {
@@ -220,7 +220,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .circle5 {
@@ -231,7 +231,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .circle6 {
@@ -242,7 +242,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .circle7 {
@@ -253,7 +253,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .circle8 {
@@ -264,7 +264,7 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .circle9 {
@@ -275,59 +275,59 @@ $conn->close();
             display: inline-block;
             margin: 25px;
             position: relative;
-            color:#000;
+            color: #000;
         }
 
         .icon {
-        text-decoration: none; 
-        display: inline-block; 
-        border-radius: 50%;
-        overflow: hidden; 
-        width: 60px; 
-        height: 60px;
-        background-color: var(--beige); 
-        text-align: center;
-        align-items: center;
-    }
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            background-color: var(--beige);
+            text-align: center;
+            align-items: center;
+        }
     </style>
 </head>
 
 <body>
     <div class="arriba">
-        <a href="principal.php">
+        <a href="../../principal.php">
             <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; margin-top:80%; color: var(--cafe);"></span>
         </a>
-        <h2 class="title">Descubriendo las formas</h2>
+        <h2 class="title">Sumemos diversión</h2>
     </div>
 
     <div class="circle-container">
-        <a href="./nivel1/1.php">
+        <a href="./ao_nivel 1/ao1_1.php">
             <div class="circle1"><span>1</span></div>
         </a>
-        <a href="./nivel1/2.php">
+        <a href="./ao_nivel 1/ao1_2.php">
             <div class="circle2"><span>2</span></div>
         </a>
-        <a href="./nivel1/3.php">
+        <a href="./ao_nivel 1/ao1_3.php">
             <div class="circle3"><span>3</span></div>
         </a>
         <br>
-        <a href="./nivel1/4.php">
+        <a href="./ao_nivel 1/ao1_4.php">
             <div class="circle4"><span>4</span></div>
         </a>
-        <a href="./nivel1/5.php">
+        <a href="./ao_nivel 1/ao1_5.php">
             <div class="circle5"><span>5</span></div>
         </a>
-        <a href="./nivel1/6.php">
+        <a href="./ao_nivel 1/ao1_6.php">
             <div class="circle6"><span>6</span></div>
         </a>
         <br>
-        <a href="./nivel1/7.php">
+        <a href="./ao_nivel 1/ao1_7.php">
             <div class="circle7"><span>7</span></div>
         </a>
-        <a href="./nivel1/8.php">
+        <a href="./ao_nive 1/ao_8">
             <div class="circle8"><span>8</span></div>
         </a>
-        <a href="./nivel1/9.php">
+        <a href="./ao_nivel 1/ao1_9.php">
             <div class="circle9"><span>9</span></div>
         </a>
     </div>
