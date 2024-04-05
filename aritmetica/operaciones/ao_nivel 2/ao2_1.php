@@ -92,7 +92,7 @@ $conn->close();
 
 
     <div>
-        <img id="imgLecc" src="../../../assets/img/baloncesto.jpg" alt="" width="360" height="360">
+        <img class="imgLecc" src="../../../assets/img/baloncesto.jpg" alt="" width="360" height="360">
     </div>
 
     <div id=form>
