@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '65';
+$leccion_id = '195';
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {

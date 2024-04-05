@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '34';
+$leccion_id = '14';
 
 // Definir las opciones de la pregunta
 $opciones = array(

@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
 // Verificar si el usuario ya ha completado la lección
 $id_usuario = $_SESSION['id_usuario'];
-$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '41'";
+$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '171'";
 $result = $conn->query($query_verificar_completada);
 if ($result->num_rows == 0) {
     $circleColor = "var(--verdeazulado)";
@@ -24,7 +24,7 @@ if ($result->num_rows == 0) {
     $circleColor = "var(--verde)";
 }
 
-$query_verificar_completada2 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '42'";
+$query_verificar_completada2 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '172'";
 $result2 = $conn->query($query_verificar_completada2);
 if ($result2->num_rows == 0) {
     $circleColor2 = "var(--verdeazulado)";
@@ -32,7 +32,7 @@ if ($result2->num_rows == 0) {
     $circleColor2 = "var(--verde)";
 }
 
-$query_verificar_completada3 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '43'";
+$query_verificar_completada3 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '173'";
 $result3 = $conn->query($query_verificar_completada3);
 if ($result3->num_rows == 0) {
     $circleColor3 = "var(--verdeazulado)";
@@ -40,7 +40,7 @@ if ($result3->num_rows == 0) {
     $circleColor3 = "var(--verde)";
 }
 
-$query_verificar_completada4 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '44'";
+$query_verificar_completada4 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '174'";
 $result4 = $conn->query($query_verificar_completada4);
 if ($result4->num_rows == 0) {
     $circleColor4 = "var(--verdeazulado)";
@@ -49,7 +49,7 @@ if ($result4->num_rows == 0) {
 }
 
 
-$query_verificar_completada5 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '45'";
+$query_verificar_completada5 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '175'";
 $result5 = $conn->query($query_verificar_completada5);
 if ($result5->num_rows == 0) {
     $circleColor5 = "var(--verdeazulado)";
@@ -57,7 +57,7 @@ if ($result5->num_rows == 0) {
     $circleColor5 = "var(--verde)";
 }
 
-$query_verificar_completada6 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '46'";
+$query_verificar_completada6 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '176'";
 $result6 = $conn->query($query_verificar_completada6);
 if ($result6->num_rows == 0) {
     $circleColor6 = "var(--verdeazulado)";
@@ -65,7 +65,7 @@ if ($result6->num_rows == 0) {
     $circleColor6 = "var(--verde)";
 }
 
-$query_verificar_completada7 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '47'";
+$query_verificar_completada7 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '177'";
 $result7 = $conn->query($query_verificar_completada7);
 if ($result7->num_rows == 0) {
     $circleColor7 = "var(--verdeazulado)";
@@ -73,7 +73,7 @@ if ($result7->num_rows == 0) {
     $circleColor7 = "var(--verde)";
 }
 
-$query_verificar_completada8 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '48'";
+$query_verificar_completada8 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '178'";
 $result8 = $conn->query($query_verificar_completada8);
 if ($result8->num_rows == 0) {
     $circleColor8 = "var(--verdeazulado)";
