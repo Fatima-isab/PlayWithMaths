@@ -35,4 +35,65 @@ function fillCell(cell) {
             }
         }
 
-    
+/////////////////////////////////////////////////
+let touchX, touchY;
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drag(event) {
+    event.dataTransfer.setData("text/plain", event.target.id);
+}
+
+function dragEnter(event) {
+    event.target.classList.add("hover");
+}
+
+function dragLeave(event) {
+    event.target.classList.remove("hover");
+}
+
+function drop(event) {
+    event.preventDefault();
+    event.target.classList.remove("hover");
+
+    const droppedShapeId = event.dataTransfer.getData("text/plain");
+    const dropzone = event.target;
+
+    if (droppedShapeId === "correcto") {
+        dropzone.innerHTML = "¡Correcto!";
+    } else {
+        dropzone.innerHTML = "¡Incorrecto!";
+    }
+}
+
+function touchStart(event) {
+    const touch = event.touches[0];
+    touchX = touch.clientX;
+    touchY = touch.clientY;
+}
+
+function touchMove(event) {
+    event.preventDefault();
+}
+
+function touchEnd(event) {
+    const dropzone = document.getElementById("dropzone");
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchX;
+    const deltaY = touch.clientY - touchY;
+
+    if (Math.abs(deltaX) < 10 && Math.abs(deltaY) < 10) {
+        
+        const targetShape = event.target.closest(".shape");
+        if (targetShape) {
+            const droppedShapeId = targetShape.id;
+            if (droppedShapeId === "correcto") {
+                dropzone.innerHTML = "¡Correcto!";
+            } else {
+                dropzone.innerHTML = "¡Incorrecto!";
+            }
+        }
+    }
+}

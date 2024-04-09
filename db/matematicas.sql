@@ -113,76 +113,76 @@ ON DELETE CASCADE
 ON UPDATE CASCADE;
 
 INSERT INTO modulos (id_modulo, nombre_modulo, descripcion_modulo) VALUES
-('1', 'Descubriendo las formas', ' En este modulo el niño practica las figuras geometricas desde el inicio'),
-('2', 'Nombre leccion', ' En este modulo el niño practica '),
-('3', 'Nombre leccion', ' En este modulo el niño practica '),
-('4', 'Nombre leccion', ' En este modulo el niño practica '),
-('5', 'Nombre leccion', ' En este modulo el niño practica '),
-('6', 'Nombre leccion', ' En este modulo el niño practica '),
-('7', 'Nombre leccion', ' En este modulo el niño practica '),
-('8', 'Nombre leccion', ' En este modulo el niño practica '),
-('9', 'Nombre leccion', ' En este modulo el niño practica '),
-('10', 'Nombre leccion', ' En este modulo el niño practica '),
-('11', 'Nombre leccion', ' En este modulo el niño practica '),
-('12', 'Nombre leccion', ' En este modulo el niño practica '),
-('13', 'Nombre leccion', ' En este modulo el niño practica '),
-('14', 'Nombre leccion', ' En este modulo el niño practica '),
-('15', 'Nombre leccion', ' En este modulo el niño practica '),
-('16', 'Nombre leccion', ' En este modulo el niño practica ');
+('1', 'Descubriendo las formas', ' En este módulo el niño practica las figuras geométricas desde el inicio');
+('2', 'Nombre leccion', ' En este módulo el niño practica '),
+('3', 'Nombre leccion', ' En este módulo el niño practica '),
+('4', 'Nombre leccion', ' En este módulo el niño practica '),
+('5', 'Nombre leccion', ' En este módulo el niño practica '),
+('6', 'Nombre leccion', ' En este módulo el niño practica '),
+('7', 'Nombre leccion', ' En este módulo el niño practica '),
+('8', 'Nombre leccion', ' En este módulo el niño practica '),
+('9', 'Nombre leccion', ' En este módulo el niño practica '),
+('10', 'Nombre leccion', ' En este módulo el niño practica '),
+('11', 'Nombre leccion', ' En este módulo el niño practica '),
+('12', 'Nombre leccion', ' En este módulo el niño practica '),
+('13', 'Nombre leccion', ' En este módulo el niño practica '),
+('14', 'Nombre leccion', ' En este módulo el niño practica '),
+('15', 'Nombre leccion', ' En este módulo el niño practica '),
+('16', 'Nombre leccion', ' En este módulo el niño practica ');
 
 INSERT INTO modulos (id_modulo, nombre_modulo, descripcion_modulo) VALUES
-('17', 'Sumemos diversion', ' En este modulo el niño practica la suma'),
-('18', 'Restando en accion', ' En este modulo el niño practica la resta'),
-('19', 'Explorando las tablas', ' En este modulo el niño practica las tablas de multiplicar');
-('20', 'Nombre leccion', ' En este modulo el niño practica ')
-('21', 'Nombre leccion', ' En este modulo el niño practica ')
-('22', 'Nombre leccion', ' En este modulo el niño practica ')
-('23', 'Nombre leccion', ' En este modulo el niño practica ')
-('24', 'Nombre leccion', ' En este modulo el niño practica ')
-('25', 'Nombre leccion', ' En este modulo el niño practica ')
-('16', 'Nombre leccion', ' En este modulo el niño practica ')
-('27', 'Nombre leccion', ' En este modulo el niño practica ')
-('28', 'Nombre leccion', ' En este modulo el niño practica ')
-('29', 'Nombre leccion', ' En este modulo el niño practica ')
-('30', 'Nombre leccion', ' En este modulo el niño practica ')
-('31', 'Nombre leccion', ' En este modulo el niño practica ')
-('32', 'Nombre leccion', ' En este modulo el niño practica ');
+('17', 'Sumemos diversion', ' En este módulo el niño practica la suma'),
+('18', 'Restando en accion', ' En este módulo el niño practica la resta'),
+('19', 'Explorando las tablas', ' En este módulo el niño practica las tablas de multiplicar'),
+('20', 'La magia de multiplicar', ' En este módulo el niño practica la multiplicación');
+('21', 'Nombre leccion', ' En este módulo el niño practica ')
+('22', 'Nombre leccion', ' En este módulo el niño practica ')
+('23', 'Nombre leccion', ' En este módulo el niño practica ')
+('24', 'Nombre leccion', ' En este módulo el niño practica ')
+('25', 'Nombre leccion', ' En este módulo el niño practica ')
+('16', 'Nombre leccion', ' En este módulo el niño practica ')
+('27', 'Nombre leccion', ' En este módulo el niño practica ')
+('28', 'Nombre leccion', ' En este módulo el niño practica ')
+('29', 'Nombre leccion', ' En este módulo el niño practica ')
+('30', 'Nombre leccion', ' En este módulo el niño practica ')
+('31', 'Nombre leccion', ' En este módulo el niño practica ')
+('32', 'Nombre leccion', ' En este módulo el niño practica ');
 
 
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
-('11','1', 'Leccion 1, Modulo descubriendo las formas'),
-('12','1', 'Leccion 2, Modulo descubriendo las formas'),
-('13','1', 'Leccion 3, Modulo descubriendo las formas'),
-('14','1', 'Leccion 4, Modulo descubriendo las formas'),
-('15','1', 'Leccion 5, Modulo descubriendo las formas'),
-('16','1', 'Leccion 6, Modulo descubriendo las formas'),
-('17','1', 'Leccion 7, Modulo descubriendo las formas'),
-('18','1', 'Leccion 8, Modulo descubriendo las formas'),
-('19','1', 'Examen, Modulo descubriendo las formas');
+('11','1', 'Leccion 1, módulo descubriendo las formas'),
+('12','1', 'Leccion 2, módulo descubriendo las formas'),
+('13','1', 'Leccion 3, módulo descubriendo las formas'),
+('14','1', 'Leccion 4, módulo descubriendo las formas'),
+('15','1', 'Leccion 5, módulo descubriendo las formas'),
+('16','1', 'Leccion 6, módulo descubriendo las formas'),
+('17','1', 'Leccion 7, módulo descubriendo las formas'),
+('18','1', 'Leccion 8, módulo descubriendo las formas'),
+('19','1', 'Examen, módulo descubriendo las formas');
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
-('171','17', 'Leccion 1, Modulo sumando diversion'),
-('172','17', 'Leccion 2, Modulo sumando diversion'),
-('173','17', 'Leccion 3, Modulo sumando diversion'),
-('174','17', 'Leccion 4, Modulo sumando diversion'),
-('175','17', 'Leccion 5, Modulo sumando diversion'),
-('176','17', 'Leccion 6, Modulo sumando diversion'),
-('177','17', 'Leccion 7, Modulo sumando diversion'),
-('178','17', 'Leccion 8, Modulo sumando diversion'),
-('179','17', 'Examen, Modulo sumando diversion')
+('171','17', 'Leccion 1, módulo sumemos diversión'),
+('172','17', 'Leccion 2, módulo sumemos diversión'),
+('173','17', 'Leccion 3, módulo sumemos diversión'),
+('174','17', 'Leccion 4, módulo sumemos diversión'),
+('175','17', 'Leccion 5, módulo sumemos diversión'),
+('176','17', 'Leccion 6, módulo sumemos diversión'),
+('177','17', 'Leccion 7, módulo sumemos diversión'),
+('178','17', 'Leccion 8, módulo sumemos diversión'),
+('179','17', 'Examen, módulo sumemos diversion')
 ;
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
-('181','18', 'Leccion 1, Modulo restando en accion'),
-('182','18', 'Leccion 2, Modulo restando en accion'),
-('183','18', 'Leccion 3, Modulo restando en accion'),
-('184','18', 'Leccion 4, Modulo restando en accion'),
-('185','18', 'Leccion 5, Modulo restando en accion'),
-('186','18', 'Leccion 6, Modulo restando en accion'),
-('187','18', 'Leccion 7, Modulo restando en accion'),
-('188','18', 'Leccion 8, Modulo restando en accion'),
-('188','18', 'Examen, Modulo restando en accion')
+('181','18', 'Leccion 1, módulo restando en acción'),
+('182','18', 'Leccion 2, módulo restando en acción'),
+('183','18', 'Leccion 3, módulo restando en acción'),
+('184','18', 'Leccion 4, módulo restando en acción'),
+('185','18', 'Leccion 5, módulo restando en acción'),
+('186','18', 'Leccion 6, módulo restando en acción'),
+('187','18', 'Leccion 7, módulo restando en acción'),
+('188','18', 'Leccion 8, módulo restando en acción'),
+('189','18', 'Examen, módulo restando en acción')
 ;
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
@@ -195,5 +195,17 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('197','19', 'Leccion 7, Explorando las tablas'),
 ('198','19', 'Leccion 8, Explorando las tablas'),
 ('199','19', 'Examen, Explorando las tablas')
+;
+
+INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
+('201','20', 'Leccion 1, La magia de multiplicar'),
+('202','20', 'Leccion 2, La magia de multiplicar'),
+('203','20', 'Leccion 3, La magia de multiplicar'),
+('204','20', 'Leccion 4, La magia de multiplicar'),
+('205','20', 'Leccion 5, La magia de multiplicar'),
+('206','20', 'Leccion 19,La magia de multiplicar'),
+('207','20', 'Leccion 7, La magia de multiplicar'),
+('208','20', 'Leccion 8, La magia de multiplicar'),
+('209','20', 'Examen, La magia de multiplicar')
 ;
 
