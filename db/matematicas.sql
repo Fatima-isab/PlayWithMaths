@@ -39,30 +39,16 @@ CREATE TABLE IF NOT EXISTS lecciones (
   ON UPDATE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS examen (
-  id_examen INT AUTO_INCREMENT,
-  id_modulo INT,
-  titulo_examen VARCHAR(200),
-  PRIMARY KEY (id_examen),
-  FOREIGN KEY (id_modulo) REFERENCES Modulos (id_modulo)
-  ON DELETE NO ACTION 
-  ON UPDATE CASCADE
-);
-
 CREATE TABLE IF NOT EXISTS examenes_realizados (
-  id_realizado INT AUTO_INCREMENT,
+  id_realizado INT NOT NULL AUTO_INCREMENT,
   id_examen INT,
   id_usuario INT,
-  titulo_examen VARCHAR(200),
-  fecha_realizacion DATE,
-  calificacion FLOAT,
+  titulo_examen VARCHAR(255) NOT NULL,
+  fecha_realizacion DATE NOT NULL,
+  calificacion INT NOT NULL,
   PRIMARY KEY (id_realizado),
-  FOREIGN KEY (id_examen) REFERENCES Examen (id_modulo),
-  FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE
+  FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 
 
 CREATE TABLE IF NOT EXISTS preguntas_examenes (
@@ -107,10 +93,10 @@ INSERT INTO avatares (nombre_avatar, imagen_avatar) VALUES ("Avatar 1", "assets/
 
 ALTER TABLE examenes_realizados
 DROP FOREIGN KEY id_usuario,
-ADD FOREIGN KEY (id_usuario) 
-REFERENCES Usuarios (id_usuario) 
+ADD FOREIGN KEY (id_usuario),
+REFERENCES Usuarios (id_usuario), 
 ON DELETE CASCADE
-ON UPDATE CASCADE;
+ON UPDATE CASCADE
 
 INSERT INTO modulos (id_modulo, nombre_modulo, descripcion_modulo) VALUES
 ('1', 'Descubriendo las formas', ' En este módulo el niño practica las figuras geométricas desde el inicio');
@@ -158,7 +144,9 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('15','1', 'Leccion 5, módulo descubriendo las formas'),
 ('16','1', 'Leccion 6, módulo descubriendo las formas'),
 ('17','1', 'Leccion 7, módulo descubriendo las formas'),
-('18','1', 'Leccion 8, módulo descubriendo las formas'),
+('18','1', 'Leccion 8, módulo descubriendo las formas');
+
+INSERT INTO examen ()
 ('19','1', 'Examen, módulo descubriendo las formas');
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
