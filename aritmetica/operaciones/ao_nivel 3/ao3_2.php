@@ -68,7 +68,7 @@ $conn->close();
     </div>
 
     <div>
-        <img class="imgLecc" id="imgLecc2" src="../../../assets/img/portadatablas.jpg" width="360" height="360" onclick="cambiarImagen()">
+        <img class="imgLecc" id="imgLecc2" src="../../../assets/img/portadatablas.jpg" width="360" height="360" onclick="cambiarImagenDos()">
     </div>
 
     <div id="form">

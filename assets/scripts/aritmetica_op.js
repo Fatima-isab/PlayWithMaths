@@ -60,7 +60,7 @@ function cambiarImagen() {
     
 }
 
-var imagenes2 = [
+var imagenesDos = [
     "../../../assets/img/tabla10.png",
     "../../../assets/img/tabla6.png",
     "../../../assets/img/tabla7.png",
@@ -73,11 +73,11 @@ var imagenes2 = [
 
 var index2 = 0;
 
-function cambiarImagen() {
-    console.log("Ejecuntando cambiarImagen()");
-    var imgL2 = document.getElementById("imgLecc2");
-    index2 = (index2 +1) %imagenes2.length;
-    imgL2.src = imagenes2[index2];
+function cambiarImagenDos() {
+    console.log("Ejecuntando cambiarImagenDos()");
+    var imgLdos = document.getElementById("imgLecc2");
+    index2 = (index2 +1) %imagenesDos.length;
+    imgLdos.src = imagenesDos[index2];
     
 }
 

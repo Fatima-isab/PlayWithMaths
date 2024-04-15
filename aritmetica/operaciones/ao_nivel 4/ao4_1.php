@@ -68,23 +68,16 @@ $conn->close();
         </div>
     </div>
 
-
-    <div id="form">
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <button id="btnSig" name="visto" class="boton">He terminado</button>
-        </form>
-    </div>
-
     
-    <div class="imgLecc"> 
-    <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
-        Arrastra el correcto aquí
+    <div class="act"> 
+    <div id="dropzone" class="encajar" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+        Arrastra
     </div>
 
     <div id="shapes">
-        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
-        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
-        <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
+        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)">A</div>
+        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)">B</div>
+        <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)">C</div>
     </div>
     </div>
 

@@ -32,6 +32,57 @@ h1:hover {
     transform: scale(1.1);
 }
 
+.act{
+margin-top: -21%;
+margin-left: 52%;
+}
+
+#shapes{
+    margin-top: 19% ;
+    margin-bottom: -12%;
+}
+
+#dropzone{
+    margin-left: 40%;
+}
+
+#dropzone.hover {
+    border-color: #333;
+}
+
+.shape {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#incorrecto {
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+#correcto {
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid black;
+    
+}
+.encajar {
+    margin: 0;
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    background-color: lightblue; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 #titulos {
     margin: 2%;
