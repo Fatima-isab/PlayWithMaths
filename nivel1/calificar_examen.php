@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 $id_usuario = $_SESSION['id_usuario'];
-$id_examen = 1; 
+$id_examen = 19; 
 $titulo_examen = "Descubriendo las formas";
 $fecha_realizacion = date('Y-m-d');
 
