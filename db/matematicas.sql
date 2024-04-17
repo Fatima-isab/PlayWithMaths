@@ -51,18 +51,6 @@ CREATE TABLE IF NOT EXISTS examenes_realizados (
 );
 
 
-CREATE TABLE IF NOT EXISTS preguntas_examenes (
-  id_pregunta INT AUTO_INCREMENT,
-  id_examen INT,
-  enunciado_pregunta TEXT,
-  respuesta_correcta VARCHAR(255),
-  imagen_pregunta VARCHAR(255),
-  PRIMARY KEY (id_pregunta),
-  FOREIGN KEY (id_examen) REFERENCES Examen (id_examen)
-  ON DELETE NO ACTION 
-  ON UPDATE CASCADE
-);
-
 CREATE TABLE IF NOT EXISTS premios (
   id_premio INT AUTO_INCREMENT,
   nombre_premio VARCHAR(100),
@@ -91,12 +79,6 @@ CREATE TABLE IF NOT EXISTS Lecciones_Completadas (
 
 INSERT INTO avatares (nombre_avatar, imagen_avatar) VALUES ("Avatar 1", "assets/img/avatar/Avatar1.jpeg");
 
-ALTER TABLE examenes_realizados
-DROP FOREIGN KEY id_usuario,
-ADD FOREIGN KEY (id_usuario),
-REFERENCES Usuarios (id_usuario), 
-ON DELETE CASCADE
-ON UPDATE CASCADE
 
 INSERT INTO modulos (id_modulo, nombre_modulo, descripcion_modulo) VALUES
 ('1', 'Descubriendo las formas', ' En este módulo el niño practica las figuras geométricas desde el inicio');
@@ -146,9 +128,6 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('17','1', 'Leccion 7, módulo descubriendo las formas'),
 ('18','1', 'Leccion 8, módulo descubriendo las formas');
 
-INSERT INTO examen ()
-('19','1', 'Examen, módulo descubriendo las formas');
-
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
 ('171','17', 'Leccion 1, módulo sumemos diversión'),
 ('172','17', 'Leccion 2, módulo sumemos diversión'),
@@ -157,8 +136,7 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('175','17', 'Leccion 5, módulo sumemos diversión'),
 ('176','17', 'Leccion 6, módulo sumemos diversión'),
 ('177','17', 'Leccion 7, módulo sumemos diversión'),
-('178','17', 'Leccion 8, módulo sumemos diversión'),
-('179','17', 'Examen, módulo sumemos diversion')
+('178','17', 'Leccion 8, módulo sumemos diversión')
 ;
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
@@ -169,8 +147,7 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('185','18', 'Leccion 5, módulo restando en acción'),
 ('186','18', 'Leccion 6, módulo restando en acción'),
 ('187','18', 'Leccion 7, módulo restando en acción'),
-('188','18', 'Leccion 8, módulo restando en acción'),
-('189','18', 'Examen, módulo restando en acción')
+('188','18', 'Leccion 8, módulo restando en acción')
 ;
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
@@ -181,9 +158,7 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('195','19', 'Leccion 5, Explorando las tablas'),
 ('196','19', 'Leccion 19,Explorando las tablas'),
 ('197','19', 'Leccion 7, Explorando las tablas'),
-('198','19', 'Leccion 8, Explorando las tablas'),
-('199','19', 'Examen, Explorando las tablas')
-;
+('198','19', 'Leccion 8, Explorando las tablas');
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
 ('201','20', 'Leccion 1, La magia de multiplicar'),
@@ -193,7 +168,6 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('205','20', 'Leccion 5, La magia de multiplicar'),
 ('206','20', 'Leccion 19,La magia de multiplicar'),
 ('207','20', 'Leccion 7, La magia de multiplicar'),
-('208','20', 'Leccion 8, La magia de multiplicar'),
-('209','20', 'Examen, La magia de multiplicar')
+('208','20', 'Leccion 8, La magia de multiplicar')
 ;
 

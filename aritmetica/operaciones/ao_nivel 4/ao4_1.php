@@ -54,13 +54,13 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Explorando las tablas</h1>
+    <h1>La magia de multiplicar</h1>
 
     <div class="contenedor">
-        <div class="inst visible">Hoy aprenderemos las tablas de multiplicar</div>
-        <div class="inst">¿Las has visto antes?</div>
-        <div class="inst">Haz click en la imágen para ver las primeras 5</div>
-        <div class="inst">Cuando termines da click en el botón "He terminado"</div>
+        <div class="inst visible">Zumbi es una abeja que quiere regresar a su casa</div>
+        <div class="inst">Para ayudarla resuelve la siguiente multiplicación</div>
+        <div class="inst">49 x 7</div>
+        <div class="inst">Arrastra la respuesta correcta</div>
         
         <div class="control">
             <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
@@ -69,15 +69,15 @@ $conn->close();
     </div>
 
     
+    
     <div class="act"> 
     <div id="dropzone" class="encajar" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
-        Arrastra
     </div>
 
     <div id="shapes">
-        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)">A</div>
-        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)">B</div>
-        <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)">C</div>
+        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
+        <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
+        <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
     </div>
     </div>
 

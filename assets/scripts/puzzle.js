@@ -62,8 +62,12 @@ function drop(event) {
     const dropzone = event.target;
 
     if (droppedShapeId === "correcto") {
+        dropzone.style.fontSize = "24px";
+        dropzone.style.color = "green";
         dropzone.innerHTML = "¡Correcto!";
     } else {
+        dropzone.style.fontSize = "24px";
+        dropzone.style.color = "green";
         dropzone.innerHTML = "¡Incorrecto!";
     }
 }
@@ -90,8 +94,12 @@ function touchEnd(event) {
         if (targetShape) {
             const droppedShapeId = targetShape.id;
             if (droppedShapeId === "correcto") {
+                dropzone.style.fontSize = "24px";
+                dropzone.style.color = "green";
                 dropzone.innerHTML = "¡Correcto!";
             } else {
+                dropzone.style.fontSize = "24px";
+                dropzone.style.color = "red";
                 dropzone.innerHTML = "¡Incorrecto!";
             }
         }

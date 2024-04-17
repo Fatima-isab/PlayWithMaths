@@ -34,12 +34,13 @@ h1:hover {
 
 .act{
 margin-top: -21%;
-margin-left: 52%;
+margin-left: 34%;
 }
 
 #shapes{
-    margin-top: 19% ;
-    margin-bottom: -12%;
+    margin-top: 1% ;
+    margin-left: 12%;
+    margin-bottom: -14.56%;
 }
 
 #dropzone{
@@ -55,29 +56,35 @@ margin-left: 52%;
     width: 100px;
     height: 100px;
     margin: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
+}
+.shape:hover {
+    transform: scale(1.1);
 }
 
 #incorrecto {
+    background-image: url('../img/abejas2.jpg');
+    background-size: 160%;
+    background-position: center;
     border-radius: 50%;
     border: 2px solid black;
 }
 
 #correcto {
-    background-color: red;
+    background-image: url('../img/abejas2.jpg');
+    background-size: 160%;
+    background-position: center;
     border-radius: 50%;
     border: 2px solid black;
     
 }
 .encajar {
     margin: 0;
-    width: 100px; 
-    height: 100px; 
+    width: 250px; 
+    height: 250px; 
     border-radius: 50%; 
-    background-color: lightblue; 
+    background-image: url('../img/paanal.jpg');
+    background-size: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
