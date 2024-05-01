@@ -56,8 +56,9 @@ margin-left: 34%;
     width: 100px;
     height: 100px;
     margin: 10px;
-    
+    cursor: pointer;   
 }
+
 .shape:hover {
     transform: scale(1.1);
 }
@@ -78,6 +79,7 @@ margin-left: 34%;
     border: 2px solid black;
     
 }
+
 .encajar {
     margin: 0;
     width: 250px; 

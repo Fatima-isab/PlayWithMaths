@@ -80,7 +80,7 @@ $conn->close();
         <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
     </div>
     </div>
-
+     
     <div id=botones>
         <a href="../ao_nivel 4.php">
             <button class="boton">Salir</button>
