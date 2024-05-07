@@ -20,20 +20,20 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '12';
+$leccion_id = '13';
 
 
 // Definir las opciones de la pregunta
 $opciones = array(
-    'Equilátero' => 'Equilátero',
-    'Isósceles' => 'Isósceles',
-    'Escaleno' => 'Escaleno'
+    'Pentágono' => 'Pentágono',
+    'Hexágono' => 'Hexágono',
+    'Octágono' => 'Octágono'
 );
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si la respuesta es correcta
-    $respuesta_correcta = 'Isósceles'; // Definir la respuesta correcta
+    $respuesta_correcta = 'Octágono'; // Definir la respuesta correcta
     if (isset($_POST["respuesta"])) {
         if ($_POST["respuesta"] == $respuesta_correcta) {
             // Verificar si el usuario ya ha completado la lección
@@ -75,12 +75,11 @@ $conn->close();
     <h1>Descubriendo las formas</h1>
 
     <div class="contenedor">
-        <div class="inst visible">En el pizarrón se muestran 3 triángulos.</div>
-        <div class="inst">Pero estos triángulos tienen algo diferente.</div>
-        <div class="inst">El triángulo azul tiene sus 3 lados iguales.</div>
-        <div class="inst">El triángulo rosa tiene 2 lados iguales y uno diferente.</div>
-        <div class="inst">El triángulo naranja tiene sus 3 lados diferentes.</div>
-        <div class="inst">¿Cuál es el nombre del triángulo que tiene 2 lados iguales?</div>
+        <div class="inst visible">Allison necesita ayuda en su tarea.</div>
+        <div class="inst">La maestra le dió 3 figuras</div>
+        <div class="inst">y le dijo que contará los lados de cada una.</div>
+        <div class="inst">¿Qué figura es la que tiene 8 lados?</div>
+        
 
 
         <div class="control">
@@ -90,7 +89,7 @@ $conn->close();
     </div>
     
     <div>
-        <img class="imgLecc" src="../../../assets/img/gf_12.jpg" alt="" width="360" height="360">
+        <img class="imgLecc" src="../../../assets/img/gf_13.jpg" alt="" width="360" height="360">
     </div>
 
     <div id=form>
@@ -108,7 +107,7 @@ $conn->close();
 
 
     <div id=botones>
-        <a href="../gf_nivel1/gf1_1.php">
+        <a href="../gf_nivel1/gf1_2.php">
             <button class="boton">Anterior</button>
         </a>
 
@@ -116,7 +115,7 @@ $conn->close();
             <button class="boton">Salir</button>
         </a>
 
-        <a href="../gf_nivel1/gf1_3.php">
+        <a href="../gf_nivel1/gf1_4.php">
             <button class="boton">Siguiente</button>
         </a>
     </div>

@@ -81,28 +81,37 @@ if ($result8->num_rows == 0) {
     $circleColor8 = "var(--verde)";
 }
 
-// Consultar la calificación más reciente del usuario
-$query_calificacion = "SELECT calificacion FROM examenes_realizados WHERE id_usuario = $id_usuario and id_examen = '19' ORDER BY fecha_realizacion DESC LIMIT 1";
-$result_calificacion = $conn->query($query_calificacion);
 
-if ($result_calificacion->num_rows > 0) {
-    $row = $result_calificacion->fetch_assoc();
-    $calificacion = $row['calificacion'];
-
-    // Definir colores
-    $colorAprobado = "var(--verde)";
-    $colorReprobado = "var(--cafe)";
-
-    // Verificar si la calificación es superior a 6
-    if ($calificacion > 6) {
-        $circleColor9 = $colorAprobado;
-    } else {
-        $circleColor9 = $colorReprobado;
-    }
-} else {
-    // Si no hay calificación, asignar un color por defecto
+$query_verificar_completada9 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '19'";
+$result9 = $conn->query($query_verificar_completada8);
+if ($result8->num_rows == 0) {
     $circleColor9 = "var(--verdeazulado)";
+} else {
+    $circleColor9 = "var(--verde)";
 }
+
+// // Consultar la calificación más reciente del usuario
+// $query_calificacion = "SELECT calificacion FROM examenes_realizados WHERE id_usuario = $id_usuario and id_examen = '19' ORDER BY fecha_realizacion DESC LIMIT 1";
+// $result_calificacion = $conn->query($query_calificacion);
+
+// if ($result_calificacion->num_rows > 0) {
+//     $row = $result_calificacion->fetch_assoc();
+//     $calificacion = $row['calificacion'];
+
+//     // Definir colores
+//     $colorAprobado = "var(--verde)";
+//     $colorReprobado = "var(--cafe)";
+
+//     // Verificar si la calificación es superior a 6
+//     if ($calificacion > 6) {
+//         $circleColor9 = $colorAprobado;
+//     } else {
+//         $circleColor9 = $colorReprobado;
+//     }
+// } else {
+//     // Si no hay calificación, asignar un color por defecto
+//     $circleColor9 = "var(--verdeazulado)";
+// }
 
 
 

@@ -75,7 +75,7 @@ $conn->close();
     <h1>Descubriendo las formas</h1>
 
     <div class="contenedor">
-        <div class="inst visible">El niño esta sosteniendo un cartel con 3 figuras.</div>
+        <div class="inst visible">Jesús esta sosteniendo un cartel con 3 figuras.</div>
         <div class="inst">La figura roja es un cuadrado.</div>
         <div class="inst">La amarilla es un triangulo, y el azul es un circulo.</div>
         <div class="inst">¿Qué figura tiene 4 lados?</div>
@@ -115,7 +115,7 @@ $conn->close();
         </a>
     </div>
 
-     <script src="../../../assets/scripts/aritmetica_op.js"></script> 
+    <script src="../../../assets/scripts/geometria_fig.js"></script> 
     
 </body>
 
