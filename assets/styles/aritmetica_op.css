@@ -63,8 +63,24 @@ margin-left: 34%;
     transform: scale(1.1);
 }
 
+.number {
+    display: none;
+}
+
+.shape:hover .number {
+    display: inline-block; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    background-color: var(--verdeazulado);
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 26px;
+    font-weight: bold;
+}
 #incorrecto {
-    background-image: url('../img/abejas2.jpg');
     background-size: 160%;
     background-position: center;
     border-radius: 50%;
@@ -72,7 +88,6 @@ margin-left: 34%;
 }
 
 #correcto {
-    background-image: url('../img/abejas2.jpg');
     background-size: 160%;
     background-position: center;
     border-radius: 50%;
@@ -85,7 +100,6 @@ margin-left: 34%;
     width: 250px; 
     height: 250px; 
     border-radius: 50%; 
-    background-image: url('../img/paanal.jpg');
     background-size: 100%;
     display: flex;
     justify-content: center;
@@ -161,3 +175,40 @@ margin-left: 34%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
+/*Modal*/
+
+.modal{
+    width: 40%;
+    height: 63%;
+    margin-top: -31%;
+    margin-left: 30%;
+    transform: translate(0%, 0%);
+    border-radius: 5px;
+    background-color: rgba(161, 229, 191, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--verdeazulado);
+    padding: 25%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+.close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    width: 10%;
+    height: %;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+  }

@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección que ha sido vista
-$leccion_id = '201';
+$leccion_id = '211';
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
@@ -71,13 +71,13 @@ $conn->close();
 
 
     <div class="act">
-        <div id="dropzone" class="encajar" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)">
+        <div id="dropzone" class="encajar" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
         </div>
 
         <div id="shapes">
-            <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
-            <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
-            <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)" ontouchstart="touchStart(event)"></div>
+            <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)"></div>
+            <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)"></div>
+            <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)"></div>
         </div>
     </div>
 
@@ -90,6 +90,21 @@ $conn->close();
         </a>
 
 
+    </div>
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span id="closeButton" class="close">&times;</span>
+            <div id="correctoModal" style="display: none;">
+                <h2>¡Correcto!</h2>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <button id="btnSig" name="visto" class="boton">Aceptar</button>
+        </form>
+            </div>
+            <div id="incorrectoModal" style="display: none;">
+                <h2>¡Vuelve a intentarlo!</h2>
+            </div>
+        </div>
     </div>
 
     <script src="../../../assets/scripts/aritmetica_op.js"></script>

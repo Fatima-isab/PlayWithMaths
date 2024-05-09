@@ -59,49 +59,30 @@ function drop(event) {
     event.target.classList.remove("hover");
 
     const droppedShapeId = event.dataTransfer.getData("text/plain");
-    const dropzone = event.target;
+    const modal = document.getElementById("modal");
+    const correctoModal = document.getElementById("correctoModal");
+    const incorrectoModal = document.getElementById("incorrectoModal");
+    const closeButton = document.getElementById("closeButton");
 
     if (droppedShapeId === "correcto") {
-        dropzone.style.fontSize = "24px";
-        dropzone.style.color = "green";
-        dropzone.innerHTML = "¡Correcto!";
+        correctoModal.style.display = "block";
+        modal.style.display = "block"; // Mostrar el modal
+        closeButton.style.display = "block";
     } else {
-        dropzone.style.fontSize = "24px";
-        dropzone.style.color = "green";
-        dropzone.innerHTML = "¡Incorrecto!";
+        incorrectoModal.style.display = "block";
+        modal.style.display = "block"; // Mostrar el modal
+        closeButton.style.display = "block";
+    }
+    closeButton.onclick = function() {
+        modal.style.display = "none";
+        correctoModal.style.display = "none";
+        incorrectoModal.style.display = "none";
+        closeButton.style.display = "none"; 
     }
 }
 
-function touchStart(event) {
-    const touch = event.touches[0];
-    touchX = touch.clientX;
-    touchY = touch.clientY;
-}
 
-function touchMove(event) {
-    event.preventDefault();
-}
 
-function touchEnd(event) {
-    const dropzone = document.getElementById("dropzone");
-    const touch = event.changedTouches[0];
-    const deltaX = touch.clientX - touchX;
-    const deltaY = touch.clientY - touchY;
 
-    if (Math.abs(deltaX) < 10 && Math.abs(deltaY) < 10) {
-        
-        const targetShape = event.target.closest(".shape");
-        if (targetShape) {
-            const droppedShapeId = targetShape.id;
-            if (droppedShapeId === "correcto") {
-                dropzone.style.fontSize = "24px";
-                dropzone.style.color = "green";
-                dropzone.innerHTML = "¡Correcto!";
-            } else {
-                dropzone.style.fontSize = "24px";
-                dropzone.style.color = "red";
-                dropzone.innerHTML = "¡Incorrecto!";
-            }
-        }
-    }
-}
+
+   
