@@ -91,23 +91,20 @@ $conn->close();
 
 <h1>¡Une la figura con su nombre!</h1>
 
-<img src="../../../assets/img/gf_19.1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag1">
-<img src="../../../assets/img/gf_19.2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag2">
-<img src="../../../assets/img/gf_19.3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag3">
-<img src="../../../assets/img/gf_19.4.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag4">
+<img src="../../../assets/img/gf_17.1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag1">
+<img src="../../../assets/img/gf_17.2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag2">
+<img src="../../../assets/img/gf_17.3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag3">
+
 
 <div class="drop-container">
-    <div id="div3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Triángulo</p>
+    <div id="div2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Cuadrado</p>
     </div>
-    <div id="div4" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Circulo</p>
+    <div id="div3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Rectángulo</p>
     </div>
     <div id="div1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Octágono</p>
-    </div>
-    <div id="div2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Pentágono</p>
+        <p>Romboide</p>
     </div>
 </div>
 
@@ -154,8 +151,7 @@ function validate() {
     var mensaje;
     if (document.getElementById('div1').contains(document.getElementById('drag1')) &&
         document.getElementById('div2').contains(document.getElementById('drag2')) &&
-        document.getElementById('div3').contains(document.getElementById('drag3')) &&
-        document.getElementById('div4').contains(document.getElementById('drag4'))) {
+        document.getElementById('div3').contains(document.getElementById('drag3'))) {
         mensaje = 'Las imágenes están en los recuadros correctos!';
         document.getElementById('form-completado').submit();
     } else {
