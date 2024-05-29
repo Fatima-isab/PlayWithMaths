@@ -19,10 +19,8 @@ h1:hover {
     transform: scale(1.1);
 }
 
-
 .imgLecc {
-    margin-top: -20%;
-    margin-left: 50%;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -32,18 +30,18 @@ h1:hover {
     transform: scale(1.1);
 }
 
-.act{
-margin-top: -21%;
-margin-left: 34%;
+.act {
+    margin-top: -21%;
+    margin-left: 34%;
 }
 
-#shapes{
-    margin-top: 1% ;
+#shapes {
+    margin-top: 1%;
     margin-left: 12%;
     margin-bottom: -14.56%;
 }
 
-#dropzone{
+#dropzone {
     margin-left: 40%;
 }
 
@@ -80,6 +78,7 @@ margin-left: 34%;
     font-size: 26px;
     font-weight: bold;
 }
+
 #incorrecto {
     background-size: 160%;
     background-position: center;
@@ -92,7 +91,6 @@ margin-left: 34%;
     background-position: center;
     border-radius: 50%;
     border: 2px solid black;
-    
 }
 
 .encajar {
@@ -106,7 +104,6 @@ margin-left: 34%;
     align-items: center;
 }
 
-
 #titulos {
     margin: 2%;
     margin-top: 12%;
@@ -114,49 +111,39 @@ margin-left: 34%;
 }
 
 .contenedor {
-    width: 400px;
-    margin: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
 }
 
 .inst {
-    width: 100%;
-    height: 100px;
+    width: 50%;
+    height: auto;
     background-color: var(--verdeazulado);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     text-align: center;
-    line-height: 100px;
-    cursor: pointer;
-    display: none;
-    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    padding: 10px;
+    margin-right: 20px; 
+    font-size: 25px; /* Tamaño de fuente más grande */
 }
 
-.inst:hover {
-    transform: scale(1.1);
+.botones-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
 }
 
-.visible {
-    display: block;
-}
-
-.control {
-    margin-top: 2%;
-}
-
-#form {
-    margin-left: -48%;
-    margin-top: -12%;
-}
-
-#botones {
-    margin-left: -50%;
-    margin-top: 4%;
+.boton-salir,
+.boton-siguiente {
+    background-color: #aa8976; 
 }
 
 .boton {
     display: inline-block;
     padding: 10px 20px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: bold;
     border: none;
     border-radius: 5px;
@@ -175,40 +162,56 @@ margin-left: 34%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-/*Modal*/
-
-.modal{
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 3px;
     width: 40%;
-    height: 63%;
-    margin-top: -31%;
+    height: 40%;
+    margin-top: 10%;
     margin-left: 30%;
-    transform: translate(0%, 0%);
-    border-radius: 5px;
-    background-color: rgba(161, 229, 191, 0.5);
-    z-index: 1000;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 10px; /* Añadir bordes redondeados */
 }
 
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--verdeazulado);
-    padding: 25%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-.close{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    width: 10%;
-    height: %;
-    text-align: center;
+    background-color: #F0E2D0;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #F0E2D0;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px; /* Añadir bordes redondeados */
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+.close {
+    color: red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #F0E2D0;
+    text-decoration: none;
     cursor: pointer;
-    border-radius: 50%;
-    background-color: red;
-    color: #fff;
-  }
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}

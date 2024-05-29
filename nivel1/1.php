@@ -74,7 +74,7 @@ $conn->close();
             text-align: center;
             margin: 40px;
             background-color: #fff;
-            background-image: url('../assets/img/Fondo_lecciones.jpg');
+            background-image: url('../assets/img/fondo3.jpeg');
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center;

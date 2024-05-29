@@ -13,14 +13,30 @@ $dbname = "maths";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Verificar la conexión
 if ($conn->connect_error) {
     die("La conexión a la base de datos falló: " . $conn->connect_error);
 }
 
+// ID de la lección actual
 $leccion_id = '19';
 
+// ID de la lección anterior
+$leccion_anterior_id = $leccion_id - 1;
+
+// Verificar si la lección anterior está completada por el usuario
+$id_usuario = $_SESSION['id_usuario'];
+$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_anterior_id";
+$result = $conn->query($query_verificar_completada);
+
+if ($result->num_rows == 0) {
+    // Si la lección anterior no está completada, redireccionar al usuario o mostrar un mensaje
+    header("location: gf1_5.php"); // Cambia "gf1_5.php" por la página a la que quieras redireccionar
+    exit;
+}
+
+// Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
-    $id_usuario = $_SESSION['id_usuario'];
     $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
     $result = $conn->query($query_verificar_completada);
     if ($result->num_rows == 0) {
@@ -31,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
 
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -41,8 +58,7 @@ $conn->close();
     <link rel="icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../../../assets/styles/root.css">
-    <link rel="stylesheet" href="../../../assets/styles/aritmetica_op.css">
-
+    <link rel="stylesheet" href="../../../assets/styles/figuras.css">
     <style>
         .dropzone {
             width: 100px;
@@ -60,8 +76,12 @@ $conn->close();
             display: flex;
             justify-content: space-around;
         }
+        .boton-salir,
+        .boton-anterior,
+        .boton-siguiente {
+            background-color: #aa8976;
+        }
     </style>
-
 </head>
 
 <body>
@@ -91,16 +111,25 @@ $conn->close();
     </div>
 </div>
 
-<div id=botones>
-    <a href="../gf_nivel1/gf1_7.php">
-        <button class="boton">Anterior</button>
+<div class="botones-conteiner">
+<button onclick="validate()" class="boton">Validar</button>
+</div>
+<br>
+<div class="botones-conteiner">
+    <a href="../gf_nivel1/gf1_8.php">
+        <button class="boton boton-anterior">Anterior</button>
     </a>
-
     <a href="../gf_nivel 1.php">
-        <button class="boton">Salir</button>
+        <button class="boton boton-salir">Salir</button>
     </a>
+</div>
 
-    <button onclick="validate()" class="boton">Validar</button>
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <p id="modalMensaje"></p>
+    </div>
 </div>
 
 <script>
@@ -119,25 +148,32 @@ function drop(ev) {
 }
 
 function validate() {
+    var mensaje;
     if (document.getElementById('div1').contains(document.getElementById('drag1')) &&
         document.getElementById('div2').contains(document.getElementById('drag2')) &&
         document.getElementById('div3').contains(document.getElementById('drag3')) &&
         document.getElementById('div4').contains(document.getElementById('drag4'))) {
-        alert('Las imágenes están en los recuadros correctos!');
+        mensaje = 'Las imágenes están en los recuadros correctos!';
         document.getElementById('form-completado').submit();
-        <?php 
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
-            $id_usuario = $_SESSION['id_usuario'];
-            $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
-            $result = $conn->query($query_verificar_completada);
-            if ($result->num_rows == 0) {
-                $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
-                $conn->query($query_insert_completada);
-            }
-        }
-        ?>
     } else {
-        alert('Las imágenes no están en los recuadros correctos.');
+        mensaje = 'Las imágenes no están en los recuadros correctos.';
+    }
+    mostrarModal(mensaje);
+}
+
+function mostrarModal(mensaje) {
+    document.getElementById("modalMensaje").textContent = mensaje;
+    document.getElementById("myModal").style.display = "block";
+}
+
+function cerrarModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
 }
 </script>
@@ -149,3 +185,4 @@ function validate() {
 </body>
 
 </html>
+

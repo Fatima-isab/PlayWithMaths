@@ -1,7 +1,6 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-
     header("location: ../php/registro.php");
     session_destroy();
     die();
@@ -14,31 +13,41 @@ $dbname = "maths";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
 // Verificar la conexión
 if ($conn->connect_error) {
     die("La conexión a la base de datos falló: " . $conn->connect_error);
 }
 
-// ID de la lección que ha sido vista
+// ID de la lección actual
 $leccion_id = '17';
+
+// ID de la lección anterior
+$leccion_anterior_id = $leccion_id - 1;
+
+// Verificar si la lección anterior está completada por el usuario
+$id_usuario = $_SESSION['id_usuario'];
+$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_anterior_id";
+$result = $conn->query($query_verificar_completada);
+
+if ($result->num_rows == 0) {
+    // Si la lección anterior no está completada, redireccionar al usuario o mostrar un mensaje
+    header("location: gf1_6.php"); // Cambia "gf1_5.php" por la página a la que quieras redireccionar
+    exit;
+}
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
-    // Verificar si el usuario ya ha completado la lección
-    $id_usuario = $_SESSION['id_usuario'];
     $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
     $result = $conn->query($query_verificar_completada);
     if ($result->num_rows == 0) {
-        // Insertar un registro en la tabla <link>Lecciones_Completadas</link>
         $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
         $conn->query($query_insert_completada);
     }
 }
 
-// Cerrar la conexión
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -49,58 +58,133 @@ $conn->close();
     <link rel="icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../../../assets/styles/root.css">
-    <link rel="stylesheet" href="../../../assets/styles/aritmetica_op.css">
-
+    <link rel="stylesheet" href="../../../assets/styles/figuras.css">
+    <style>
+        .dropzone {
+            width: 100px;
+            height: 120px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+            margin: 10px;
+            display: inline-block;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        .drag-container, .drop-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .boton-salir,
+        .boton-anterior,
+        .boton-siguiente {
+            background-color: #aa8976;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Descubriendo las formas</h1>
+<h2>Descubriendo las formas</h2>
 
-    <div class="contenedor">
-        <div class="inst visible">Al igual hay diferentes tipos de cuadrilateros.</div>
-        <div class="inst">El cuadrado tiene todos sus lados iguales.</div>
-        <div class="inst">El rectángulo tiene sus lados opuestos iguales.</div>
-        <div class="inst">El trapecio tiene 2 lados iguales y dos diferentes.</div>
-        <div class="inst">El rompoide no tiene ángulos rectos.</div>
-        <div class="inst">En el pizarrón se muestran los diferentes cuadrilateros.</div>
-        <div class="inst">Observa las imágenes y diferencialos.</div>
-        <div class="inst">¡Espero hayas aprendido algo nuevo en esta lección!</div>
-        
+<p></p>
 
+<h1>¡Une la figura con su nombre!</h1>
 
-        <div class="control">
-            <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
-            <button id="btnSig" name="continuar" onclick="siguiente()" class="boton">Continuar</button>
-        </div>
+<img src="../../../assets/img/gf_19.1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag1">
+<img src="../../../assets/img/gf_19.2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag2">
+<img src="../../../assets/img/gf_19.3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag3">
+<img src="../../../assets/img/gf_19.4.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag4">
+
+<div class="drop-container">
+    <div id="div3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Triángulo</p>
     </div>
-
-    <div>
-        <img class="imgLecc" id="imgLecc" src="../../../assets/img/gf_17.jpg" width="360" height="360" onclick="cambiarImagen()">
+    <div id="div4" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Circulo</p>
     </div>
-
-    <div id="form">
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <button id="btnSig" name="visto" class="boton">He terminado</button>
-        </form>
+    <div id="div1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Octágono</p>
     </div>
+    <div id="div2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Pentágono</p>
+    </div>
+</div>
 
-
-    <div id=botones>
-        <a href="../gf_nivel1/gf1_6.php">
-            <button class="boton">Anterior</button>
+<div class="botones-conteiner">
+<button onclick="validate()" class="boton">Validar</button>
+</div>
+<br>
+<div class="botones-conteiner">
+<a href="../gf_nivel1/gf1_6.php">
+            <button class="boton boton-anterior">Anterior</button>
         </a>
-
-        <a href="../gf_nivel 1.php">
-            <button class="boton">Salir</button>
-        </a>
-
         <a href="../gf_nivel1/gf1_8.php">
-            <button class="boton">Siguiente</button>
+            <button class="boton boton-siguiente">Siguiente</button>
         </a>
-    </div>
+        <a href="../gf_nivel 1.php">
+            <button class="boton boton-salir">Salir</button>
+        </a>
+</div>
 
-    <script src="../../../assets/scripts/geometria_fig.js"></script> 
-    
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <p id="modalMensaje"></p>
+    </div>
+</div>
+
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+function validate() {
+    var mensaje;
+    if (document.getElementById('div1').contains(document.getElementById('drag1')) &&
+        document.getElementById('div2').contains(document.getElementById('drag2')) &&
+        document.getElementById('div3').contains(document.getElementById('drag3')) &&
+        document.getElementById('div4').contains(document.getElementById('drag4'))) {
+        mensaje = 'Las imágenes están en los recuadros correctos!';
+        document.getElementById('form-completado').submit();
+    } else {
+        mensaje = 'Las imágenes no están en los recuadros correctos.';
+    }
+    mostrarModal(mensaje);
+}
+
+function mostrarModal(mensaje) {
+    document.getElementById("modalMensaje").textContent = mensaje;
+    document.getElementById("myModal").style.display = "block";
+}
+
+function cerrarModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<form id="form-completado" method="post">
+    <input type="hidden" name="visto" value="true">
+</form>
+
 </body>
 
 </html>
