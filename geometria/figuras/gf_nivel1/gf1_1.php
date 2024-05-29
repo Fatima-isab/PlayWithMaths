@@ -19,21 +19,8 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección actual
-$leccion_id = '12';
+$leccion_id = '11';
 
-// ID de la lección anterior
-$leccion_anterior_id = $leccion_id - 1;
-
-// Verificar si la lección anterior está completada por el usuario
-$id_usuario = $_SESSION['id_usuario'];
-$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_anterior_id";
-$result = $conn->query($query_verificar_completada);
-
-if ($result->num_rows == 0) {
-    // Si la lección anterior no está completada, redireccionar al usuario o mostrar un mensaje
-    header("location: gf1_1.php");
-    exit;
-};
 
 // Verificar si se ha enviado el formulario de respuesta
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["comprendido"])) {
