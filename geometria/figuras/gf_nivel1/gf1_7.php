@@ -152,12 +152,15 @@ function validate() {
     if (document.getElementById('div1').contains(document.getElementById('drag1')) &&
         document.getElementById('div2').contains(document.getElementById('drag2')) &&
         document.getElementById('div3').contains(document.getElementById('drag3'))) {
-        mensaje = 'Las imágenes están en los recuadros correctos!';
-        document.getElementById('form-completado').submit();
+        mensaje = '¡Las figuras están en el recuadro correcto!';
+        mostrarModal(mensaje);
+        setTimeout(function() {
+            document.getElementById('form-completado').submit();
+        }, 2000); // Espera 2 segundos antes de enviar el formulario
     } else {
         mensaje = 'Las imágenes no están en los recuadros correctos.';
+        mostrarModal(mensaje);
     }
-    mostrarModal(mensaje);
 }
 
 function mostrarModal(mensaje) {
