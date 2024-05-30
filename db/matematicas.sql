@@ -152,6 +152,28 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('39','3', 'Leccion 9, módulo formas en el mundo real');
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
+('41','4', 'Leccion 1, jugando con las áreas'),
+('42','4', 'Leccion 2, jugando con las áreas'),
+('43','4', 'Leccion 3, jugando con las áreas'),
+('44','4', 'Leccion 4, jugando con las áreas'),
+('45','4', 'Leccion 5, jugando con las áreas'),
+('46','4', 'Leccion 6, jugando con las áreas'),
+('47','4', 'Leccion 7, jugando con las áreas'),
+('48','4', 'Leccion 8, jugando con las áreas'),
+('49','4', 'Leccion 9, jugando con las áreas');
+
+INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
+('51','5', 'Leccion 1, jugando con el perimetro'),
+('52','5', 'Leccion 2, jugando con el perimetro'),
+('53','5', 'Leccion 3, jugando con el perimetro'),
+('54','5', 'Leccion 4, jugando con el perimetro'),
+('55','5', 'Leccion 5, jugando con el perimetro'),
+('56','5', 'Leccion 6, jugando con el perimetro'),
+('57','5', 'Leccion 7, jugando con el perimetro'),
+('58','5', 'Leccion 8, jugando con el perimetro'),
+('59','5', 'Leccion 9, jugando con el perimetro');
+
+INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
 ('171','17', 'Leccion 1, módulo sumemos diversión'),
 ('172','17', 'Leccion 2, módulo sumemos diversión'),
 ('173','17', 'Leccion 3, módulo sumemos diversión'),
