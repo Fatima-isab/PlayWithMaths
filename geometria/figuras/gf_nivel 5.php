@@ -306,7 +306,7 @@ $conn->close();
         <a href="../../figuras.html">
             <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; margin-top:80%; color: var(--cafe);"></span>
         </a>
-        <h2 class="title">Jugando con las áreas</h2>
+        <h2 class="title">Jugando con los perímetros</h2>
     </div>
 
     <div class="circle-container">

@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección actual
-$leccion_id = '56';
+$leccion_id = '58';
 
 // ID de la lección anterior
 $leccion_anterior_id = $leccion_id - 1;
@@ -31,7 +31,7 @@ $result = $conn->query($query_verificar_completada);
 
 if ($result->num_rows == 0) {
     // Si la lección anterior no está completada, redireccionar al usuario o mostrar un mensaje
-    header("location: gf5_5.php"); // Cambia "leccion_anterior_no_completada.php" por la página a la que quieras redireccionar
+    header("location: gf5_7.php"); // Cambia "leccion_anterior_no_completada.php" por la página a la que quieras redireccionar
     exit;
 }
 
@@ -93,28 +93,28 @@ $conn->close();
 
     <div class="contenedor">
         <div class="inst">
-          De acuerdo a la fórmula anterior, <br>
-          ¿Cuál es el perímetro del círculo?
+         ¡Vamos con uno más! <br>
+        ¿Cuál es su perímetro?
         </div>
 
         <div class="img-container">
-            <img class="imgLecc" src="../../../assets/img/gf_56.png" alt="" width="360" height="360">
+            <img class="imgLecc" src="../../../assets/img/gf_58.png" alt="" width="360" height="360">
         </div>
     </div>
 
     <div class="botones-container">
         <div id="botones">
-            <button class="boton" onclick="verificarRespuesta('1')">15.53</button>
-            <button class="boton" onclick="verificarRespuesta('2')">33.45</button>
-            <button class="boton" onclick="verificarRespuesta('3')">18.84</button>
+            <button class="boton" onclick="verificarRespuesta('1')">45</button>
+            <button class="boton" onclick="verificarRespuesta('2')">25</button>
+            <button class="boton" onclick="verificarRespuesta('3')">40</button>
         </div>
     </div>
 
     <div class="botones-container">
-    <a href="../gf_nivel5/gf5_5.php">
+    <a href="../gf_nivel5/gf5_6.php">
             <button class="boton boton-anterior">Anterior</button>
         </a>
-        <a href="../gf_nivel5/gf5_7.php">
+        <a href="../gf_nivel5/gf5_8.php">
             <button class="boton boton-siguiente">Siguiente</button>
         </a>
         <a href="../gf_nivel 5.php">
