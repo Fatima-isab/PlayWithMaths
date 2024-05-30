@@ -155,13 +155,19 @@ function validate() {
         mensaje = '¡Las figuras están en el recuadro correcto!';
         mostrarModal(mensaje);
         setTimeout(function() {
-            document.getElementById('form-completado').submit();
-        }, 2000); // Espera 2 segundos antes de enviar el formulario
+            var mensaje2 = '¡Acabas de obtener una recompensa! 🍌';
+            mostrarModal(mensaje2);
+            setTimeout(function() {
+                document.getElementById('form-completado').submit();
+            }, 4000); // Espera 6 segundos antes de enviar el formulario
+        }, 2000); // Espera 3 segundo antes de mostrar el segundo mensaje
     } else {
         mensaje = 'Las imágenes no están en los recuadros correctos.';
         mostrarModal(mensaje);
     }
 }
+
+
 
 function mostrarModal(mensaje) {
     document.getElementById("modalMensaje").textContent = mensaje;

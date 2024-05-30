@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 $leccion_id = '21';
 
 // ID de la lección anterior
-$leccion_anterior_id = 19;
+$leccion_anterior_id = '19';
 
 // Verificar si la lección anterior está completada por el usuario
 $id_usuario = $_SESSION['id_usuario'];
@@ -31,7 +31,7 @@ $result = $conn->query($query_verificar_completada);
 
 if ($result->num_rows == 0) {
     // Si la lección anterior no está completada, redireccionar al usuario o mostrar un mensaje
-    header("location: gf1_1.php");
+    header("location: ../../../geometria/figuras/gf_nivel1/gf1_9.php");
     exit;
 };
 
@@ -66,7 +66,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubriendo las formas</title>
+    <title>Propiedades de las figuras</title>
     <link rel="icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../../../assets/styles/root.css">
@@ -81,15 +81,13 @@ $conn->close();
 </head>
 
 <body>
-    <h1>Descubriendo las formas</h1>
+    <h1>Propiedades de las figuras</h1>
 
     <div class="contenedor">
         <div class="inst">
-            Para iniciar esté modulo tenemos que empezar por descubir que son las figuras. 
-            Las figuras son formas que podemos ver en el mundo que nos rodea, como círculos,
-            cuadrados y triángulos. <br>
-            Estas formas tienen algo que las hacen especiales, en las siguientes lecciones vamos
-            a saber como identificar cada forma y que las hace únicas. <br> 
+            En este nivel vamos a aprender cuales son las propiedades que hacen
+            especiales a cada una de las figuras, reforzando mejor que es lo que
+            las hace unicas.
         </div>
 
         <div class="img-container">
@@ -102,10 +100,10 @@ $conn->close();
     </div>
 
     <div class="botones-container">
-        <a href="../gf_nivel1/gf1_2.php">
+        <a href="../gf_nivel2/gf2_2.php">
             <button class="boton boton-siguiente">Siguiente</button>
         </a>
-        <a href="../gf_nivel 1.php">
+        <a href="../gf_nivel 2.php">
             <button class="boton boton-salir">Salir</button>
         </a>
     </div>

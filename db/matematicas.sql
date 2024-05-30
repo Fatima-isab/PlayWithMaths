@@ -81,8 +81,8 @@ INSERT INTO avatares (nombre_avatar, imagen_avatar) VALUES ("Avatar 1", "assets/
 
 
 INSERT INTO modulos (id_modulo, nombre_modulo, descripcion_modulo) VALUES
-('1', 'Descubriendo las formas', ' En este módulo el niño practica las figuras geométricas desde el inicio');
-('2', 'Nombre leccion', ' En este módulo el niño practica '),
+('1', 'Descubriendo las formas', ' En este módulo el niño practica las figuras geométricas desde el inicio'),
+('2', 'Propiedades de las formas', 'En este módulo el niño conoce las propiedades de las formas'),
 ('3', 'Nombre leccion', ' En este módulo el niño practica '),
 ('4', 'Nombre leccion', ' En este módulo el niño practica '),
 ('5', 'Nombre leccion', ' En este módulo el niño practica '),
@@ -126,7 +126,19 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('15','1', 'Leccion 5, módulo descubriendo las formas'),
 ('16','1', 'Leccion 6, módulo descubriendo las formas'),
 ('17','1', 'Leccion 7, módulo descubriendo las formas'),
-('18','1', 'Leccion 8, módulo descubriendo las formas');
+('18','1', 'Leccion 8, módulo descubriendo las formas'),
+('19','1', 'Leccion 9, módulo descubriendo las formas');
+
+INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
+('21','2', 'Leccion 1, módulo propiedades de las formas'),
+('22','2', 'Leccion 2, módulo propiedades de las formas'),
+('23','2', 'Leccion 3, módulo propiedades de las formas'),
+('24','2', 'Leccion 4, módulo propiedades de las formas'),
+('25','2', 'Leccion 5, módulo propiedades de las formas'),
+('26','2', 'Leccion 6, módulo propiedades de las formas'),
+('27','2', 'Leccion 7, módulo propiedades de las formas'),
+('28','2', 'Leccion 8, módulo propiedades de las formas'),
+('29','2', 'Leccion 9, módulo propiedades de las formas');
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
 ('171','17', 'Leccion 1, módulo sumemos diversión'),

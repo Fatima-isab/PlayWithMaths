@@ -113,10 +113,10 @@ $conn->close();
 </div>
 <br>
 <div class="botones-conteiner">
-<a href="../gf_nivel1/gf1_6.php">
+<a href="../gf_nivel1/gf1_7.php">
             <button class="boton boton-anterior">Anterior</button>
         </a>
-        <a href="../gf_nivel1/gf1_8.php">
+        <a href="../gf_nivel1/gf1_9.php">
             <button class="boton boton-siguiente">Siguiente</button>
         </a>
         <a href="../gf_nivel 1.php">

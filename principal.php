@@ -46,7 +46,10 @@
 <body>
     <div class="arriba">
         <a href="miPerfil.php">
-            <span class="icon icon-user" style="font-size: 50px; margin-left: 1900%; color: var(--cafe);"></span>
+            <span class="icon icon-user" style="font-size: 50px; margin-left: 400%; color: var(--cafe);"></span>
+        </a>
+        <a href="premios.php">
+            <span class="icon icon-gift" style="font-size: 50px; margin-left: 1800%; color: var(--cafe);"></span>
         </a>
         <h2 class="title">Play With Maths</h2>
     </div>
