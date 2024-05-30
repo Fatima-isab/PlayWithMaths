@@ -1,7 +1,6 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-
     header("location: ../php/registro.php");
     session_destroy();
     die();
@@ -19,100 +18,144 @@ if ($conn->connect_error) {
     die("La conexión a la base de datos falló: " . $conn->connect_error);
 }
 
-// ID de la lección que ha sido vista
+// ID de la lección actual
 $leccion_id = '204';
 
+// ID de la lección anterior
+$leccion_anterior_id = $leccion_id - 1;
+
+// Verificar si la lección anterior está completada por el usuario
+$id_usuario = $_SESSION['id_usuario'];
+$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_anterior_id";
+$result = $conn->query($query_verificar_completada);
+
+if ($result->num_rows == 0) {
+    // Si la lección anterior no está completada, redireccionar al usuario o mostrar un mensaje
+    header("location: ao4_3.php");
+    exit;
+}
+
 // Verificar si se ha enviado el formulario de respuesta
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
-    // Verificar si el usuario ya ha completado la lección
-    $id_usuario = $_SESSION['id_usuario'];
-    $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
-    $result = $conn->query($query_verificar_completada);
-    if ($result->num_rows == 0) {
-        // Insertar un registro en la tabla <link>Lecciones_Completadas</link>
-        $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
-        $conn->query($query_insert_completada);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["respuesta"])) {
+    // Verificar si la respuesta es correcta
+    $respuesta_correcta = '6'; // Definir la respuesta correcta
+
+    if ($_POST["respuesta"] == $respuesta_correcta) {
+        // Verificar si el usuario ya ha completado la lección
+        $id_usuario = $_SESSION['id_usuario'];
+        $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
+        $result = $conn->query($query_verificar_completada);
+
+        if ($result->num_rows == 0) {
+            // Insertar un registro en la tabla Lecciones_Completadas
+            $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
+            $conn->query($query_insert_completada);
+            $mensaje = "¡Respuesta correcta!";
+        } else {
+            $mensaje = "Ya has completado esta lección.";
+        }
+    } else {
+        $mensaje = "Respuesta incorrecta. Inténtalo de nuevo.";
     }
+
+    // Devolver la respuesta en formato JSON
+    echo json_encode(array("mensaje" => $mensaje));
+    exit;
 }
 
 // Cerrar la conexión
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubriendo las formas</title>
+    <title>División misteriosa</title>
     <link rel="icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../../../assets/styles/root.css">
     <link rel="stylesheet" href="../../../assets/styles/aritmetica_op.css">
-    <link rel="stylesheet" href="../../../assets/styles/puzzle.css">
-
+    <style>
+        .boton-salir,
+        .boton-anterior,
+        .boton-siguiente {
+            background-color: #aa8976;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>La magia de multiplicar</h1>
+    <h1>División misteriosa</h1>
 
     <div class="contenedor">
-        <div class="inst visible">Zumbi es una abeja que quiere regresar a su casa</div>
-        <div class="inst">Para ayudarla resuelve la siguiente multiplicación</div>
-        <div class="inst">49 x 7</div>
-        <div class="inst">Arrastra la respuesta correcta</div>
+        <div class="inst">
+        Un pastel se corta en 18 porciones iguales y se reparten entre 3 amigos.<br>
+        ¿Cuántas porciones de pastel recibe cada amigo?
+        </div>
 
-        <div class="control">
-            <button id="btnAnt" onclick="anterior()" class="boton">Atrás</button>
-            <button id="btnSig" name="continuar" onclick="siguiente()" class="boton">Continuar</button>
+        <div class="img-container">
+            <img class="imgLecc" src="../../../assets/img/parque.jpg" alt="" width="360" height="360">
         </div>
     </div>
 
-
-
-    <div class="act">
-        <div id="dropzone" class="encajar" ondragover="allowDrop(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" style="background-image: url('../../../assets/img/paanal.jpg')">
-        </div>
-
-        <div id="shapes">
-            <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" style= "background-image: url('../../../assets/img/')"><span class="number">353</span></div>
-            <div id="incorrecto" class="shape" draggable="true" ondragstart="drag(event)" style= "background-image: url('../../../assets/img/abejas2.jpg')"><span class="number">350</span></div>
-            <div id="correcto" class="shape" draggable="true" ondragstart="drag(event)" style= "background-image: url('../../../assets/img/abejas2.jpg')"><span class="number">343</span></div>
+    <div class="botones-container">
+        <div id="botones">
+            <button class="boton" onclick="verificarRespuesta('7')">7</button>
+            <button class="boton" onclick="verificarRespuesta('6')">6</button></button>
+            <button class="boton" onclick="verificarRespuesta('4')">4</button>
         </div>
     </div>
 
-    <div id=botones>
-        <a href="../ao_nivel 4/ao4_3.php">
-            <button class="boton">Anterior</button>
+    <div class="botones-container">
+    <a href="../ao_nivel 4/ao4_3.php">
+            <button class="boton boton-anterior">Anterior</button>
         </a>
         <a href="../ao_nivel 4/ao4_5.php">
-            <button class="boton">Siguiente</button>
+            <button class="boton boton-siguiente">Siguiente</button>
         </a>
         <a href="../ao_nivel 4.php">
-            <button class="boton">Salir</button>
+            <button class="boton boton-salir">Salir</button>
         </a>
-
-
     </div>
 
-    <div id="modal" class="modal" style="display: none;">
+    <!-- Modal -->
+    <div id="myModal" class="modal">
         <div class="modal-content">
-            <span id="closeButton" class="close">&times;</span>
-            <div id="correctoModal" style="display: none;">
-                <h2>¡Correcto!</h2>
-                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <button name="visto" class="boton">Aceptar</button>
-        </form>
-            </div>
-            <div id="incorrectoModal" style="display: none;">
-                <h2>¡Vuelve a intentarlo!</h2>
-            </div>
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <p id="modalMensaje"></p>
         </div>
     </div>
 
-    <script src="../../../assets/scripts/aritmetica_op.js"></script>
-    <script src="../../../assets/scripts/puzzle.js"></script>
+    <script>
+        function verificarRespuesta(respuesta) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var respuestaJSON = JSON.parse(xhr.responseText);
+                    document.getElementById("modalMensaje").textContent = respuestaJSON.mensaje;
+                    document.getElementById("myModal").style.display = "block";
+                }
+            };
+            xhr.send("respuesta=" + respuesta);
+        }
 
+        function cerrarModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Cerrar el modal si el usuario hace clic fuera del contenido del modal
+        window.onclick = function (event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,13 @@
     <style>
         body {
             background-image: url('assets/img/Fondo_mejorado.jpg');
-            background-size: 100% auto;
+            background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             height: 100vh;
         }
-        .title{
+
+        .title {
             text-align: center;
             color: red;
             font-size: 70px;
@@ -24,11 +26,16 @@
             margin-top: 4%;
         }
 
-        .container-circles{
-            margin-left: -10%;
-            margin-top: 7%;
+        .container-circles {
+            margin-left: 4%;
+            margin-top: 5%;
 
         }
+
+        .circle:hover {
+            transform: scale(1.1);
+        }
+
         .circlen {
             width: 100px;
             height: 100px;
@@ -36,18 +43,19 @@
             border-radius: 50%;
             display: inline-block;
             margin: 10px;
-            margin-bottom: 60px;
+            margin-bottom: 60%;
             margin-left: 0;
             position: relative;
         }
+
         .circlep {
             width: 100px;
             height: 100px;
             background-color: var(--cafe);
             border-radius: 50%;
-            display: inline-block;
+            display: flex;
             margin: 10px;
-            margin-top: 60px;
+            margin-top: 60%;
             margin-left: 0;
             position: relative;
         }
@@ -63,54 +71,61 @@
         }
 
         .cir1::before {
-            content: "1"; /* Número para los círculos pares */
+            content: "1";
+            /* Número para los círculos pares */
         }
 
         .cir2::before {
-            content: "2"; /* Número para los círculos impares */
+            content: "2";
+            /* Número para los círculos impares */
         }
+
         .cir3::before {
-            content: "3"; /* Número para los círculos pares */
+            content: "3";
+            /* Número para los círculos pares */
         }
 
         .cir4::before {
-            content: "4"; /* Número para los círculos impares */
+            content: "4";
+            /* Número para los círculos impares */
         }
+
         .cir5::before {
-            content: "5"; /* Número para los círculos pares */
+            content: "5";
+            /* Número para los círculos pares */
         }
 
         .cir6::before {
-            content: "6"; /* Número para los círculos impares */
-        }
-        .cir7::before {
-            content: "7"; /* Número para los círculos pares */
+            content: "6";
+            /* Número para los círculos impares */
         }
 
-        .cir8::before {
-            content: "8"; /* Número para los círculos impares */
-        }
 
-        .subindice{
+        .subindice {
+            display: none;
+            margin-left: 5%;
+            font-size: 26px;
             position:absolute;
         }
+        
+        
 
-    .arriba {
-    display: flex;
-    align-items: center;
+        .arriba {
+            display: flex;
+            align-items: center;
 
-    .icon {
-        text-decoration: none; 
-        display: inline-block; 
-        border-radius: 50%;
-        overflow: hidden; 
-        width: 60px; 
-        height: 60px;
-        background-color: var(--beige); 
-        text-align: center;
-        align-items: center;
-    }
-}
+            .icon {
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 50%;
+                overflow: hidden;
+                width: 60px;
+                height: 60px;
+                background-color: var(--beige);
+                text-align: center;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
@@ -126,39 +141,53 @@
     </div>
 
     <div class="container-circles">
-    <a href="./aritmetica/operaciones/ao_nivel 1.php" id="enlace">
-        <div class="circle circlen cir1"></div>
-        <p class="subindice">Sumemos diversión</p>
-    </a>
-    <a href="./aritmetica/operaciones/ao_nivel 2.php" id="enlace">
-        <div class="circle circlep cir2"></div>
-        <p class="subindice">Restando en acción</p>
-    </a>
-    <a href="./aritmetica/operaciones/ao_nivel 3.php" id="enlace">
-        <div class="circle circlen cir3"></div>
-        <p class="subindice">Explorando las tablas</p>
-    </a>
-    <a href="./aritmetica/operaciones/ao_nivel 4.php" id="enlace">
-        <div class="circle circlep cir4"></div>
-        <p class="subindice">La magia de multiplicar</p>
-    </a>
-    <a href="./aritmetica/operaciones/ao_nivel 5.php" id="enlace">
-        <div class="circle circlen cir5"></div>
-        <p class="subindice">División misteriosa</p>
-    </a>
-    <a href="./aritmetica/operaciones/ao_nivel 6.php" id="enlace">
-        <div class="circle circlep cir6"></div>
-        <p class="subindice">Propiedades asombrosas</p>
-    </a>
-    <a href="./aritmetica/operaciones/ao_nivel 7.php" id="enlace">
-        <div class="circle circlen cir7"></div>
-        <p class="subindice">Misterios matemáticos</p>
-    </a>
-    <a href="./aritmetica/operaciones/ao_nivel 8.php" id="enlace">
-        <div class="circle circlep cir8"></div>
-        <p class="subindice">Desafíos matemáticos</p>
-    </a>
-</div>
+        <a href="./aritmetica/operaciones/ao_nivel 1.php" id="enlace">
+            <div class="circle circlen cir1"></div>
+            <p class="subindice">Sumemos diversión</p>
+        </a>
+        <a href="./aritmetica/operaciones/ao_nivel 2.php" id="enlace">
+            <div class="circle circlep cir2"></div>
+            <p class="subindice">Restando en acción</p>
+        </a>
+        <a href="./aritmetica/operaciones/ao_nivel 3.php" id="enlace">
+            <div class="circle circlen cir3"></div>
+            <p class="subindice">La magia de multiplicar</p>
+        </a>
+        <a href="./aritmetica/operaciones/ao_nivel 4.php" id="enlace">
+            <div class="circle circlep cir4"></div>
+            <p class="subindice">División misteriosa</p>
+        </a>
+        <a href="./aritmetica/operaciones/ao_nivel 5.php" id="enlace">
+            <div class="circle circlen cir5"></div>
+            <p class="subindice">Misterios matemáticos</p>
+        </a>
+        <a href="./aritmetica/operaciones/ao_nivel 6.php" id="enlace">
+            <div class="circle circlep cir6"></div>
+            <p class="subindice">Desafíos matemáticos</p>
+        </a>
+        
+    </div>
+    
+    <script>
+        document.querySelectorAll('.circle').forEach(circle => {
+            circle.addEventListener('mouseover', (event) => {
+                // Ocultar todos los subíndices
+                document.querySelectorAll('.subindice').forEach(subindice => {
+                    subindice.style.display = 'none';
+                });
 
+                // Mostrar el subíndice correspondiente
+                const subindice = event.currentTarget.nextElementSibling;
+                subindice.style.display = 'block';
+            });
+
+            circle.addEventListener('mouseout', (event) => {
+                // Ocultar el subíndice cuando el cursor sale del círculo
+                const subindice = event.currentTarget.nextElementSibling;
+                subindice.style.display = 'none';
+            });
+        });
+    </script>
 </body>
+
 </html>
