@@ -12,7 +12,7 @@
     <style>
         body {
             background-image: url('assets/img/Fondo_mejorado.jpg');
-            background-size: 100% auto;
+            background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             height: 100vh;

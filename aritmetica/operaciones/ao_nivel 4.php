@@ -81,31 +81,13 @@ if ($result8->num_rows == 0) {
     $circleColor8 = "var(--verde)";
 }
 
-// Consultar la calificación más reciente del usuario
-$query_calificacion = "SELECT calificacion FROM examenes_realizados WHERE id_usuario = $id_usuario ORDER BY fecha_realizacion DESC LIMIT 1";
-$result_calificacion = $conn->query($query_calificacion);
-
-if ($result_calificacion->num_rows > 0) {
-    $row = $result_calificacion->fetch_assoc();
-    $calificacion = $row['calificacion'];
-
-    // Definir colores
-    $colorAprobado = "var(--verde)";
-    $colorReprobado = "var(--cafe)";
-
-    // Verificar si la calificación es superior a 6
-    if ($calificacion > 6) {
-        $circleColor9 = $colorAprobado;
-    } else {
-        $circleColor9 = $colorReprobado;
-    }
-} else {
-    // Si no hay calificación, asignar un color por defecto
+$query_verificar_completada9 = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = '209'";
+$result9 = $conn->query($query_verificar_completada9);
+if ($result9->num_rows == 0) {
     $circleColor9 = "var(--verdeazulado)";
+} else {
+    $circleColor9 = "var(--verde)";
 }
-
-
-
 
 // Cerrar la conexión
 $conn->close();
@@ -155,8 +137,8 @@ $conn->close();
             display: inline-block;
         }
 
-        .title {
-            margin-left: 30%;
+        .titlesub {
+            margin-left: 33%;
             font-size: 50px;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: red;
@@ -297,7 +279,7 @@ $conn->close();
         <a href="../../principal.php">
             <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; margin-top:80%; color: var(--cafe);"></span>
         </a>
-        <h2 class="title">La magia de multiplicar</h2>
+        <h2 class="titlesub">División misteriosa</h2>
     </div>
 
     <div class="circle-container">

@@ -101,9 +101,9 @@ INSERT INTO modulos (id_modulo, nombre_modulo, descripcion_modulo) VALUES
 INSERT INTO modulos (id_modulo, nombre_modulo, descripcion_modulo) VALUES
 ('17', 'Sumemos diversion', ' En este módulo el niño practica la suma'),
 ('18', 'Restando en accion', ' En este módulo el niño practica la resta'),
-('19', 'Explorando las tablas', ' En este módulo el niño practica las tablas de multiplicar'),
-('20', 'La magia de multiplicar', ' En este módulo el niño practica la multiplicación');
-('21', 'Nombre leccion', ' En este módulo el niño practica ')
+('19', 'La magia de multiplicar', ' En este módulo el niño practica las tablas de multiplicar'),
+('20', 'Division misteriosa', ' En este módulo el niño practica la multiplicación'),
+('21', 'Misterios matematicos', ' En este módulo el niño aprende datos curiosos');
 ('22', 'Nombre leccion', ' En este módulo el niño practica ')
 ('23', 'Nombre leccion', ' En este módulo el niño practica ')
 ('24', 'Nombre leccion', ' En este módulo el niño practica ')
@@ -181,7 +181,8 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('175','17', 'Leccion 5, módulo sumemos diversión'),
 ('176','17', 'Leccion 6, módulo sumemos diversión'),
 ('177','17', 'Leccion 7, módulo sumemos diversión'),
-('178','17', 'Leccion 8, módulo sumemos diversión')
+('178','17', 'Leccion 8, módulo sumemos diversión'),
+('179','17', 'Leccion 9, módulo sumemos diversión')
 ;
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
@@ -192,27 +193,43 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('185','18', 'Leccion 5, módulo restando en acción'),
 ('186','18', 'Leccion 6, módulo restando en acción'),
 ('187','18', 'Leccion 7, módulo restando en acción'),
-('188','18', 'Leccion 8, módulo restando en acción')
+('188','18', 'Leccion 8, módulo restando en acción'),
+('189','18', 'Leccion 9, módulo restando en acción')
 ;
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
-('191','19', 'Leccion 1, Explorando las tablas'),
-('192','19', 'Leccion 2, Explorando las tablas'),
-('193','19', 'Leccion 3, Explorando las tablas'),
-('194','19', 'Leccion 4, Explorando las tablas'),
-('195','19', 'Leccion 5, Explorando las tablas'),
-('196','19', 'Leccion 19,Explorando las tablas'),
-('197','19', 'Leccion 7, Explorando las tablas'),
-('198','19', 'Leccion 8, Explorando las tablas');
+('191','19', 'Leccion 1, La magia de multiplicar'),
+('192','19', 'Leccion 2, La magia de multiplicar'),
+('193','19', 'Leccion 3, La magia de multiplicar'),
+('194','19', 'Leccion 4, La magia de multiplicar'),
+('195','19', 'Leccion 5, La magia de multiplicar'),
+('196','19', 'Leccion 6, La magia de multiplicar'),
+('197','19', 'Leccion 7, La magia de multiplicar'),
+('198','19', 'Leccion 8, La magia de multiplicar'),
+('199','19', 'Leccion 9, La magia de multiplicar')
+;
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
-('201','20', 'Leccion 1, La magia de multiplicar'),
-('202','20', 'Leccion 2, La magia de multiplicar'),
-('203','20', 'Leccion 3, La magia de multiplicar'),
-('204','20', 'Leccion 4, La magia de multiplicar'),
-('205','20', 'Leccion 5, La magia de multiplicar'),
-('206','20', 'Leccion 19,La magia de multiplicar'),
-('207','20', 'Leccion 7, La magia de multiplicar'),
-('208','20', 'Leccion 8, La magia de multiplicar')
+('201','20', 'Leccion 1, Division misteriosa'),
+('202','20', 'Leccion 2, Division misteriosa'),
+('203','20', 'Leccion 3, Division misteriosa'),
+('204','20', 'Leccion 4, Division misteriosa'),
+('205','20', 'Leccion 5, Division misteriosa'),
+('206','20', 'Leccion 6, Division misteriosa'),
+('207','20', 'Leccion 7, Division misteriosa'),
+('208','20', 'Leccion 8, Division misteriosa'),
+('209','20', 'Leccion 9, Division misteriosa')
+;
+
+INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
+('211','20', 'Leccion 1, Misterios matematicos'),
+('212','20', 'Leccion 2, Misterios matematicos'),
+('213','20', 'Leccion 3, Misterios matematicos'),
+('214','20', 'Leccion 4, Misterios matematicos'),
+('215','20', 'Leccion 5, Misterios matematicos'),
+('216','20', 'Leccion 6, Misterios matematicos'),
+('217','20', 'Leccion 7, Misterios matematicos'),
+('218','20', 'Leccion 8, Misterios matematicos'),
+('219','20', 'Leccion 9, Misterios matematicos')
 ;
 

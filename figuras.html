@@ -91,7 +91,10 @@
             content: "8"; /* Número para los círculos impares */
         }
 
-        .subindice{
+        .subindice {
+            display: none;
+            margin-left: 5%;
+            font-size: 26px;
             position:absolute;
         }
 
@@ -152,5 +155,25 @@
     </a>
 </div>
 
+<script>
+    document.querySelectorAll('.circle').forEach(circle => {
+        circle.addEventListener('mouseover', (event) => {
+            // Ocultar todos los subíndices
+            document.querySelectorAll('.subindice').forEach(subindice => {
+                subindice.style.display = 'none';
+            });
+
+            // Mostrar el subíndice correspondiente
+            const subindice = event.currentTarget.nextElementSibling;
+            subindice.style.display = 'block';
+        });
+
+        circle.addEventListener('mouseout', (event) => {
+            // Ocultar el subíndice cuando el cursor sale del círculo
+            const subindice = event.currentTarget.nextElementSibling;
+            subindice.style.display = 'none';
+        });
+    });
+</script>
 </body>
 </html>
