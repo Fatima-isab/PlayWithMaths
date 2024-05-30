@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("location: ../php/registro.php");
     session_destroy();
+    header("location: ../php/registro.php");
     die();
 }
 
@@ -29,7 +29,6 @@ if ($result->num_rows == 0) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
-    $id_usuario = $_SESSION['id_usuario'];
     $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
     $result = $conn->query($query_verificar_completada);
     if ($result->num_rows == 0) {
@@ -40,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
 
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -134,7 +132,7 @@ $conn->close();
 
         <div class="botones-container">
             <div id="botones">
-                <button id="validateButton" onclick="validate()" class="boton">Validar</button>
+                <button id="validateButton" class="boton">Validar</button>
             </div>
         </div>
 
@@ -159,7 +157,7 @@ $conn->close();
         </div>
 
         <form id="form-completado" method="post">
-        <input type="hidden" name="visto" value="true">
+            <input type="hidden" name="visto" value="true">
         </form>
 
         <script src="../../../assets/scripts/geometria_fig.js"></script>
@@ -187,17 +185,28 @@ $conn->close();
                 currentBorderColorIndex = (currentBorderColorIndex + 1) % borderColors.length;
             });
 
-            validateButton.addEventListener('click', function () {
-                console.log("Border Color: " + border.style.backgroundColor);
-                console.log("Background Color: " + rectangle.style.backgroundColor);
+            validateButton.addEventListener('click', function (event) {
+                event.preventDefault();
                 if (border.style.backgroundColor === 'yellow' && rectangle.style.backgroundColor === 'red') {
                     modalMensaje.textContent = 'Los colores son correctos!';
-                    document.getElementById('form-completado').submit();
+                    enviarFormularioCompletado();
                 } else {
                     modalMensaje.textContent = 'Vuelve a revisar los colores!';
                 }
                 modal.style.display = 'block';
             });
+
+            function enviarFormularioCompletado() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log('Formulario enviado correctamente');
+                    }
+                };
+                xhr.send("visto=true");
+            }
 
             closeModal.onclick = function() {
                 modal.style.display = 'none';
@@ -216,5 +225,4 @@ $conn->close();
     </div>
 </body>
 </html>
-
 
