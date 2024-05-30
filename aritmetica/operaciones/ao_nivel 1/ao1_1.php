@@ -65,7 +65,14 @@ $conn->close();
     <link rel="shortcut icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../../../assets/styles/root.css">
     <link rel="stylesheet" href="../../../assets/styles/aritmetica_op.css">
-   
+    <style>
+        .boton-salir,
+        .boton-anterior,
+        .boton-siguiente {
+            background-color: #aa8976;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -73,10 +80,10 @@ $conn->close();
 
     <div class="contenedor">
         <div class="inst">
-        El siguiente árbol puede resultar extraño. <br>
-        Pues tiene 3 frutas a la vez. <br>
-        Tiene 32 plátanos, 5 manzanas y 3 mangos <br>
-        ¿Cuántas frutas hay en total?
+            El siguiente árbol puede resultar extraño. <br>
+            Pues tiene 3 frutas a la vez. <br>
+            Tiene 32 plátanos, 5 manzanas y 3 mangos <br>
+            ¿Cuántas frutas hay en total?
         </div>
 
         <div class="img-container">
@@ -114,7 +121,7 @@ $conn->close();
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var respuestaJSON = JSON.parse(xhr.responseText);
                     document.getElementById("modalMensaje").textContent = respuestaJSON.mensaje;
@@ -129,7 +136,7 @@ $conn->close();
         }
 
         // Cerrar el modal si el usuario hace clic fuera del contenido del modal
-        window.onclick = function (event) {
+        window.onclick = function(event) {
             var modal = document.getElementById("myModal");
             if (event.target == modal) {
                 modal.style.display = "none";

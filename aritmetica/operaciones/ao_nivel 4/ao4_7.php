@@ -98,7 +98,7 @@ $conn->close();
         </div>
 
         <div class="img-container">
-            <img class="imgLecc" src="../../../assets/img/parque.jpg" alt="" width="360" height="360">
+            <img class="imgLecc" src="../../../assets/img/cajas.jpg" alt="" width="360" height="360">
         </div>
     </div>
 
