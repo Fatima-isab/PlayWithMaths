@@ -18,6 +18,15 @@ if ($conn->connect_error) {
 }
 
 $leccion_id = '28';
+$leccion_anterior_id = $leccion_id - 1;
+$id_usuario = $_SESSION['id_usuario'];
+$query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_anterior_id";
+$result = $conn->query($query_verificar_completada);
+
+if ($result->num_rows == 0) {
+    header("location: gf2_7.php");
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
     $id_usuario = $_SESSION['id_usuario'];
@@ -31,120 +40,193 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
 
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propiedades de las formas</title>
+    <title>Propiedades de las figuras</title>
     <link rel="icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="../../../assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../../../assets/styles/root.css">
-    <link rel="stylesheet" href="../../../assets/styles/aritmetica_op.css">
-
+    <link rel="stylesheet" href="../../../assets/styles/figuras.css">
     <style>
-        .dropzone {
-            width: 100px;
-            height: 120px;
-            padding: 10px;
-            border: 1px solid #aaaaaa;
-            margin: 10px;
-            display: inline-block;
-        }
-        img {
-            width: 100px;
-            height: 100px;
-        }
-        .drag-container, .drop-container {
+        body {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor {
+            margin-right: 20px;
+        }
+
+        #myBorder {
+            width: 210px;
+            height: 210px;
+            padding: 10px;
+            background-color: #ffffff;
+            clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
+        }
+
+        #myShape {
+            width: 200px;
+            height: 200px;
+            background-color: #ffffff;
+            clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
+        }
+
+        .boton {
+            margin: 5px;
+        }
+
+        #botones {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #botones a,
+        #botones button {
+            margin: 0 10px;
+        }
+
+        .boton-salir,
+        .boton-anterior,
+        .boton-siguiente {
+            background-color: #aa8976;
         }
     </style>
-
 </head>
-
 <body>
-<h2>Descubriendo las formas</h2>
+    <div id="container">
+        <h2>Propiedades de las formas</h2>
+        <h1>¡Cambia de color!</h1>
+        <div class="content-container">
+            <div class="contenedor">
+                <div class="inst">
+                    Es hora de poner a prueba los nuevos conocimientos. <br>
+                    Al tocar el pentágono este cambiará de color. <br>
+                    Haz que el área del pentágono sea de color naranja. <br>
+                    Y el borde del pentágono sea de color café. <br>
+                    Cuando los colores estén correctos, da click en validar.
+                </div>
+            </div>
+            <div id="myBorder">
+                <div id="myShape"></div>
+            </div>
+        </div>
 
-<p></p>
+        <div class="botones-container">
+            <div id="botones">
+                <button id="validateButton" class="boton">Validar</button>
+            </div>
+        </div>
 
-<h1>¡Une la definición con su concepto!</h1>
-
-<img src="../../../assets/img/gf_28.1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag1">
-<img src="../../../assets/img/gf_28.2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag2">
-<img src="../../../assets/img/gf_28.3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag3">
-
-<div class="drop-container">
-    <div id="div3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Ángulo</p>
-    </div>
-    <div id="div1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Lados</p>
-    </div>
-    <div id="div2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Área</p>
-    </div>
-</div>
-
-<div id=botones>
-    <a href="../gf_nivel1/gf2_9.php">
-        <button class="boton">Anterior</button>
-    </a>
-
-    <a href="../gf_nivel 2.php">
-        <button class="boton">Salir</button>
-    </a>
-
-    <a href="../gf_nivel2/gf2_9.php">
-                <button class="boton">Siguiente</button>
+        <div class="botones-container">
+            <a href="../gf_nivel2/gf2_7.php">
+                <button class="boton boton-anterior">Anterior</button>
             </a>
+            <a href="../gf_nivel2/gf2_9.php">
+                <button class="boton boton-siguiente">Siguiente</button>
+            </a>
+            <a href="../gf_nivel 2.php">
+                <button class="boton boton-salir">Salir</button>
+            </a>
+        </div>
+        
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarModal()">&times;</span>
+                <p id="modalMensaje"></p>
+            </div>
+        </div>
 
-    <button onclick="validate()" class="boton">Validar</button>
-</div>
+        <form id="form-completado" method="post">
+            <input type="hidden" name="visto" value="true">
+        </form>
 
-<script>
-function allowDrop(ev) {
-    ev.preventDefault();
-}
+        <script src="../../../assets/scripts/geometria_fig.js"></script>
+        <script>
+            var shape = document.getElementById('myShape');
+            var border = document.getElementById('myBorder');
+            var validateButton = document.getElementById('validateButton');
+            var modal = document.getElementById('myModal');
+            var modalMensaje = document.getElementById('modalMensaje');
+            var closeModal = document.getElementsByClassName('close')[0];
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
+            var borderColors = ['pink', 'purple', 'brown'];
+            var backgroundColors = ['brown', 'orange', 'red'];
+            var currentBorderColorIndex = 0;
+            var currentBackgroundColorIndex = 0;
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
+            shape.addEventListener('click', function (event) {
+                shape.style.backgroundColor = backgroundColors[currentBackgroundColorIndex];
+                currentBackgroundColorIndex = (currentBackgroundColorIndex + 1) % backgroundColors.length;
+                event.stopPropagation();
+            });
 
-function validate() {
-    if (document.getElementById('div1').contains(document.getElementById('drag1')) &&
-        document.getElementById('div2').contains(document.getElementById('drag2')) &&
-        document.getElementById('div3').contains(document.getElementById('drag3'))) {
-        alert('Las imágenes están en los recuadros correctos!');
-        document.getElementById('form-completado').submit();
-        <?php 
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["visto"])) {
-            $id_usuario = $_SESSION['id_usuario'];
-            $query_verificar_completada = "SELECT * FROM lecciones_completadas WHERE id_usuario = $id_usuario AND id_leccion = $leccion_id";
-            $result = $conn->query($query_verificar_completada);
-            if ($result->num_rows == 0) {
-                $query_insert_completada = "INSERT INTO lecciones_completadas (id_usuario, id_leccion, fecha_completado) VALUES ($id_usuario, $leccion_id, CURRENT_DATE)";
-                $conn->query($query_insert_completada);
+            border.addEventListener('click', function () {
+                border.style.backgroundColor = borderColors[currentBorderColorIndex];
+                currentBorderColorIndex = (currentBorderColorIndex + 1) % borderColors.length;
+            });
+
+            validateButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                console.log("Border Color: " + border.style.backgroundColor);
+                console.log("Background Color: " + shape.style.backgroundColor);
+                if (border.style.backgroundColor === 'brown' && shape.style.backgroundColor === 'orange') {
+                    modalMensaje.textContent = 'Los colores son correctos!';
+                    enviarFormularioCompletado();
+                } else {
+                    modalMensaje.textContent = 'Vuelve a revisar los colores!';
+                }
+                modal.style.display = 'block';
+            });
+
+            function enviarFormularioCompletado() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log('Formulario enviado correctamente');
+                    }
+                };
+                xhr.send("visto=true");
             }
-        }
-        ?>
-    } else {
-        alert('Las imágenes no están en los recuadros correctos.');
-    }
-}
-</script>
 
-<form id="form-completado" method="post">
-    <input type="hidden" name="visto" value="true">
-</form>
+            closeModal.onclick = function() {
+                modal.style.display = 'none';
+            }
 
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            function cerrarModal() {
+                modal.style.display = 'none';
+            }
+        </script>
+    </div>
 </body>
-
 </html>

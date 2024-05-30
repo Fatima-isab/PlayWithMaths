@@ -139,10 +139,10 @@ $conn->close();
         </div>
 
         <div class="botones-container">
-            <a href="../gf_nivel2/gf2_4.php">
+            <a href="../gf_nivel2/gf2_5.php">
                 <button class="boton boton-anterior">Anterior</button>
             </a>
-            <a href="../gf_nivel2/gf2_6.php">
+            <a href="../gf_nivel2/gf2_7.php">
                 <button class="boton boton-siguiente">Siguiente</button>
             </a>
             <a href="../gf_nivel 2.php">
@@ -160,7 +160,7 @@ $conn->close();
 
         <form id="form-completado" method="post">
         <input type="hidden" name="visto" value="true">
-    </form>
+        </form>
 
         <script src="../../../assets/scripts/geometria_fig.js"></script>
         <script>

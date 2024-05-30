@@ -57,6 +57,7 @@ $conn->close();
     <link rel="icon" href="assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/img/cara.jpg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="./assets/styles/premios.css">
+    <link rel="stylesheet" href="/assets/icons/iconos.css">
     <style>
         /* Estilos CSS para los contenedores de premios */
 body {
@@ -104,14 +105,29 @@ body {
         .unlocked-pink .banana {
             color: pink;
         }
-        /* Otros estilos pueden ser añadidos aquí */
+       
+        .arriba {
+    display: flex;
+    align-items: center;
+
+    .icon {
+        text-decoration: none; 
+        display: inline-block; 
+        border-radius: 50%;
+        overflow: hidden; 
+        width: 60px; 
+        height: 60px;
+        background-color: var(--beige); 
+        text-align: center;
+        align-items: center;
+    }
+}
     </style>
 </head>
 <body>
-    <!-- Tu HTML existente -->
-    <div class="arriba">
-        <a href="../../principal.php">
-            <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; margin-top:80%; color: var(--cafe);"></span>
+<div class="arriba">
+        <a href="principal.php">
+            <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; color: var(--cafe);"></span>
         </a>
         <h2 class="title">Premios</h2>
     </div>

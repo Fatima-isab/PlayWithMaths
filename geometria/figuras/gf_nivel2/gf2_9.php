@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 }
 
 // ID de la lección actual
-$leccion_id = '19';
+$leccion_id = '29';
 
 // ID de la lección anterior
 $leccion_anterior_id = $leccion_id - 1;
@@ -31,7 +31,7 @@ $result = $conn->query($query_verificar_completada);
 
 if ($result->num_rows == 0) {
     // Si la lección anterior no está completada, redireccionar al usuario o mostrar un mensaje
-    header("location: gf1_8.php"); // Cambia "gf1_5.php" por la página a la que quieras redireccionar
+    header("location: gf2_8.php"); // Cambia "gf1_5.php" por la página a la que quieras redireccionar
     exit;
 }
 
@@ -85,29 +85,29 @@ $conn->close();
 </head>
 
 <body>
-<h2>Descubriendo las formas</h2>
+<h2>Propiedades de las figuras</h2>
 
 <p></p>
 
-<h1>¡Une la figura con su nombre!</h1>
+<h1>¡Une la propiedad de color morado con su nombre!</h1>
 
-<img src="../../../assets/img/gf_19.1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag1">
-<img src="../../../assets/img/gf_19.2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag2">
-<img src="../../../assets/img/gf_19.3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag3">
-<img src="../../../assets/img/gf_19.4.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag4">
+<img src="../../../assets/img/gf_29.1.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag1">
+<img src="../../../assets/img/gf_29.2.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag2">
+<img src="../../../assets/img/gf_29.3.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag3">
+<img src="../../../assets/img/gf_29.4.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag4">
 
 <div class="drop-container">
-    <div id="div3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Triángulo</p>
+    <div id="div2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Área</p>
     </div>
-    <div id="div4" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Circulo</p>
+    <div id="div3" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Ángulo Interior</p>
     </div>
     <div id="div1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Octágono</p>
+        <p>Ángulo Exterior</p>
     </div>
-    <div id="div2" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <p>Pentágono</p>
+    <div id="div4" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p>Lados</p>
     </div>
 </div>
 
@@ -193,4 +193,3 @@ window.onclick = function(event) {
 </body>
 
 </html>
-
