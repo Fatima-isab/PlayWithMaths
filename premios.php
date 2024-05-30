@@ -56,8 +56,9 @@ $conn->close();
     <title>Play With Maths</title>
     <link rel="icon" href="assets/img/cara.jpg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/img/cara.jpg" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/premios.css">
-    <link rel="stylesheet" href="/assets/icons/iconos.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/premios.css">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="assets/icons/iconos.css">
     <style>
         /* Estilos CSS para los contenedores de premios */
 body {
