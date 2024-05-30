@@ -303,7 +303,7 @@ $conn->close();
 
 <body>
     <div class="arriba">
-        <a href="../../principal.php">
+        <a href="../../figuras.html">
             <span class="icon icon-home" style="font-size: 50px; margin-left: 250%; margin-top:80%; color: var(--cafe);"></span>
         </a>
         <h2 class="title">Descubriendo las formas</h2>

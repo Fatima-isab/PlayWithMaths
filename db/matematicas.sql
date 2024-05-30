@@ -141,6 +141,17 @@ INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES
 ('29','2', 'Leccion 9, módulo propiedades de las formas');
 
 INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
+('31','3', 'Leccion 1, módulo formas en el munfo ral'),
+('32','3', 'Leccion 2, módulo formas en el mundo real'),
+('33','3', 'Leccion 3, módulo formas en el mundo real'),
+('34','3', 'Leccion 4, módulo formas en el mundo real'),
+('35','3', 'Leccion 5, módulo formas en el mundo real'),
+('36','3', 'Leccion 6, módulo formas en el mundo real'),
+('37','3', 'Leccion 7, módulo formas en el mundo real'),
+('38','3', 'Leccion 8, módulo formas en el mundo real'),
+('39','3', 'Leccion 9, módulo formas en el mundo real');
+
+INSERT INTO lecciones (id_leccion, id_modulo, titulo_leccion) VALUES 
 ('171','17', 'Leccion 1, módulo sumemos diversión'),
 ('172','17', 'Leccion 2, módulo sumemos diversión'),
 ('173','17', 'Leccion 3, módulo sumemos diversión'),
